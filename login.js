@@ -23,8 +23,6 @@ function login(){
             console.log(Http)
         }
     }
-
-
 }
 
 function createUser(){
@@ -46,21 +44,21 @@ function createUser(){
         }
     }
 }
-/*
-const triggerPassword = document.querySelector('.fa-eye');
 
-const showPassword = trigger => {
-  trigger.addEventListener('click', () => {
-    if(trigger.previousElementSibling.getAttribute('type') === 'password'){
-      trigger.previousElementSibling.setAttribute('type', 'text');
-      trigger.classList.remove('fa-eye');
-      trigger.classList.add('fa-eye-slash');
-    }else if(trigger.previousElementSibling.getAttribute('type') === 'text'){
-      trigger.previousElementSibling.setAttribute('type', 'password');
-      trigger.classList.remove('fa-eye-slash');
-      trigger.classList.add('fa-eye');
+
+function showPassword() {
+    console.log("hola")
+    const icon = document.getElementById("eyeIcon")
+    const passwordInput = document.getElementById("userPassword")
+
+    if(passwordInput.getAttribute('type') === 'password'){
+        passwordInput.setAttribute('type', 'text');
+        //icon.classList.remove('fa-eye');
+        //icon.classList.add('fa-eye-slash');
     }
-  });
+    else if(passwordInput.getAttribute('type') === 'text'){
+        passwordInput.setAttribute('type', 'password');
+        //icon.classList.remove('fa-eye-slash');
+        //icon.classList.add('fa-eye');
+    }
 }
-
-showPassword(triggerPassword);*/
