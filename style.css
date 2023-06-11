@@ -178,7 +178,7 @@ a {
     position: absolute;
     right: 15px;
     font-size: 26px;
-    top: 10px;
+    top: 15px;
     opacity: 0.5;
     cursor: pointer;
     
@@ -187,20 +187,39 @@ a {
     }
 }
 
-.form__input label{
-    font-weight: 700;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-.form__input input[type="password"]{
+.form__input input[type="email address"]{
     width: 100%;
     padding: 10px 15px;
-    height: 45px;
+    height: 47px;
     outline: 0;
     border: 1px solid #f4f4f4;
     border-radius: 5px;
-    font-size: 15px;
+    font-family: 'Archivo';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    /* or 18px */
+    
+    display: flex;
+    align-items: center;
+    
+    color: #939393;
+    
+    &::placeholder{
+      color: rgba(19,20,49,.4);
+    }
+}
+
+.form__input input[type="password"]{
+    width: 100%;
+    padding: 10px 15px;
+    height: 47px;
+    outline: 0;
+    border: 1px solid #f4f4f4;
+    border-radius: 5px;
+    font-family: 'Archivo';
+    font-size: 14px;
     box-shadow: 0px 0px 3px 0 rgba(0, 0, 0, 0.1);
     
     &::placeholder{
@@ -208,7 +227,7 @@ a {
     }
 }
   
-input[type="submit"]{
+.form__input input[type="button"]{
     color: #FFF;
     background-color: #0054ff;
     font-size: 18px;
@@ -223,11 +242,6 @@ input[type="submit"]{
       background-color: #0f46b7;
       transition: background-color 400ms ease;
     }
-}
-
-.asd {
-    width: 120;
-    height: 100;
 }
 
 .socialMedia {

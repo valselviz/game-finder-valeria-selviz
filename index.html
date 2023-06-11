@@ -14,14 +14,11 @@
                 <h4>Welcome! Log in or register</h4>
                 <p>Log in to find the games you’re looking for!</p>
                 <div class="form__input">
-                    <input type="email address" name="email" placeholder="Email address *">
+                    <input type="email address" name="email" placeholder="Email">
                 </div>
                 <div class="form__input">
-                    <input type="password" name="password" placeholder="Password *">
+                    <input type="password" name="password" placeholder="Password">
                     <span><img src="assets/password/eye.svg"></span>
-                </div>
-                <div class="form__input">
-                    <input type="submit" name="submit" value="Login">
                 </div>
                 <div class="rememberPasswordDiv">
                     <label for="rememberMe" class="loginText">
@@ -30,7 +27,9 @@
                     </label>
                     <a>Forgot password?</a>
                 </div>
-                <input type="button" value="Log in" onclick="login()"/>
+                <div class="form__input">
+                    <input type="button" value="Log in" onclick="login()"/>
+                </div>
                 <div class="registerDiv">
                     <label class="loginText">Not registered yet?</label>
                     <a>Register now</a>
