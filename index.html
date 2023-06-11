@@ -13,8 +13,8 @@
             <form>
                 <h4>Welcome! Log in or register</h4>
                 <p>Log in to find the games you’re looking for!</p>
-                <input type="text" id="userName"><br>
-                <input type="password" id="userPassword">
+                <input type="text" id="userName" class="textBox"><br>
+                <input type="password" id="userPassword" class="textBox">
                 <div class="rememberPasswordDiv">
                     <label for="rememberMe" class="loginText">
                         <input type="checkbox" id="rememberMe" checked>
@@ -23,6 +23,25 @@
                     <a>Forgot password?</a>
                 </div>
                 <input type="button" value="Log in" onclick="login()"/>
+                <div class="registerDiv">
+                    <label class="loginText">Not registered yet?</label>
+                    <a>Register now</a>
+                </div>
+                <div class="separator">or</div>
+                <div>
+                    <button class="socialMedia">
+                        <img src="assets/Buttons/SocialMedia/Vector.svg" class="socialMediaImg">
+                        Login with Facebook
+                    </button>
+                    <button class="socialMedia">
+                        <img src="assets/Buttons/SocialMedia/Vector-1.svg" class="socialMediaImg">
+                        Login with Twitter
+                    </button>
+                    <button class="socialMedia">
+                        <img src="assets/Buttons/SocialMedia/Vector-2.svg" class="socialMediaImg">
+                        Login with Google
+                    </button>
+                </div>
 
             </form>
             

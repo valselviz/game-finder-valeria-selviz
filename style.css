@@ -7,6 +7,16 @@ body {
     src:  url('assets/fonts/archivo.ttf');
   }
 
+@font-face {
+    font-family: OpenSans;
+    src:  url('assets/fonts/openSans.ttf');
+  }  
+
+@font-face {
+    font-family: Exo;
+    src:  url('assets/fonts/exo.ttf');
+  }  
+
 div.logo {
     position: absolute;
     width: 178px;
@@ -96,8 +106,7 @@ h5 {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 130%;
-    
+    line-height: 130%;  
 }
 
 h6 {
@@ -115,7 +124,7 @@ p {
 }
 
 .loginText {
-    font-family: 'Open Sans';
+    font-family: 'OpenSans';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -127,7 +136,7 @@ p {
 }
 
 a {
-    font-family: 'Open Sans';
+    font-family: 'OpenSans';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -142,5 +151,78 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
+
+.registerDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;      
+}
+
+.registerDiv a {
+    margin: 10px;
+}
+
+.registerDiv label {
+    margin: 10px;
+}
+
+.textBox {
+    border-radius: 4px;
+    width: 100%;
+    height: 47px;
+}
+
+.socialMedia {
+    width: 100%;
+    height: 47px;
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+    border-radius: 6px;
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    margin-top: 6.5%;
+    margin-bottom: 6.5%;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'OpenSans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+  }
+  
+  .separator::before,
+  .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ffffff;
+  }
+  
+  .separator:not(:empty)::before {
+    margin-right: .25em;
+  }
+  
+  .separator:not(:empty)::after {
+    margin-left: .25em;
+  }
+
+  .socialMediaImg {
+    margin-left: 16%;
+    margin-right: 7%;
+  }
