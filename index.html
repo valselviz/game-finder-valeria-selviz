@@ -13,8 +13,16 @@
             <form>
                 <h4>Welcome! Log in or register</h4>
                 <p>Log in to find the games you’re looking for!</p>
-                <input type="text" id="userName" class="textBox"><br>
-                <input type="password" id="userPassword" class="textBox">
+                <div class="form__input">
+                    <input type="email address" name="email" placeholder="Email address *">
+                </div>
+                <div class="form__input">
+                    <input type="password" name="password" placeholder="Password *">
+                    <span><img src="assets/password/eye.svg"></span>
+                </div>
+                <div class="form__input">
+                    <input type="submit" name="submit" value="Login">
+                </div>
                 <div class="rememberPasswordDiv">
                     <label for="rememberMe" class="loginText">
                         <input type="checkbox" id="rememberMe" checked>
