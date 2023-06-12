@@ -21,6 +21,12 @@ function login(){
             console.log(Http.responseText)
             console.log(this)
             console.log(Http)
+            if (this.status == 200){
+
+            }
+            else if (this.status == 400){
+                document.getElementById("errorText").hidden=false
+            }
         }
     }
 }
