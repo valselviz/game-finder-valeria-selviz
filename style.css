@@ -61,6 +61,14 @@ div.form {
     padding-bottom: 40px;
     padding-left: 50px;
 }
+@media screen and (max-width: 1000pt) {
+    div.form {
+        position: auto;
+        left: auto;
+        top: auto;
+        width: 100%;
+    }
+}
 
 h1 {
     font-family: 'Archivo';
