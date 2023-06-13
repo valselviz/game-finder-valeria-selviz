@@ -167,12 +167,12 @@ a {
 
 #errorText {
     font-family: 'Archivo';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 130%;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
 
-color: #FF0000;
+    color: #FF0000;
 }
 
 .rememberPasswordDiv {
@@ -209,14 +209,14 @@ color: #FF0000;
     margin: 10px;
 }
 
-.form__input{
+.formInput{
     text-align: center;
     margin-bottom: 20px;
     position: relative;
     width: 100%;
 }
 
-.form__input span{
+.formInput span{
     position: absolute;
     right: 15px;
     font-size: 26px;
@@ -229,7 +229,7 @@ color: #FF0000;
     }
 }
 
-.form__input input[type="email address"]{
+.formInput input[type="email address"]{
     width: 100%;
     padding: 10px 15px;
     height: 47px;
@@ -253,7 +253,9 @@ color: #FF0000;
     }
 }
 
-.form__input input[type="password"]{
+
+
+.formInput input[type="password"]{
     width: 100%;
     padding: 10px 15px;
     height: 47px;
@@ -267,8 +269,13 @@ color: #FF0000;
       color: rgba(19,20,49,.4);
     }
 }
+
+.formInputError{
+    border: 1px solid red;
+    border-radius: 6px;
+}
   
-.form__input input[type="button"]{
+.formInput input[type="button"]{
     color: #FFF;
     background-color: #BF5FE1;
     height: 47px;

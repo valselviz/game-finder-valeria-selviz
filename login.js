@@ -21,11 +21,17 @@ function login(){
             console.log(Http.responseText)
             console.log(this)
             console.log(Http)
-            if (this.status == 200){
+            if (this.status == 200){ //if the request was successful, continue with login
 
             }
-            else if (this.status == 400){
+            else if (this.status == 400){ // if the request failed, show error
                 document.getElementById("errorText").hidden=false
+
+                const passwordDiv = document.getElementById("userPassword").parentNode
+                passwordDiv.className+=" formInputError"
+
+                const nameDiv = document.getElementById("userName").parentNode
+                nameDiv.className+=" formInputError"
             }
         }
     }
