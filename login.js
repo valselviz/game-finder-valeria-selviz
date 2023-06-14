@@ -22,7 +22,10 @@ function login(){
             console.log(this)
             console.log(Http)
             if (this.status == 200){ //if the request was successful, continue with login
-
+                const response = JSON.parse(Http.responseText)
+                document.cookie = "accessToken=" + response.accessToken
+                // Simulate an HTTP redirect:
+                window.location.replace("/home.html");
             }
             else if (this.status == 400){ // if the request failed, show error
                 document.getElementById("errorText").hidden=false
