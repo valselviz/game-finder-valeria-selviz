@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="./login.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Game Finder</title>
+    </head>
+    <body>
+        <div class="logo">
+            <img src="assets/brand/joystick.svg" class="joystick">
+            <img src="assets/brand/game.svg" class="game">
+            <img src="assets/brand/archive.svg" class="archive">
+        </div>
+        <div class="loginPanel">
+            <form class="loginForm">
+                <h4>Create account</h4>
+                <div class="formInput">
+                    <input type="email address" id="userName" placeholder="Email">
+                </div>
+                <div class="formInput">
+                    <input type="password" id="userPassword" placeholder="Password">
+                    <span><img id="eyeIcon" src="assets/password/eye.svg" onclick="showPassword()"></span>
+                </div>
+                <p id="errorText" hidden></p>
+                <div class="formInput">
+                    <input type="button" value="Sign up" onclick="createUser()"/>
+                </div>
+                
+            </form>
+            
+        </div>
+
+    </body>
+</html>
