@@ -1,21 +1,13 @@
+@import "../css/common.css";
+
 body {
     background-color: #151515;
 }
 
-@font-face {
-    font-family: Archivo;
-    src:  url('../assets/fonts/archivo.ttf');
+div.logo {
+    left: 21px;
+    top: 9px;
 }
-
-@font-face {
-    font-family: OpenSans;
-    src:  url('../assets/fonts/openSans.ttf');
-}  
-
-@font-face {
-    font-family: Exo;
-    src:  url('../assets/fonts/exo.ttf');
-}  
 
 header {
     width: 100%;
@@ -28,70 +20,10 @@ header {
     background-color: #1B1B1B;
 }
 
-div.logo {
-    position: absolute;
-    width: 178px;
-    height: 62px;
-    left: 21px;
-    top: 9px;
-}
-
-img.joystick {
-    position: absolute;
-    left: 3.37%;
-    top: -8%;
-}
-
-img.game {
-    position: absolute;
-    left: 36.45%;
-    top: 17.5%;
-}
-
-img.archive {
-    position: absolute;
-    left: 37.55%;
-    top: 64.5%;
-}
-
-#search {
-    display: flex;
-    text-align: center;
-    position: relative;
-    width: 362px;
-    height: 47px;
-    border: 1px solid #f4f4f4;
-    border-radius: 6px;
-    background-color: #FFFFFF;
-}
-
-#search input {
-    display: flex;
-    align-items: center;
-    width: 100%;
+.inputBox input {
     margin-left: 60px;
-    outline: 0;
-    border: none;
-    font-family: 'Archivo';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;   
-    color: #3D3D3D;
-    
-    &::placeholder{
-      color: #939393;
-    }
 }
 
-#search span{
-    position: absolute;
+.inputBox span{
     left: 15px;
-    top: 10px;
-    font-size: 26px;
-    opacity: 0.5;
-    cursor: pointer;
-    
-    &:hover{
-      opacity: 1;
-    }
 }

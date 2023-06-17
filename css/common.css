@@ -1,0 +1,146 @@
+@font-face {
+    font-family: Archivo;
+    src:  url('../assets/fonts/archivo.ttf');
+}
+
+@font-face {
+    font-family: OpenSans;
+    src:  url('../assets/fonts/openSans.ttf');
+}  
+
+@font-face {
+    font-family: Exo;
+    src:  url('../assets/fonts/exo.ttf');
+}  
+
+div.logo {
+    position: absolute;
+    width: 178px;
+    height: 62px;
+    left: 22px;
+    top: 30px;
+}
+
+img.joystick {
+    position: absolute;
+    left: 3.37%;
+    top: -8%;
+}
+
+img.game {
+    position: absolute;
+    left: 36.45%;
+    top: 17.5%;
+}
+
+img.archive {
+    position: absolute;
+    left: 37.55%;
+    top: 64.5%;
+}
+
+.inputBox {
+    display: flex;
+    text-align: center;
+    position: relative;
+    width: 362px;
+    height: 47px;
+    border: 1px solid #f4f4f4;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+}
+
+.inputBox input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    outline: 0;
+    border: none;
+    font-family: 'Archivo';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;   
+    color: #3D3D3D;
+    
+    &::placeholder{
+      color: #939393;
+    }
+}
+
+.inputBox span{
+    position: absolute;
+    top: 10px;
+    font-size: 26px;
+    opacity: 0.5;
+    cursor: pointer;
+    
+    &:hover{
+      opacity: 1;
+    }
+}
+
+/*
+.inputBox input[type="password"]{
+    // Adding this, makes the * bigger but messes with the alighment by moving down the placeholder.
+    // Because, even if the placeholder has font-size 14, the input (and the caret) has size 24
+    font-weight: 400;
+    font-size: 24px;
+    &::placeholder{
+        font-size: 14px;
+    }
+}*/
+
+h1 {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 52px;
+    color: white;
+}
+
+h2 {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 26px;
+    text-align: center;
+    color: white;
+}
+
+h4 {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+}
+
+h5 {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;  
+}
+
+h6 {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+}
