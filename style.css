@@ -210,6 +210,7 @@ a {
 }
 
 .formInput{
+    display: flex;
     text-align: center;
     margin-bottom: 20px;
     position: relative;
@@ -219,8 +220,8 @@ a {
 .formInput span{
     position: absolute;
     right: 15px;
+    top: 10px;
     font-size: 26px;
-    top: 15px;
     opacity: 0.5;
     cursor: pointer;
     
@@ -229,9 +230,11 @@ a {
     }
 }
 
-.formInput input[type="email address"]{
+.formInput input {
+    display: flex;
+    align-items: center;
     width: 100%;
-    padding: 10px 15px;
+    padding-left: 15px;
     height: 47px;
     outline: 0;
     border: 1px solid #f4f4f4;
@@ -239,36 +242,24 @@ a {
     font-family: 'Archivo';
     font-size: 14px;
     font-style: normal;
-    font-weight: 400;
-    line-height: 130%;
-    /* or 18px */
-    
-    display: flex;
-    align-items: center;
-    
-    color: #939393;
+    font-weight: 400;   
+    color: #3D3D3D;
     
     &::placeholder{
-      color: rgba(19,20,49,.4);
+      color: #939393;
     }
 }
 
-
-
+/*
 .formInput input[type="password"]{
-    width: 100%;
-    padding: 10px 15px;
-    height: 47px;
-    outline: 0;
-    border: 1px solid #f4f4f4;
-    border-radius: 6px;
-    font-family: 'Archivo';
-    font-size: 14px;
-    
+    // Adding this, makes the * bigger but messes with the alighment by moving down the placeholder.
+    // Because, even if the placeholder has font-size 14, the input (and the caret) has size 24
+    font-weight: 400;
+    font-size: 24px;
     &::placeholder{
-      color: rgba(19,20,49,.4);
+        font-size: 14px;
     }
-}
+}*/
 
 .formInputError{
     border: 1px solid red;
