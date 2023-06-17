@@ -55,24 +55,43 @@ img.archive {
 }
 
 #search {
-    
-    width: 362px;
-    padding: 10px 15px;
-    height: 47px;
-    background: #FFFFFF;
-    border-radius: 4px;
-    font-family: 'Archivo';
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 130%;
-
     display: flex;
-    align-self: center;
-
-    color: #939393;
-    
-    &::placeholder{
-      color: rgba(19,20,49,.4);
-    }*/
+    text-align: center;
+    position: relative;
+    width: 362px;
+    height: 47px;
+    border: 1px solid #f4f4f4;
+    border-radius: 6px;
+    background-color: #FFFFFF;
 }
 
+#search input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 60px;
+    outline: 0;
+    border: none;
+    font-family: 'Archivo';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;   
+    color: #3D3D3D;
+    
+    &::placeholder{
+      color: #939393;
+    }
+}
+
+#search span{
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 26px;
+    opacity: 0.5;
+    cursor: pointer;
+    
+    &:hover{
+      opacity: 1;
+    }
+}
