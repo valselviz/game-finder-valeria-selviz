@@ -4,17 +4,17 @@ body {
 
 @font-face {
     font-family: Archivo;
-    src:  url('assets/fonts/archivo.ttf');
+    src:  url('../assets/fonts/archivo.ttf');
 }
 
 @font-face {
     font-family: OpenSans;
-    src:  url('assets/fonts/openSans.ttf');
+    src:  url('../assets/fonts/openSans.ttf');
 }  
 
 @font-face {
     font-family: Exo;
-    src:  url('assets/fonts/exo.ttf');
+    src:  url('../assets/fonts/exo.ttf');
 }  
 
 header {
