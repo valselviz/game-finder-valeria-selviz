@@ -95,7 +95,7 @@ header {
             justify-content: space-between;
             width: 100%;
 
-            .addInfo1 {
+            .addInfoAttributes {
                 width: 32.93%;
                 font-style: normal;
                 font-weight: 500;
@@ -105,7 +105,7 @@ header {
                 color: #939393;
             }
 
-            .addInfo2 {
+            .addInfoValues {
                 width: 67.07%;
                 font-style: normal;
                 font-weight: 400;
