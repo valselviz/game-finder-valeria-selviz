@@ -55,7 +55,6 @@ p {
     line-height: 19px;
     display: flex;
     align-items: center;
-
     color: #FFFFFF;
 }
 
@@ -67,7 +66,6 @@ a {
     line-height: 19px;
     display: flex;
     align-items: center;
-
     color: #BF5FE1;
 }
 
@@ -77,7 +75,6 @@ a {
     font-weight: 400;
     font-size: 14px;
     line-height: 130%;
-
     color: #FF0000;
 }
 
@@ -184,27 +181,27 @@ a {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-  }
+}
   
-  .separator::before,
-  .separator::after {
+.separator::before,
+.separator::after {
     content: '';
     flex: 1;
     border-bottom: 1px solid #ffffff;
-  }
+}
   
-  .separator:not(:empty)::before {
+.separator:not(:empty)::before {
     margin-right: .25em;
-  }
+}
   
   .separator:not(:empty)::after {
     margin-left: .25em;
-  }
+}
 
-  .socialMediaImg {
+.socialMediaImg {
     margin-left: 16%;
     margin-right: 7%;
-  }
+}
 
   
 .inputBox input {
