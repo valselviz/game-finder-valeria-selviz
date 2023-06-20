@@ -1,13 +1,15 @@
 function createGameCards(gamesData){
     for(i = 0; i < gamesData.results.length; i++){
         const gameName = gamesData.results[i].name
+        const gameImage = gamesData.results[i].background_image
         const gameReleaseDate = gamesData.results[i].released
         let gameGenres = []
         for (y = 0; y < gamesData.results[i].genres.length; y++){
             gameGenres.push(gamesData.results[i].genres[y].name)
         }
-        createNewCard(gameName, gameReleaseDate, gameGenres, i)
+        createNewCard(gameName, gameImage, gameReleaseDate, gameGenres, i)
         console.log(gameName)
+        console.log(gameImage)
         console.log(gameReleaseDate)
         console.log(gameGenres)
     }
@@ -28,18 +30,20 @@ function showGames(){
     
 }
 
-function createNewCard(gameName, gameReleaseDate, gameGenres, gameCount){
+function createNewCard(gameName, gameImage, gameReleaseDate, gameGenres, gameCount){
     //const cardTemplate = document.getElementById("cardTemplate")
     const newCard = cardTemplate.cloneNode(true)
     newCard.id = "game" + gameCount
     gamesContainer.appendChild(newCard)
-    const gameTitleElement = document.querySelector("#" + newCard.id + " .gameTitle")
+    const gameImageElement = document.querySelector(`#${newCard.id} .imageGames`)
+    gameImageElement.style = `background-image: url('${gameImage}');`
+    const gameTitleElement = document.querySelector(`#${newCard.id} .gameTitle`)
     gameTitleElement.innerHTML = gameName
-    const gameRankingElement = document.querySelector("#" + newCard.id + " .ranking")
+    const gameRankingElement = document.querySelector(`#${newCard.id} .ranking`)
     gameRankingElement.innerHTML = "#" + (gameCount + 1)
-    const gameReleaseDateElement = document.querySelector("#" + newCard.id + " .releaseDate")
+    const gameReleaseDateElement = document.querySelector(`#${newCard.id} .releaseDate`)
     gameReleaseDateElement.innerHTML = gameReleaseDate
-    const gameGenresElement = document.querySelector("#" + newCard.id + " .genres")
+    const gameGenresElement = document.querySelector(`#${newCard.id} .genres`)
     gameGenresElement.innerHTML = gameGenres.join(", ")
     newCard.hidden = false
 }
