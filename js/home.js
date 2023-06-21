@@ -8,10 +8,6 @@ function createGameCards(gamesData){
             gameGenres.push(gamesData.results[i].genres[y].name)
         }
         createNewCard(gameName, gameImage, gameReleaseDate, gameGenres, i)
-        console.log(gameName)
-        console.log(gameImage)
-        console.log(gameReleaseDate)
-        console.log(gameGenres)
     }
 }
 
@@ -48,8 +44,5 @@ function createNewCard(gameName, gameImage, gameReleaseDate, gameGenres, gameCou
     newCard.hidden = false
 }
 
-const initialization = () => {
-    showGames()
-}
-addEventListener("DOMContentLoaded", initialization)
+addEventListener("DOMContentLoaded", showGames)
 
