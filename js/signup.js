@@ -6,8 +6,7 @@ function setErrorMessage(message){
 }
 
 function validatePassword(password){
-    
-    //validate the length
+  //validate the length
   if (password.length < 8) {
     setErrorMessage('The password should be at least 8 characters long')
     return false;

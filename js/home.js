@@ -1,11 +1,12 @@
 function createGameCards(gamesData){
     for(i = 0; i < gamesData.results.length; i++){
-        const gameName = gamesData.results[i].name
-        const gameImage = gamesData.results[i].background_image
-        const gameReleaseDate = gamesData.results[i].released
+        const currentGame = gamesData.results[i]
+        const gameName = currentGame.name
+        const gameImage = currentGame.background_image
+        const gameReleaseDate = currentGame.released
         let gameGenres = []
-        for (y = 0; y < gamesData.results[i].genres.length; y++){
-            gameGenres.push(gamesData.results[i].genres[y].name)
+        for (y = 0; y < currentGame.genres.length; y++){
+            gameGenres.push(currentGame.genres[y].name)
         }
         createNewCard(gameName, gameImage, gameReleaseDate, gameGenres, i)
     }
@@ -27,20 +28,21 @@ function showGames(){
 }
 
 function createNewCard(gameName, gameImage, gameReleaseDate, gameGenres, gameCount){
-    //const cardTemplate = document.getElementById("cardTemplate")
     const newCard = cardTemplate.cloneNode(true)
+
+    // The cloned element needs a new unique id, otherwise, the 'cardTemplate' variable
+    // will change from having a single element to having multiple.
+    // That will make the handling of this variable harder.
     newCard.id = "game" + gameCount
+
     gamesContainer.appendChild(newCard)
-    const gameImageElement = document.querySelector(`#${newCard.id} .imageGames`)
-    gameImageElement.style = `background-image: url('${gameImage}');`
-    const gameTitleElement = document.querySelector(`#${newCard.id} .gameTitle`)
-    gameTitleElement.innerHTML = gameName
-    const gameRankingElement = document.querySelector(`#${newCard.id} .ranking`)
-    gameRankingElement.innerHTML = "#" + (gameCount + 1)
-    const gameReleaseDateElement = document.querySelector(`#${newCard.id} .releaseDate`)
-    gameReleaseDateElement.innerHTML = gameReleaseDate
-    const gameGenresElement = document.querySelector(`#${newCard.id} .genres`)
-    gameGenresElement.innerHTML = gameGenres.join(", ")
+     
+    newCard.querySelector(`.imageGames`).style = `background-image: url('${gameImage}');`
+    newCard.querySelector(`.gameTitle`).innerHTML = gameName
+    newCard.querySelector(`.ranking`).innerHTML = "#" + (gameCount + 1)
+    newCard.querySelector(`.releaseDate`).innerHTML = gameReleaseDate
+    newCard.querySelector(`.genres`).innerHTML = gameGenres.join(", ")
+
     newCard.hidden = false
 }
 
