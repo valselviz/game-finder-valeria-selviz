@@ -1,14 +1,7 @@
 function createGameCards(gamesData){
     for(i = 0; i < gamesData.results.length; i++){
         const currentGame = gamesData.results[i]
-        const gameName = currentGame.name
-        const gameImage = currentGame.background_image
-        const gameReleaseDate = currentGame.released
-        let gameGenres = []
-        for (y = 0; y < currentGame.genres.length; y++){
-            gameGenres.push(currentGame.genres[y].name)
-        }
-        createNewCard(gameName, gameImage, gameReleaseDate, gameGenres, i)
+        createNewCard(currentGame, i)
     }
 }
 
@@ -27,7 +20,7 @@ function showGames(){
     
 }
 
-function createNewCard(gameName, gameImage, gameReleaseDate, gameGenres, gameCount){
+function createNewCard(game, gameCount){
     const newCard = cardTemplate.cloneNode(true)
 
     // The cloned element needs a new unique id, otherwise, the 'cardTemplate' variable
@@ -37,11 +30,15 @@ function createNewCard(gameName, gameImage, gameReleaseDate, gameGenres, gameCou
 
     gamesContainer.appendChild(newCard)
      
-    newCard.querySelector(`.imageGames`).style = `background-image: url('${gameImage}');`
-    newCard.querySelector(`.gameTitle`).innerHTML = gameName
+    newCard.querySelector(`.imageGames`).style = `background-image: url('${game.background_image}');`
+    newCard.querySelector(`.gameTitle`).innerHTML = game.name
     newCard.querySelector(`.ranking`).innerHTML = "#" + (gameCount + 1)
-    newCard.querySelector(`.releaseDate`).innerHTML = gameReleaseDate
-    newCard.querySelector(`.genres`).innerHTML = gameGenres.join(", ")
+    newCard.querySelector(`.releaseDate`).innerHTML = game.released
+
+    // use the 'map' function to convert a array of genre objects, into 
+    // an array of genre names (strings)
+    const genreNames = game.genres.map(genre => genre.name)
+    newCard.querySelector(`.genres`).innerHTML = genreNames.join(", ")
 
     newCard.hidden = false
 }
