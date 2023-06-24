@@ -17,9 +17,13 @@ fetch(domain + parentPlatformsPath + apiKey, requestOptions)
         console.log(parentPlatforms)
     })
 
-export function loadGames(){
-    const path = "/api/games?key="
-    const responsePromise = fetch(domain + path + apiKey, requestOptions)
+export function loadGames(searchQuery){
+    const gamesPath = "/api/games?key="
+    let url = domain + gamesPath + apiKey
+    if (searchQuery){
+        url += "&search=" + searchQuery
+    }
+    const responsePromise = fetch(url, requestOptions)
     
     return responsePromise.then(resp => resp.json())
     

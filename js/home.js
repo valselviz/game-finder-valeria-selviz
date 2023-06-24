@@ -7,8 +7,9 @@ function createGameCards(gamesData){
     }
 }
 
-function showGames(){
-    const gamesPromise = loadGames()
+function showGames(searchQuery){
+    gamesContainer.innerHTML = ""
+    const gamesPromise = loadGames(searchQuery)
     gamesPromise.then(createGameCards)
 }
 
@@ -35,5 +36,11 @@ function createNewCard(game, gameCount){
     newCard.hidden = false
 }
 
-addEventListener("DOMContentLoaded", showGames)
+addEventListener("DOMContentLoaded", e => showGames())
 
+searchInput.addEventListener("change", searching);
+
+function searching() {
+    let search = searchInput.value;
+    showGames(search)
+}
