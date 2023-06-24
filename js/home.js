@@ -1,4 +1,4 @@
-import { fetchGames } from './rawgio.js';
+import { loadGames } from './rawgio.js';
 
 function createGameCards(gamesData){
     for(let i = 0; i < gamesData.results.length; i++){
@@ -8,7 +8,7 @@ function createGameCards(gamesData){
 }
 
 function showGames(){
-    const gamesPromise = fetchGames()
+    const gamesPromise = loadGames()
     gamesPromise.then(createGameCards)
 }
 
