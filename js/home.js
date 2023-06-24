@@ -8,7 +8,6 @@ function createGameCards(gamesData){
 }
 
 function showGames(searchQuery){
-    gamesContainer.innerHTML = ""
     const gamesPromise = loadGames(searchQuery)
     gamesPromise.then(createGameCards)
 }
@@ -38,9 +37,11 @@ function createNewCard(game, gameCount){
 
 addEventListener("DOMContentLoaded", e => showGames())
 
-searchInput.addEventListener("change", searching);
+searchInput.addEventListener("change", refreshGamesWithSearchCriteria);
 
-function searching() {
+function refreshGamesWithSearchCriteria() {
+    // we need to remove all games to show the searched games only
+    gamesContainer.innerHTML = ""
     let search = searchInput.value;
     showGames(search)
 }
