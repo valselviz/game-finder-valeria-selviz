@@ -1,23 +1,15 @@
+import { fetchGames } from './rawgio.js';
+
 function createGameCards(gamesData){
-    for(i = 0; i < gamesData.results.length; i++){
+    for(let i = 0; i < gamesData.results.length; i++){
         const currentGame = gamesData.results[i]
         createNewCard(currentGame, i)
     }
 }
 
 function showGames(){
-    const requestOptions = {
-        headers: {
-            "Target-URL": "https://rawg.io",
-            "Authorization": "" // the cors-proxy expects this attribute, otherwise it fails
-        }
-    }
-    const responsePromise = fetch("http://localhost:3000/api/games?key=c44227f248074d62bed3059005616f3d", requestOptions)
-    
-    const jsonPromise = responsePromise.then(resp => resp.json())
-    
-    jsonPromise.then(createGameCards)
-    
+    const gamesPromise = fetchGames()
+    gamesPromise.then(createGameCards)
 }
 
 function createNewCard(game, gameCount){
