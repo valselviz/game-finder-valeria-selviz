@@ -10,12 +10,14 @@ const requestOptions = {
 // fetch all the available platforms
 const parentPlatformsPath = "/api/platforms/lists/parents?key="
 let parentPlatforms
-let parentPlatformsNames
+let parentPlatformsNamesOrSlugs
 fetch(domain + parentPlatformsPath + apiKey, requestOptions)
     .then(resp => resp.json())
     .then(jsonResponse =>  {
         parentPlatforms = jsonResponse.results
-        parentPlatformsNames = parentPlatforms.map(platform => platform.name)
+        const parentPlatformsNames = parentPlatforms.map(platform => platform.name)
+        const parentPlatformsSlugs = parentPlatforms.map(platform => platform.slug)
+        parentPlatformsNamesOrSlugs = parentPlatformsNames.concat(parentPlatformsSlugs)
     })
 
 
@@ -32,16 +34,13 @@ function searchPlatforms(searchPlatform){
 
 function analyzeSearch(searchQuery){
     let searchObject = {}
-    for (const platform of parentPlatformsNames){
+    for (const platform of parentPlatformsNamesOrSlugs){
         if (searchQuery.includes(platform)){
             searchQuery = searchQuery.replaceAll(platform, "")
-            searchObject.query = searchQuery
             searchObject.platform = searchPlatforms(platform)
         }
-        else {
-            searchObject.query = searchQuery
-        }
     }
+    searchObject.query = searchQuery
     return searchObject
 }
 
@@ -54,7 +53,7 @@ export function loadGames(searchQuery){
         url += "&search=" + searchQueryObject.query 
         if (searchQueryObject.platform){
             url += "&parent_platforms=" + searchQueryObject.platform
-            
+
         }
     }
     console.log({url})
