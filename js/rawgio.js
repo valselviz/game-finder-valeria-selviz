@@ -15,12 +15,10 @@ fetch(domain + parentPlatformsPath + apiKey, requestOptions)
     .then(resp => resp.json())
     .then(jsonResponse =>  {
         parentPlatforms = jsonResponse.results
-        const parentPlatformsNames = parentPlatforms.map(platform => platform.name)
-        const parentPlatformsSlugs = parentPlatforms.map(platform => platform.slug)
+        const parentPlatformsNames = parentPlatforms.map(platform => platform.name.toLowerCase())
+        const parentPlatformsSlugs = parentPlatforms.map(platform => platform.slug.toLowerCase())
         parentPlatformsNamesOrSlugs = parentPlatformsNames.concat(parentPlatformsSlugs)
     })
-
-
 
 function searchPlatforms(searchPlatform){
     let platformId = null
@@ -33,6 +31,7 @@ function searchPlatforms(searchPlatform){
 }
 
 function analyzeSearch(searchQuery){
+    searchQuery = searchQuery.toLowerCase()
     let searchObject = {}
     for (const platform of parentPlatformsNamesOrSlugs){
         if (searchQuery.includes(platform)){
