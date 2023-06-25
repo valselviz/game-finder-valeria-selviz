@@ -45,3 +45,4 @@ function refreshGamesWithSearchCriteria() {
     let search = searchInput.value;
     showGames(search)
 }
+
