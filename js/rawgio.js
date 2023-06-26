@@ -1,4 +1,4 @@
-const domain = "http://localhost:3000"
+const domain = "http://localhost:3001"
 const apiKey = "c44227f248074d62bed3059005616f3d"
 const requestOptions = {
     headers: {

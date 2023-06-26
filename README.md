@@ -4,8 +4,8 @@
 
 To run this web page I recommend using VS Live Server.
 This web page needs 2 extra servers running: 
- - json-server-auth
- - cors-proxy
+ - json-server-auth on port 3000
+ - cors-proxy on port 3001
 
 ### json-server-auth
 
