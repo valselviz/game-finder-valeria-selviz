@@ -1,4 +1,10 @@
-import { loadGames } from './rawgio.js';
+import { loadGames, gameHasPlatform } from './rawgio.js';
+
+// List of parent platform ID
+const pcId = 1
+const playstationId = 2
+const xboxId = 3
+const nintendoId = 7
 
 function createGameCards(gamesData){
     for(let i = 0; i < gamesData.results.length; i++){
@@ -31,6 +37,19 @@ function createNewCard(game, gameCount){
     // an array of genre names (strings)
     const genreNames = game.genres.map(genre => genre.name)
     newCard.querySelector(`.genres`).innerHTML = genreNames.join(", ")
+
+    if (!gameHasPlatform(pcId)){
+        newCard.querySelector(`.pcIcon`).hidden = true
+    }
+    if (!gameHasPlatform(playstationId)){
+        newCard.querySelector(`.playstationIcon`).hidden = true
+    }
+    if (!gameHasPlatform(xboxId)){
+        newCard.querySelector(`.xboxIcon`).hidden = true
+    }
+    if (!gameHasPlatform(nintendoId)){
+        newCard.querySelector(`.nintendoIcon`).hidden = true
+    }
 
     newCard.hidden = false
 }

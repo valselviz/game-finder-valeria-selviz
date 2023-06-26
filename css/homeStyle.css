@@ -115,5 +115,11 @@ header {
                 color: #FFFFFF;
             }
         }
+        .platformsIcons {
+            width: 25%;
+            position: absolute;
+            top: 78px;
+            right: 0px
+        }
     }
 }

@@ -20,14 +20,14 @@ fetch(domain + parentPlatformsPath + apiKey, requestOptions)
         parentPlatformsNamesOrSlugs = parentPlatformsNames.concat(parentPlatformsSlugs)
     })
 
-function searchPlatforms(searchPlatform){
-    let platformId = null
-    for (const platform of parentPlatforms){
-        if (searchPlatform == platform.name || searchPlatform == platform.slug){
-            platformId = platform.id
+function searchParentPlatform(parentPlatformName){
+    let parentPlatformId = null
+    for (const parentPlatform of parentPlatforms){
+        if (parentPlatformName == parentPlatform.name || parentPlatformName == parentPlatform.slug){
+            parentPlatformId = parentPlatform.id
         }
     }
-    return platformId
+    return parentPlatformId
 }
 
 function analyzeSearch(searchQuery){
@@ -36,7 +36,7 @@ function analyzeSearch(searchQuery){
     for (const platform of parentPlatformsNamesOrSlugs){
         if (searchQuery.includes(platform)){
             searchQuery = searchQuery.replaceAll(platform, "")
-            searchObject.platform = searchPlatforms(platform)
+            searchObject.platform = searchParentPlatform(platform)
         }
     }
     searchObject.query = searchQuery
@@ -63,3 +63,6 @@ export function loadGames(searchQuery){
     
 }
 
+export function gameHasPlatform(){
+    return false
+}
