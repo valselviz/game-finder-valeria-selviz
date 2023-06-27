@@ -38,16 +38,16 @@ function createNewCard(game, gameCount){
     const genreNames = game.genres.map(genre => genre.name)
     newCard.querySelector(`.genres`).innerHTML = genreNames.join(", ")
 
-    if (!gameHasPlatform(pcId)){
+    if (!gameHasPlatform(pcId, game.platforms)){
         newCard.querySelector(`.pcIcon`).hidden = true
     }
-    if (!gameHasPlatform(playstationId)){
+    if (!gameHasPlatform(playstationId, game.platforms)){
         newCard.querySelector(`.playstationIcon`).hidden = true
     }
-    if (!gameHasPlatform(xboxId)){
+    if (!gameHasPlatform(xboxId, game.platforms)){
         newCard.querySelector(`.xboxIcon`).hidden = true
     }
-    if (!gameHasPlatform(nintendoId)){
+    if (!gameHasPlatform(nintendoId, game.platforms)){
         newCard.querySelector(`.nintendoIcon`).hidden = true
     }
 

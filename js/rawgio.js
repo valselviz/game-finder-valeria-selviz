@@ -7,7 +7,7 @@ const requestOptions = {
     }
 }
 
-// fetch all the available platforms
+// fetch all the available parent platforms
 const parentPlatformsPath = "/api/platforms/lists/parents?key="
 let parentPlatforms
 let parentPlatformsNamesOrSlugs
@@ -63,6 +63,19 @@ export function loadGames(searchQuery){
     
 }
 
-export function gameHasPlatform(){
+export function gameHasPlatform(parentPlatformId, gamePlatforms){
+    console.log(parentPlatforms)
+    for (const parentPlatform of parentPlatforms){
+        if (parentPlatform.id == parentPlatformId){
+            for (const gamePlatform of gamePlatforms){
+                for (const platform of parentPlatform.platforms){
+                    if (gamePlatform.platform.id == platform.id){
+                        return true
+                    }
+                }
+            }
+        }
+    }
     return false
+    
 }
