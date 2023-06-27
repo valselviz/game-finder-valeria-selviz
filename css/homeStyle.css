@@ -116,10 +116,17 @@ header {
             }
         }
         .platformsIcons {
+            display: flex;
             width: 25%;
             position: absolute;
             top: 78px;
-            right: 0px
+            right: 12px;
+            justify-content: right;
+
+            .icon {
+                margin: 3px;
+
+            }
         }
     }
 }
