@@ -63,16 +63,20 @@ export function loadGames(searchQuery){
     
 }
 
-export function gameHasPlatform(parentPlatformId, gamePlatforms){
-    console.log(parentPlatforms)
-    for (const parentPlatform of parentPlatforms){
-        if (parentPlatform.id == parentPlatformId){
-            for (const gamePlatform of gamePlatforms){
-                for (const platform of parentPlatform.platforms){
-                    if (gamePlatform.platform.id == platform.id){
-                        return true
-                    }
-                }
+export function gameHasPlatform(parentPlatformId, gamePlatformReleases){
+    // Find the parent platform object
+    let parentPlatform
+    for (const currentParentPlatform of parentPlatforms){
+        if (currentParentPlatform.id == parentPlatformId){
+            parentPlatform = currentParentPlatform
+        }
+    }
+    // Compares the platforms of the game with the platforms of the parent platform
+    // Return true is there is a match
+    for (const gamePlatformRelease of gamePlatformReleases){
+        for (const platform of parentPlatform.platforms){
+            if (gamePlatformRelease.platform.id == platform.id){
+                return true
             }
         }
     }
