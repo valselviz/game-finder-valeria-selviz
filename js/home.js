@@ -13,9 +13,9 @@ function createGameCards(gamesData){
     }
 }
 
-function showGames(searchQuery){
-    const gamesPromise = loadGames(searchQuery)
-    gamesPromise.then(createGameCards)
+async function showGames(searchQuery){
+    const gamesResponse = await loadGames(searchQuery)
+    createGameCards(gamesResponse)
 }
 
 function createNewCard(game, gameCount){
