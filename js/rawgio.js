@@ -63,6 +63,15 @@ export function loadGames(searchQuery){
     
 }
 
+// fetch additional game info    
+export async function getGameExtraInfo(gameId) {
+    const singleGameUrl = domain + "/api/games/" + gameId + "?key=" + apiKey
+    const singleGameResponse = await fetch(singleGameUrl, requestOptions)
+
+    // return a promise so it can be handled without blocking the list of cards creation
+    return singleGameResponse.json()
+}
+
 export function gameHasPlatform(parentPlatformId, gamePlatformReleases){
     // Find the parent platform object
     let parentPlatform

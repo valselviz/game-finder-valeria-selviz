@@ -1,4 +1,4 @@
-import { loadGames, gameHasPlatform } from './rawgio.js';
+import { loadGames, gameHasPlatform, getGameExtraInfo } from './rawgio.js';
 
 // List of parent platform ID
 const pcId = 1
@@ -50,6 +50,11 @@ function createNewCard(game, gameCount){
     if (!gameHasPlatform(nintendoId, game.platforms)){
         newCard.querySelector(`.nintendoIcon`).hidden = true
     }
+
+    const extraInfoPromise = getGameExtraInfo(game.id)
+    extraInfoPromise.then(extraInfo => {
+        newCard.querySelector(`.descriptionText`).innerHTML = extraInfo.description
+    })
 
     newCard.hidden = false
 }

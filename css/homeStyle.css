@@ -4,6 +4,7 @@ body {
     background-color: #151515;
     color: white;
     font-family: Archivo;
+    margin: 0;
 }
 
 div.logo {
@@ -20,6 +21,16 @@ header {
     align-items: center;
     justify-content: center;
     background-color: #1B1B1B;
+    #userSesion {
+        display: flex;
+        position: absolute;
+        right: 40px;
+        width: 120px;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+        
+    }
 }
 
 .titleContainer {
@@ -57,6 +68,8 @@ header {
     background-color: #303030;
     border-radius: 12px;
     width: 30%;
+    min-width: 300px;
+
     height: 314px;
     margin: 12px;
 
