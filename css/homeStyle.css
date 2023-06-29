@@ -68,7 +68,7 @@ header {
     background-color: #303030;
     border-radius: 12px;
     width: 30%;
-    min-width: 300px;
+    min-width: 320px;
 
     height: 314px;
     margin: 12px;
@@ -119,32 +119,36 @@ header {
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            font-style: normal;
+            font-size: 14px;
 
             .addInfoAttributes {
-                width: 32.93%;
-                font-style: normal;
                 font-weight: 500;
-                font-size: 14px;
-                line-height: 0px;
-
                 color: #939393;
+                width: 100px;
             }
 
             .addInfoValues {
-                width: 67.07%;
-                font-style: normal;
                 font-weight: 400;
-                font-size: 14px;
-                line-height: 0px;
-
                 color: #FFFFFF;
+            }
+
+            .gameDetails {
+                display: flex;
+                flex-direction: column;
+                line-height: 0;
+            }
+
+            .gameDetails div {
+                display: flex;
+                flex-direction: row;
             }
         }
         .platformsIcons {
             display: flex;
             width: 25%;
             position: absolute;
-            top: 78px;
+            top: 64px;
             right: 12px;
             justify-content: right;
 
