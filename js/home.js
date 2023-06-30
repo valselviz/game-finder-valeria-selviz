@@ -70,3 +70,20 @@ function refreshGamesWithSearchCriteria() {
     showGames(search)
 }
 
+function changeCardsDisplay(containerClass) {
+    gamesContainer.className = containerClass
+
+
+
+
+    if (containerClass == "threeColumnsView") {
+        threeColumnsIcon.src = "assets/cardsDisplay/threeColumnViewActive.svg"
+        singleColumnIcon.src = "assets/cardsDisplay/singleColumnViewDisabled.svg"
+    } else {
+        threeColumnsIcon.src = "assets/cardsDisplay/threeColumnViewDisabled.svg"
+        singleColumnIcon.src = "assets/cardsDisplay/singleColumnViewActive.svg"
+    }
+}
+
+threeColumnsIcon.addEventListener("click", () => changeCardsDisplay("threeColumnsView"))
+singleColumnIcon.addEventListener("click", () => changeCardsDisplay("singleColumnView"))

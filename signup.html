@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./css/loginStyle.css">
+        <link rel="stylesheet" href="css/loginStyle.css">
         <script src="./js/signup.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Game Finder</title>
@@ -15,15 +15,15 @@
         <div class="loginPanel">
             <form class="loginForm">
                 <h4>Create account</h4>
-                <div class="formInput">
+                <div class="inputBox">
                     <input type="email address" id="userName" placeholder="Email">
                 </div>
-                <div class="formInput">
+                <div class="inputBox">
                     <input type="password" id="userPassword" placeholder="Password">
                     <span><img id="eyeIcon" src="assets/password/eye.svg" onclick="showPassword()"></span>
                 </div>
                 <p id="errorText" hidden></p>
-                <div class="formInput">
+                <div class="loginButton">
                     <input type="button" value="Sign up" onclick="createUser()"/>
                 </div>
                 

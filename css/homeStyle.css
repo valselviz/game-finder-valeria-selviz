@@ -53,15 +53,31 @@ header {
     left: 15px;
 }
 
+#cardsDisplay {
+    position: absolute;
+    display: flex;
+    width: 104px;
+    height: 40px;
+    justify-content: space-between;
+    top:171px;
+    right: 40px;
+}
+
 #mainContainer {
     display: flex;
 }
 
-#gamesContainer {
+.threeColumnsView {
     display: flex;
     flex-direction: row;
     width: 90%;
     flex-wrap: wrap;
+}
+
+.singleColumnView {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
 }
 
 .cards {

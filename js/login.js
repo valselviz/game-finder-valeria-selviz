@@ -36,18 +36,12 @@ async function login(){
 }
 
 function showPassword() {
-    console.log("hola")
-    const icon = document.getElementById("eyeIcon")
     const passwordInput = document.getElementById("userPassword")
 
     if(passwordInput.getAttribute('type') === 'password'){
         passwordInput.setAttribute('type', 'text');
-        //icon.classList.remove('fa-eye');
-        //icon.classList.add('fa-eye-slash');
     }
     else if(passwordInput.getAttribute('type') === 'text'){
         passwordInput.setAttribute('type', 'password');
-        //icon.classList.remove('fa-eye-slash');
-        //icon.classList.add('fa-eye');
     }
 }

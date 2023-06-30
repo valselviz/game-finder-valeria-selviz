@@ -114,6 +114,7 @@ a {
 
 .inputBox {
     margin-bottom: 20px;
+    background-color: #FFFFFF;
 }
 
 .formInputError{
@@ -127,7 +128,7 @@ a {
     margin-bottom: 20px;
     position: relative;
     width: 100%;
-    color: #FFF;
+    color: #FFFFFF;
     background-color: #BF5FE1;
     height: 47px;
     width: 100%;
