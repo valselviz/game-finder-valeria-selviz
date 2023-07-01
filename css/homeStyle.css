@@ -184,8 +184,24 @@ header {
     width: 90%;
 
     .cards {
-        width: 60%;
-        
+        width: 697px;
+        height: 538px;
+
+        .imageGames {
+            height: 315px;
+        }
+
+        .titleAndRanking {
+
+            .gameTitle {
+                font-size: 32px;
+            }
+
+            .ranking {
+                font-size: 32px;
+            }
+
+        }
 
         .infoGames {
 

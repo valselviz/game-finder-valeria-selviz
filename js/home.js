@@ -78,6 +78,10 @@ function changeCardsDisplay(containerClass) {
     } else {
         threeColumnsIcon.src = "assets/cardsDisplay/threeColumnViewDisabled.svg"
         singleColumnIcon.src = "assets/cardsDisplay/singleColumnViewActive.svg"
+        console.log(gamesContainer.querySelectorAll(`.description`))
+        for (const description of gamesContainer.querySelectorAll(`.description`)){
+            description.hidden = false
+        }
     }
 }
 
