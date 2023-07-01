@@ -67,13 +67,6 @@ header {
     display: flex;
 }
 
-.threeColumnsView {
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-    flex-wrap: wrap;
-}
-
 .cards {
     background-color: #303030;
     border-radius: 12px;
@@ -135,17 +128,18 @@ header {
             .addInfoAttributes {
                 font-weight: 500;
                 color: #939393;
-                width: 100px;
+                margin-right: 8px;
             }
 
             .addInfoValues {
                 font-weight: 400;
                 color: #FFFFFF;
+                margin-right: 30px;
             }
 
             .gameDetails {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 line-height: 0;
             }
 
@@ -170,6 +164,18 @@ header {
     }
 }
 
+.threeColumnsView {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    flex-wrap: wrap;
+
+    .addInfoAttributes {
+        font-weight: 500;
+        color: #939393;
+        width: 100px;
+    }
+}
 
 .singleColumnView {
     display: flex;
@@ -179,5 +185,15 @@ header {
 
     .cards {
         width: 60%;
+        
+
+        .infoGames {
+
+            .gameDetails {
+                display: flex;
+                flex-direction: row;
+                line-height: 0;
+            }     
+        }
     }
 }
