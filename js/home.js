@@ -75,6 +75,9 @@ function changeCardsDisplay(containerClass) {
     if (containerClass == "threeColumnsView") {
         threeColumnsIcon.src = "assets/cardsDisplay/threeColumnViewActive.svg"
         singleColumnIcon.src = "assets/cardsDisplay/singleColumnViewDisabled.svg"
+        for (const description of gamesContainer.querySelectorAll(`.description`)){
+            description.hidden = true
+        }
     } else {
         threeColumnsIcon.src = "assets/cardsDisplay/threeColumnViewDisabled.svg"
         singleColumnIcon.src = "assets/cardsDisplay/singleColumnViewActive.svg"

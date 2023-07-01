@@ -93,7 +93,7 @@ header {
         }
     }
 
-    .infoGames {
+    .gameInfo {
         position: relative;
         top: -8px;
         width: 91.18%;
@@ -205,7 +205,7 @@ header {
 
         }
 
-        .infoGames {
+        .gameInfo {
 
             .gameDetailsAttributes {
                 display: flex;
