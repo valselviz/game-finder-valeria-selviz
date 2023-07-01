@@ -72,10 +72,6 @@ function refreshGamesWithSearchCriteria() {
 
 function changeCardsDisplay(containerClass) {
     gamesContainer.className = containerClass
-
-
-
-
     if (containerClass == "threeColumnsView") {
         threeColumnsIcon.src = "assets/cardsDisplay/threeColumnViewActive.svg"
         singleColumnIcon.src = "assets/cardsDisplay/singleColumnViewDisabled.svg"

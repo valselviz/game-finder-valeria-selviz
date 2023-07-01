@@ -74,12 +74,6 @@ header {
     flex-wrap: wrap;
 }
 
-.singleColumnView {
-    display: flex;
-    flex-direction: column;
-    width: 60%;
-}
-
 .cards {
     background-color: #303030;
     border-radius: 12px;
@@ -151,7 +145,7 @@ header {
 
             .gameDetails {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 line-height: 0;
             }
 
@@ -173,5 +167,17 @@ header {
 
             }
         }
+    }
+}
+
+
+.singleColumnView {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+
+    .cards {
+        width: 60%;
     }
 }
