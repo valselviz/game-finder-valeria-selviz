@@ -118,7 +118,7 @@ header {
             
         }
        
-        .addInfo {
+        .gameDetails {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -139,13 +139,13 @@ header {
                 margin-right: 30px;
             }
 
-            .gameDetails {
+            .gameDetailsAttributes {
                 display: flex;
                 flex-direction: column;
                 line-height: 0;
             }
 
-            .gameDetails div {
+            .gameDetailsAttributes div {
                 display: flex;
                 flex-direction: row;
             }
@@ -207,7 +207,7 @@ header {
 
         .infoGames {
 
-            .gameDetails {
+            .gameDetailsAttributes {
                 display: flex;
                 flex-direction: row;
                 line-height: 0;
