@@ -43,7 +43,17 @@ header {
     width: 156px;
     display: flex;
     flex-direction: column;
-    margin: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    .icon {
+        vertical-align: middle;
+        margin-right: 7px;
+    }
+}
+
+.sideBar a {
+    margin-bottom: 10px;
 }
 
 .inputBox input {
