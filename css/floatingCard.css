@@ -1,0 +1,19 @@
+#floatingCardContainer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.floatingCard {
+    top: 0!important;
+    bottom: 0!important;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 1076px;
+    height: 600px;
+    background-color: #303030;
+}
