@@ -69,10 +69,46 @@
             }
         }
         .gridContainer {
+            display: grid;
+            grid-template-areas:
+                'description description multimedia'
+                'wishlist purchase multimedia'
+                'text1 text2 multimedia'
+                'text1 icons multimedia';
+            
+            
 
-            .description {
-                width: 100%;
+            .descriptionText {
+                grid-area: description;
             }
+
+            .wishlist {
+                grid-area: wishlist;
+            }
+
+            .purchase {
+                grid-area: purchase;
+            }
+
+            .gameDetailsAttributes1 {
+                grid-area: text1;
+            }
+
+            .gameDetailsAttributes2 {
+                grid-area: text2;
+            }
+
+            .floatingCardIcons {
+                grid-area: icons;
+            }
+
+            .multimedia {
+                grid-area: multimedia;
+                width: 384px;
+                background-color: red;
+            }
+            
+
         }
     }
 }
