@@ -10,6 +10,7 @@
 }
 
 .floatingCard {
+    display: flex;
     margin-top: auto;
     margin-bottom: auto;
     width: 1076px;
@@ -24,14 +25,13 @@
     border-radius: 24px;
     
     .floatingCardInfo {
-        position: relative;
+        align-self: end;
         bottom: 20px;
         right: 20px;
         left: 20px;
-        height: 80%;
+        padding: 20px;
 
         .platformsTitleAndRanking {
-
 
             .platformsIcons {
                 position: inherit;
@@ -66,6 +66,12 @@
                     font-size: 16px;
                     margin: 6px;
                 }
+            }
+        }
+        .gridContainer {
+
+            .description {
+                width: 100%;
             }
         }
     }
