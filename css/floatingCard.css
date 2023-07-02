@@ -22,36 +22,51 @@
     background-repeat: no-repeat;
     background-color: #303030;
     border-radius: 24px;
-
-    .gameImage {
-        display: flex;
-        background-position: center;
-        background-size: cover;
-        position: relative;
-        width: 100%;
-        height: 81%;
-        border-radius: 24px 24px 0px 0px;
-        background-color: blueviolet;
-
-        .imageGradient {
-            width: 100%;
-            height: 100%;
-            border-radius: 24px 24px 0px 0px;
-            background-image: linear-gradient(to top, rgba(48, 48, 48, 100), rgba(48, 48, 48, 0));
-        }
-        
-        .likeIcon {
-            position: absolute;
-            top: 17.5px;
-            right: 17px;
-        }
-    }
-
+    
     .floatingCardInfo {
         position: relative;
         bottom: 20px;
         right: 20px;
         left: 20px;
         height: 80%;
+
+        .platformsTitleAndRanking {
+
+
+            .platformsIcons {
+                position: inherit;
+            }
+
+            .gameTitle {
+                font-size: 36px;
+                color: white;
+            }
+
+            .gameTagsRow {
+                display: flex;
+                flex-direction: row;
+                
+                .gameTag {
+                    display: flex;
+                    flex-direction: row;
+                    background-color: white;
+                    border-radius: 14px;
+                    margin-right: 10px;
+                    padding: 0 8px 0 8px;
+
+                    .grayText {
+                        color: rgba(81, 81, 81, 1);
+                    }
+
+                    .purpleText {
+                        color: #9b59b6;
+                    }
+                }
+                .gameTag p {
+                    font-size: 16px;
+                    margin: 6px;
+                }
+            }
+        }
     }
 }
