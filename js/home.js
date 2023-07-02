@@ -6,6 +6,10 @@ const playstationId = 2
 const xboxId = 3
 const nintendoId = 7
 
+// array of games fetched from rawg API
+let games
+
+
 function createGameCards(gamesData){
     for(let i = 0; i < gamesData.results.length; i++){
         const currentGame = gamesData.results[i]
@@ -15,6 +19,7 @@ function createGameCards(gamesData){
 
 async function showGames(searchQuery){
     const gamesResponse = await loadGames(searchQuery)
+    games = gamesResponse.results
     createGameCards(gamesResponse)
 }
 
@@ -27,6 +32,8 @@ function createNewCard(game, gameCount){
     newCard.id = "game" + gameCount
 
     gamesContainer.appendChild(newCard)
+
+    newCard.onclick = (event) => openFloatingCard(event, game)
      
     newCard.querySelector(`.gameImage`).style = `background-image: url('${game.background_image}');`
     newCard.querySelector(`.gameTitle`).innerHTML = game.name
@@ -90,3 +97,25 @@ function changeCardsDisplay(containerClass) {
 
 threeColumnsIcon.addEventListener("click", () => changeCardsDisplay("threeColumnsView"))
 singleColumnIcon.addEventListener("click", () => changeCardsDisplay("singleColumnView"))
+
+function openFloatingCard(event, game){
+    // I need to stop the propagation of this event
+    // Otherwise, the function that closes the floating card will executed immediately after this function
+    // Because that function is execution when a click happens
+    event.stopPropagation()
+    floatingCardContainer.style = ""
+
+    const backgroundImageStyle = `background-image: linear-gradient(to bottom, #00000000, #303030FF), url("${game.background_image}")`
+    floatingCardContainer.querySelector(`.floatingCard`).style = backgroundImageStyle
+    floatingCardContainer.querySelector(`.gameTitle`).innerHTML = game.name
+    floatingCardContainer.querySelector(`.ranking`).innerHTML = "#" + (gameCount + 1)
+    floatingCardContainer.querySelector(`.releaseDate`).innerHTML = game.released
+}
+
+// Close the floating card when clicking anywhere
+addEventListener("click", e => {
+    console.log(floatingCardContainer.style.display)
+    if (floatingCardContainer.style.display == "") {
+        floatingCardContainer.style = "display: none;"
+    }
+})
