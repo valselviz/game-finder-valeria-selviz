@@ -13,29 +13,33 @@
     margin-top: auto;
     margin-bottom: auto;
     width: 1076px;
-    height: 600px;
+    height: 90%;
+    min-height: 600px;
+    max-height: 793px;
     background-color: #303030;
     border-radius: 24px;
 
-    .gameImageContainer {
-        background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    .gameImage {
+        display: flex;
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        height: 81%;
+        border-radius: 24px 24px 0px 0px;
+        background-color: blueviolet;
 
-
-        .gameImage {
-            display: flex;
-            background-position: center;
-            background-size: cover;
-            position: relative;
+        .imageGradient {
             width: 100%;
-            height: 81%;
-            border-radius: 24px 24px 0px 0px;
-            background-color: blueviolet;
-            
-            .likeIcon {
-                position: absolute;
-                top: 17.5px;
-                right: 17px;
-            }
+        height: 100%;
+        border-radius: 24px 24px 0px 0px;
+        background-image: linear-gradient(to top, rgba(48, 48, 48, 100), rgba(48, 48, 48, 0));
+        }
+        
+        .likeIcon {
+            position: absolute;
+            top: 17.5px;
+            right: 17px;
         }
     }
 }
