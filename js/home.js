@@ -12,6 +12,11 @@ let games
 // array of additional game details fetched individually from rawg API
 const gameDetails = []
 
+function parseDate(dateStrig) {
+    const date = new Date(dateStrig)
+    return `${date.toLocaleString('en-US', {month: 'short'})} ${date.getDate()}, ${date.getFullYear()}`
+}
+
 function createGameCards(gamesData){
     for(let i = 0; i < gamesData.results.length; i++){
         const currentGame = gamesData.results[i]
@@ -40,9 +45,7 @@ function createNewCard(game, gameCount){
     newCard.querySelector(`.gameImage`).style = `background-image: url('${game.background_image}');`
     newCard.querySelector(`.gameTitle`).innerHTML = game.name
     newCard.querySelector(`.ranking`).innerHTML = "#" + (gameCount + 1)
-    const date = new Date(game.released)
-    const formatedDate = `${date.toLocaleString('en-US', {month: 'short'})} ${date.getDate()}, ${date.getFullYear()}`
-    newCard.querySelector(`.releaseDate`).innerHTML = formatedDate
+    newCard.querySelector(`.releaseDate`).innerHTML = parseDate(game.released)
 
     // use the 'map' function to convert a array of genre objects, into 
     // an array of genre names (strings)
@@ -116,6 +119,13 @@ function openFloatingCard(event, game, gameCount){
     floatingCardContainer.querySelector(`.rankingTag .purpleText`).innerHTML = "#" + (gameCount + 1)
     floatingCardContainer.querySelector(`.dateReleaseTag .grayText`).innerHTML = game.released
     floatingCardContainer.querySelector(`.descriptionText`).innerHTML = gameDetails[gameCount].description
+
+    const platformNames = game.parent_platforms.map(parentPlatform => parentPlatform.platform.name)
+    floatingCardContainer.querySelector(`.platformsText`).innerHTML = platformNames.join(", ")
+
+    floatingCardContainer.querySelector(`.dateReleaseTag .grayText`).innerHTML = parseDate(game.released)
+    floatingCardContainer.querySelector(`.releaseDate`).innerHTML = parseDate(game.released)
+
 
 }
 
