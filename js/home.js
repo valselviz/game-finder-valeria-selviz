@@ -9,6 +9,8 @@ const nintendoId = 7
 // array of games fetched from rawg API
 let games
 
+// array of additional game details fetched individually from rawg API
+const gameDetails = []
 
 function createGameCards(gamesData){
     for(let i = 0; i < gamesData.results.length; i++){
@@ -60,6 +62,7 @@ function createNewCard(game, gameCount){
 
     const extraInfoPromise = getGameExtraInfo(game.id)
     extraInfoPromise.then(extraInfo => {
+        gameDetails[gameCount] = extraInfo
         newCard.querySelector(`.descriptionText`).innerHTML = extraInfo.description
     })
 
@@ -109,7 +112,9 @@ function openFloatingCard(event, game, gameCount){
     floatingCardContainer.querySelector(`.floatingCard`).style = backgroundImageStyle
     floatingCardContainer.querySelector(`.gameTitle`).innerHTML = game.name
     floatingCardContainer.querySelector(`.rankingTag .purpleText`).innerHTML = "#" + (gameCount + 1)
-    floatingCardContainer.querySelector(`.releaseDate`).innerHTML = game.released
+    floatingCardContainer.querySelector(`.dateReleaseTag .grayText`).innerHTML = game.released
+    floatingCardContainer.querySelector(`.descriptionText`).innerHTML = gameDetails[gameCount].description
+
 }
 
 // Close the floating card when clicking anywhere
