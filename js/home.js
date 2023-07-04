@@ -1,4 +1,4 @@
-import { loadGames, gameHasPlatform, getGameExtraInfo } from './rawgio.js';
+import { loadGames, gameHasPlatform, getGameExtraInfo, getGameVideo } from './rawgio.js';
 
 // List of parent platform ID
 const pcId = 1
@@ -27,6 +27,7 @@ function createGameCards(gamesData){
 async function showGames(searchQuery){
     const gamesResponse = await loadGames(searchQuery)
     games = gamesResponse.results
+    console.log(games)
     createGameCards(gamesResponse)
 }
 
@@ -126,7 +127,16 @@ function openFloatingCard(event, game, gameCount){
     floatingCardContainer.querySelector(`.dateReleaseTag .grayText`).innerHTML = parseDate(game.released)
     floatingCardContainer.querySelector(`.releaseDate`).innerHTML = parseDate(game.released)
 
-
+    console.log("asd")
+    const videoPromise = getGameVideo(game.id)
+    videoPromise.then(videoJson => {
+        if (videoJson.results.length > 0) {
+            floatingCardContainer.querySelector(`video`).src = videoJson.results[0].data[480]
+        } else {
+            floatingCardContainer.querySelector(`video`).src = null
+        }
+        
+    })
 }
 
 // Close the floating card when clicking anywhere

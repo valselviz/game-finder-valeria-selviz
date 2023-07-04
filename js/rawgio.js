@@ -90,5 +90,12 @@ export function gameHasPlatform(parentPlatformId, gamePlatformReleases){
         }
     }
     return false
-    
+}
+
+// fetch game video
+export async function getGameVideo(gameId) {
+    const singleGameUrl = domain + "/api/games/" + gameId + "/movies" + "?key=" + apiKey
+    const singleGameResponse = await fetch(singleGameUrl, requestOptions)
+    // return a promise so it can be handled without blocking the page
+    return singleGameResponse.json()
 }
