@@ -48,7 +48,7 @@ function createNewCard(game, gameCount){
     newCard.querySelector(`.ranking`).innerHTML = "#" + (gameCount + 1)
     newCard.querySelector(`.releaseDate`).innerHTML = parseDate(game.released)
 
-    // use the 'map' function to convert a array of genre objects, into 
+    // use the 'map' function to convert an array of genre objects, into 
     // an array of genre names (strings)
     const genreNames = game.genres.map(genre => genre.name)
     newCard.querySelector(`.genres`).innerHTML = genreNames.join(", ")
@@ -121,21 +121,30 @@ function openFloatingCard(event, game, gameCount){
     floatingCardContainer.querySelector(`.dateReleaseTag .grayText`).innerHTML = game.released
     floatingCardContainer.querySelector(`.descriptionText`).innerHTML = gameDetails[gameCount].description
 
+    // use the 'map' function to convert an array of parent platforms objects, into 
+    // an array of platform names (strings)
     const platformNames = game.parent_platforms.map(parentPlatform => parentPlatform.platform.name)
     floatingCardContainer.querySelector(`.platformsText`).innerHTML = platformNames.join(", ")
 
     floatingCardContainer.querySelector(`.dateReleaseTag .grayText`).innerHTML = parseDate(game.released)
     floatingCardContainer.querySelector(`.releaseDate`).innerHTML = parseDate(game.released)
+    floatingCardContainer.querySelector(`.publisher`).innerHTML = gameDetails[gameCount].publishers[0].name
+    floatingCardContainer.querySelector(`.website`).href = gameDetails[gameCount].website
+    floatingCardContainer.querySelector(`.website`).innerHTML = gameDetails[gameCount].website
+    floatingCardContainer.querySelector(`.developer`).innerHTML = gameDetails[gameCount].developers[0].name
+    floatingCardContainer.querySelector(`.ageRating`).innerHTML = gameDetails[gameCount].esrb_rating.name
 
-    console.log("asd")
+    
+
+    // use the 'map' function to convert an array of genre objects, into 
+    // an array of genre names (strings)
+    const genreNames = game.genres.map(genre => genre.name)
+    floatingCardContainer.querySelector(`.genres`).innerHTML = genreNames.join(", ")
+
     const videoPromise = getGameVideo(game.id)
     videoPromise.then(videoJson => {
-        if (videoJson.results.length > 0) {
-            floatingCardContainer.querySelector(`video`).src = videoJson.results[0].data[480]
-        } else {
-            floatingCardContainer.querySelector(`video`).src = null
-        }
-        
+        floatingCardContainer.querySelector(`video`).src = videoJson.results.length > 0 ? 
+            videoJson.results[0].data[480] : null
     })
 }
 
