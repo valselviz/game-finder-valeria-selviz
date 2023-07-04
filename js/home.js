@@ -40,7 +40,9 @@ function createNewCard(game, gameCount){
     newCard.querySelector(`.gameImage`).style = `background-image: url('${game.background_image}');`
     newCard.querySelector(`.gameTitle`).innerHTML = game.name
     newCard.querySelector(`.ranking`).innerHTML = "#" + (gameCount + 1)
-    newCard.querySelector(`.releaseDate`).innerHTML = game.released
+    const date = new Date(game.released)
+    const formatedDate = `${date.toLocaleString('en-US', {month: 'short'})} ${date.getDate()}, ${date.getFullYear()}`
+    newCard.querySelector(`.releaseDate`).innerHTML = formatedDate
 
     // use the 'map' function to convert a array of genre objects, into 
     // an array of genre names (strings)
