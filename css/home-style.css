@@ -78,6 +78,21 @@ header {
     display: flex;
 }
 
+.gameAttributesName {
+    font-weight: 500;
+    color: #939393;
+}
+
+.gameAttributesValue {
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.description {
+    height: 85px;
+    overflow: hidden;
+}
+
 .card {
     background-color: #303030;
     border-radius: 12px;
@@ -138,14 +153,10 @@ header {
             align-items: start;
 
             .gameAttributesName {
-                font-weight: 500;
-                color: #939393;
                 margin-right: 8px;
             }
 
             .gameAttributesValue {
-                font-weight: 400;
-                color: #FFFFFF;
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;

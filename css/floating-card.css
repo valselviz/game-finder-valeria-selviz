@@ -6,7 +6,6 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 12px;
 }
 
 .floatingCard {
@@ -23,92 +22,200 @@
     background-repeat: no-repeat;
     background-color: #303030;
     border-radius: 24px;
+}
     
-    .floatingCardInfo {
-        align-self: end;
-        bottom: 20px;
-        right: 20px;
-        left: 20px;
-        padding: 20px;
+.floatingCardInfo {
+    align-self: end;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    padding: 25px;
 
-        .platformsTitleAndRanking {
+    .platformsTitleAndRanking {
 
-            .platformsIcons {
-                position: inherit;
-            }
+        .platformsIcons {
+            position: inherit;
+        }
 
-            .gameTitle {
-                font-size: 36px;
-                color: white;
-            }
+        .gameTitle {
+            font-size: 36px;
+            font-size: 36px;
+            color: white;
+            margin: 15px 0 15px 0;
+        }
 
-            .gameTagsRow {
+        .gameTagsRow {
+            display: flex;
+            flex-direction: row;
+            
+            .gameTag {
                 display: flex;
                 flex-direction: row;
-                
-                .gameTag {
-                    display: flex;
-                    flex-direction: row;
-                    background-color: white;
-                    border-radius: 14px;
-                    margin-right: 10px;
-                    padding: 0 8px 0 8px;
+                background-color: white;
+                border-radius: 14px;
+                margin-right: 10px;
+                padding: 0 8px 0 8px;
 
-                    .grayText {
-                        color: rgba(81, 81, 81, 1);
-                    }
-
-                    .purpleText {
-                        color: #9b59b6;
-                    }
+                .grayText {
+                    color: rgba(81, 81, 81, 1);
                 }
-                .gameTag p {
-                    font-size: 16px;
-                    margin: 6px;
+
+                .purpleText {
+                    color: #9b59b6;
                 }
             }
+            .gameTag p {
+                font-size: 16px;
+                margin: 6px;
+            }
         }
-        .gridContainer {
-            display: grid;
-            grid-template-areas:
-                'description description multimedia'
-                'wishlist purchase multimedia'
-                'text1 text2 multimedia'
-                'text1 icons multimedia';
-            
-            .descriptionText {
-                grid-area: description;
-                height: 85px;
-                overflow: hidden;
-            }
+    }
+}
 
-            .wishlist {
-                grid-area: wishlist;
-            }
+.gridContainer {
+    display: grid;
+    grid-template-areas:
+        'description description multimedia'
+        'wishlist purchase multimedia'
+        'text1 text2 multimedia'
+        'text1 icons multimedia';
+    /* I make the first column to have a small fixed width, to allow the second column to be wider.
+    This will allow the description to be wider than the Wishlist and Purchace buttons together*/
+    grid-template-columns: 255px auto auto;
+    
+    .description {
+        grid-area: description;
+        height: 85px;
+        width: 603px;
+        overflow: hidden;
+        margin-right: 15px;
+    }
 
-            .purchase {
-                grid-area: purchase;
-            }
+    .wishlist {
+        grid-area: wishlist;
+    }
 
-            .gameDetailsAttributes1 {
-                grid-area: text1;
-            }
+    .purchase {
+        grid-area: purchase;
+    }
 
-            .gameDetailsAttributes2 {
-                grid-area: text2;
-            }
+    .gameDetailsAttributes1 {
+        grid-area: text1;
+    }
 
-            .floatingCardIcons {
-                grid-area: icons;
-            }
+    .gameDetailsAttributes2 {
+        grid-area: text2;
+    }
 
-            .multimedia {
-                grid-area: multimedia;
-                width: 384px;
-                background-color: red;
-            }
-            
+    .floatingCardIcons {
+        grid-area: icons;
+    }
 
-        }
+    .multimedia {
+        grid-area: multimedia;
+        width: 384px;
+        background-color: red;
+    }
+}
+
+.wishlist {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 20px 0 20px 0;
+    position: relative;
+    color: #FFFFFF;
+    background-color: #BF5FE1;
+    height: 47px;
+    width: 228px;
+    border-radius: 6px;
+    border: 0px;
+    cursor: pointer;
+
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+}
+.wishlist p {
+    margin: 12px;
+}
+.wishlist img {
+    margin: 12px;
+}
+
+
+.purchase {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 20px 0 20px 0;
+    position: relative;
+    color: #BF5FE1;
+    background-color: #00000022;
+    height: 47px;
+    width: 228px;
+    border-radius: 6px;
+    border: 2px solid #BF5FE1;
+    cursor: pointer;
+
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+}
+.purchase p {
+    margin: 12px;
+}
+
+video {
+    width: 100%;
+}
+
+/* TABLET */
+@media screen and (max-width: 900px) and (min-height: 1000px) {
+    .gridContainer {
+        grid-template-areas:
+            'description description'
+            'wishlist purchase '
+            'text1 multimedia'
+            'text2 icons';
+    }
+
+    .floatingCard {
+        margin: 20px;
+        width: 500px;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 700px) {
+
+    .gridContainer {
+        grid-template-areas:
+            'description'
+            'wishlist'
+            'purchase'
+            'text1'
+            'text2'
+            'multimedia'
+            'icons';
+    }
+    
+    #floatingCardContainer {
+        width: 100%;
+        position: absolute;
+        height: initial;
+    }
+
+    .floatingCard {
+        margin: 0;
+        min-height: initial;
+        max-height: initial;
+        border-radius: 0px;
+    }
+
+    .floatingCardInfo {
+        align-self: start;
     }
 }

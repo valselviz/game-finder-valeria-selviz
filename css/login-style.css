@@ -124,6 +124,7 @@ a {
   
 .loginButton input[type="button"]{
     display: flex;
+    justify-content: center;
     text-align: center;
     margin-bottom: 20px;
     position: relative;
@@ -141,8 +142,6 @@ a {
     font-weight: 700;
     font-size: 18px;
     line-height: 20px;
-    display: flex;
-    justify-content: center;
     
     /*&:hover{
       background-color: #0f46b7;
