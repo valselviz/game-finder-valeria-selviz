@@ -241,3 +241,62 @@ header {
         }
     }
 }
+
+/* TABLET */
+@media screen and (max-width: 900px) and (min-height: 1000px) {
+
+    .inputBox {
+        width: 30%;
+    }
+
+    div.logo {
+        width: 126px;
+        height: 46px;
+    }
+
+    .sideBar {
+        display: none;
+    }
+
+    #mainContainer {
+        justify-content: center;
+    }
+
+    .threeColumnsView {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .card {
+        width: 45%
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+
+    .titleContainer h1 {
+        font-size: 28px;
+    }
+    
+    .titleContainer h4 {
+        font-size: 14px;
+    }
+
+    .sideBar {
+        display: none;
+    }
+
+    #mainContainer {
+        justify-content: center;
+    }
+
+    .threeColumnsView {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .card {
+        width: 100%
+    }
+}

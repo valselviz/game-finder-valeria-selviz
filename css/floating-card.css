@@ -64,12 +64,13 @@
                     color: #9b59b6;
                 }
             }
-            .gameTag p {
-                font-size: 16px;
-                margin: 6px;
-            }
         }
     }
+}
+
+.gameTag p {
+    font-size: 16px;
+    margin: 6px;
 }
 
 .gridContainer {
@@ -175,6 +176,7 @@ video {
 
 /* TABLET */
 @media screen and (max-width: 900px) and (min-height: 1000px) {
+
     .gridContainer {
         grid-template-areas:
             'description description'
@@ -198,11 +200,6 @@ video {
         width: 100%;
     }
 
-    div.logo {
-        width: 126px;
-        height: 46px;
-    }
-
     .wishlist {
         width: 95%;
         margin-right: 20px;
@@ -218,8 +215,7 @@ video {
 }
 
 /* MOBILE */
-@media screen and (max-width: 750px) {
-
+@media screen and (max-width: 600px) {
     .gridContainer {
         grid-template-areas:
             'description'
@@ -234,6 +230,15 @@ video {
         .multimedia {
             width: 100%;
         }
+        
+        .description {
+            width: 100%;
+        }
+    }
+
+    .gameTag p {
+        font-size: 14px;
+        margin: 3px;
     }
     
     #floatingCardContainer {
@@ -245,6 +250,7 @@ video {
 
     .floatingCard {
         margin: 0;
+        width: 100%;
         min-height: initial;
         max-height: initial;
         border-radius: 0px;
