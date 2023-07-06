@@ -9,18 +9,22 @@ const requestOptions = {
 
 // fetch all the available parent platforms
 const parentPlatformsPath = "/api/platforms/lists/parents?key="
-let parentPlatforms
+
 let parentPlatformsNamesOrSlugs
-fetch(domain + parentPlatformsPath + apiKey, requestOptions)
+let parentPlatformsPromise = fetch(domain + parentPlatformsPath + apiKey, requestOptions)
     .then(resp => resp.json())
-    .then(jsonResponse =>  {
-        parentPlatforms = jsonResponse.results
+    .then(json => json.results)
+
+
+
+parentPlatformsPromise.then(parentPlatforms =>  {
         const parentPlatformsNames = parentPlatforms.map(platform => platform.name.toLowerCase())
         const parentPlatformsSlugs = parentPlatforms.map(platform => platform.slug.toLowerCase())
         parentPlatformsNamesOrSlugs = parentPlatformsNames.concat(parentPlatformsSlugs)
     })
 
-function searchParentPlatform(parentPlatformName){
+async function searchParentPlatform(parentPlatformName){
+    const parentPlatforms = await parentPlatformsPromise
     let parentPlatformId = null
     for (const parentPlatform of parentPlatforms){
         if (parentPlatformName == parentPlatform.name || parentPlatformName == parentPlatform.slug){
@@ -72,8 +76,9 @@ export async function getGameExtraInfo(gameId) {
     return singleGameResponse.json()
 }
 
-export function gameHasPlatform(parentPlatformId, gamePlatformReleases){
+export async function gameHasPlatform(parentPlatformId, gamePlatformReleases){
     // Find the parent platform object
+    const parentPlatforms = await parentPlatformsPromise
     let parentPlatform
     for (const currentParentPlatform of parentPlatforms){
         if (currentParentPlatform.id == parentPlatformId){
