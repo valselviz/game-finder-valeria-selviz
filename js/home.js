@@ -114,6 +114,7 @@ function openFloatingCard(event, game, gameCount){
     event.stopPropagation()
 
     floatingCardContainer.querySelector(`.trailerVideo`).hidden = true
+    floatingCardContainer.querySelector(`.screenshots`).innerHTML = ""
     floatingCardContainer.style = ""
 
     const backgroundImageStyle = `background-image: linear-gradient(to bottom, #00000000, #303030FF), url("${game.background_image}")`
@@ -160,7 +161,7 @@ function openFloatingCard(event, game, gameCount){
             } else {
                 screenshotsCount = 8
             }
-            for (let i = 0; i < screenshotsCount; i++){
+            for (let i = 0; i < screenshotsCount && i < screenshotsJson.results.length; i++){
                 const newImg = document.createElement("img")
                 newImg.src = screenshotsJson.results[i].image
                 floatingCardContainer.querySelector(`.screenshots`).appendChild(newImg)
