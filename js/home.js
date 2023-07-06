@@ -31,7 +31,7 @@ async function showGames(searchQuery){
     createGameCards(gamesResponse)
 }
 
-function createNewCard(game, gameCount){
+async function createNewCard(game, gameCount){
     const newCard = cardTemplate.cloneNode(true)
 
     // The cloned element needs a new unique id, otherwise, the 'cardTemplate' variable
@@ -53,16 +53,16 @@ function createNewCard(game, gameCount){
     const genreNames = game.genres.map(genre => genre.name)
     newCard.querySelector(`.genres`).innerHTML = genreNames.join(", ")
 
-    if (!gameHasPlatform(pcId, game.platforms)){
+    if (!await gameHasPlatform(pcId, game.platforms)){
         newCard.querySelector(`.pcIcon`).hidden = true
     }
-    if (!gameHasPlatform(playstationId, game.platforms)){
+    if (!await gameHasPlatform(playstationId, game.platforms)){
         newCard.querySelector(`.playstationIcon`).hidden = true
     }
-    if (!gameHasPlatform(xboxId, game.platforms)){
+    if (!await gameHasPlatform(xboxId, game.platforms)){
         newCard.querySelector(`.xboxIcon`).hidden = true
     }
-    if (!gameHasPlatform(nintendoId, game.platforms)){
+    if (!await gameHasPlatform(nintendoId, game.platforms)){
         newCard.querySelector(`.nintendoIcon`).hidden = true
     }
 
@@ -141,6 +141,7 @@ function openFloatingCard(event, game, gameCount){
     const genreNames = game.genres.map(genre => genre.name)
     floatingCardContainer.querySelector(`.genres`).innerHTML = genreNames.join(", ")
 
+
     const videoPromise = getGameVideo(game.id)
     const screenshotsPromise = getGameScreenshots(game.id)
     videoPromise.then(videoJson => {
@@ -149,6 +150,9 @@ function openFloatingCard(event, game, gameCount){
             floatingCardContainer.querySelector(`.trailerVideo`).hidden = false
         }
 
+        // Notice that I can not tell which one of the video request or the screenshots request will finish first.
+        // I indicate what should be done with the screenshots after the video response has been returned
+        // That way I can be sure that the following code will not fail by checkig a video response that has not arrived yet
         screenshotsPromise.then(screenshotsJson => {
             let screenshotsCount
             if(videoJson.results.length > 0){

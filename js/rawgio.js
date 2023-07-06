@@ -10,17 +10,16 @@ const requestOptions = {
 // fetch all the available parent platforms
 const parentPlatformsPath = "/api/platforms/lists/parents?key="
 
-let parentPlatformsNamesOrSlugs
-let parentPlatformsPromise = fetch(domain + parentPlatformsPath + apiKey, requestOptions)
+const parentPlatformsPromise = fetch(domain + parentPlatformsPath + apiKey, requestOptions)
     .then(resp => resp.json())
     .then(json => json.results)
 
 
 
-parentPlatformsPromise.then(parentPlatforms =>  {
+const parentPlatformsNamesOrSlugsPromise = parentPlatformsPromise.then(parentPlatforms =>  {
         const parentPlatformsNames = parentPlatforms.map(platform => platform.name.toLowerCase())
         const parentPlatformsSlugs = parentPlatforms.map(platform => platform.slug.toLowerCase())
-        parentPlatformsNamesOrSlugs = parentPlatformsNames.concat(parentPlatformsSlugs)
+        return parentPlatformsNames.concat(parentPlatformsSlugs)
     })
 
 async function searchParentPlatform(parentPlatformName){
@@ -34,25 +33,26 @@ async function searchParentPlatform(parentPlatformName){
     return parentPlatformId
 }
 
-function analyzeSearch(searchQuery){
+async function analyzeSearch(searchQuery){
+    const parentPlatformsNamesOrSlugs = await parentPlatformsNamesOrSlugsPromise
     searchQuery = searchQuery.toLowerCase()
     let searchObject = {}
     for (const platform of parentPlatformsNamesOrSlugs){
         if (searchQuery.includes(platform)){
             searchQuery = searchQuery.replaceAll(platform, "")
-            searchObject.platform = searchParentPlatform(platform)
+            searchObject.platform = await searchParentPlatform(platform)
         }
     }
     searchObject.query = searchQuery
     return searchObject
 }
 
-export function loadGames(searchQuery){
+export async function loadGames(searchQuery){
     let searchQueryObject
     const gamesPath = "/api/games?key="
     let url = domain + gamesPath + apiKey
     if (searchQuery){
-        searchQueryObject = analyzeSearch(searchQuery)
+        searchQueryObject = await analyzeSearch(searchQuery)
         url += "&search=" + searchQueryObject.query 
         if (searchQueryObject.platform){
             url += "&parent_platforms=" + searchQueryObject.platform
