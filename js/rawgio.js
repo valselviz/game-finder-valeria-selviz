@@ -99,3 +99,11 @@ export async function getGameVideo(gameId) {
     // return a promise so it can be handled without blocking the page
     return singleGameResponse.json()
 }
+
+// fetch game screenshots
+export async function getGameScreenshots(gameId) {
+    const singleGameUrl = domain + "/api/games/" + gameId + "/screenshots" + "?key=" + apiKey
+    const singleGameResponse = await fetch(singleGameUrl, requestOptions)
+    // return a promise so it can be handled without blocking the page
+    return singleGameResponse.json()
+}

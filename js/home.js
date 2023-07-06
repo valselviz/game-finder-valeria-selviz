@@ -1,4 +1,4 @@
-import { loadGames, gameHasPlatform, getGameExtraInfo, getGameVideo } from './rawgio.js';
+import { loadGames, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots } from './rawgio.js';
 
 // List of parent platform ID
 const pcId = 1
@@ -112,6 +112,8 @@ function openFloatingCard(event, game, gameCount){
     // Otherwise, the function that closes the floating card will executed immediately after this function
     // Because that function is execution when a click happens
     event.stopPropagation()
+
+    floatingCardContainer.querySelector(`.trailerVideo`).hidden = true
     floatingCardContainer.style = ""
 
     const backgroundImageStyle = `background-image: linear-gradient(to bottom, #00000000, #303030FF), url("${game.background_image}")`
@@ -134,18 +136,34 @@ function openFloatingCard(event, game, gameCount){
     floatingCardContainer.querySelector(`.developer`).innerHTML = gameDetails[gameCount].developers[0].name
     floatingCardContainer.querySelector(`.ageRating`).innerHTML = gameDetails[gameCount].esrb_rating.name
 
-    
-
     // use the 'map' function to convert an array of genre objects, into 
     // an array of genre names (strings)
     const genreNames = game.genres.map(genre => genre.name)
     floatingCardContainer.querySelector(`.genres`).innerHTML = genreNames.join(", ")
 
     const videoPromise = getGameVideo(game.id)
+    const screenshotsPromise = getGameScreenshots(game.id)
     videoPromise.then(videoJson => {
-        floatingCardContainer.querySelector(`video`).src = videoJson.results.length > 0 ? 
-            videoJson.results[0].data[480] : null
+        if(videoJson.results.length > 0){
+            floatingCardContainer.querySelector(`video`).src = videoJson.results[0].data[480]
+            floatingCardContainer.querySelector(`.trailerVideo`).hidden = false
+        }
+
+        screenshotsPromise.then(screenshotsJson => {
+            let screenshotsCount
+            if(videoJson.results.length > 0){
+                screenshotsCount = 4
+            } else {
+                screenshotsCount = 8
+            }
+            for (let i = 0; i < screenshotsCount; i++){
+                const newImg = document.createElement("img")
+                newImg.src = screenshotsJson.results[i].image
+                floatingCardContainer.querySelector(`.screenshots`).appendChild(newImg)
+            }
+        })
     })
+
 }
 
 // Close the floating card when clicking anywhere
