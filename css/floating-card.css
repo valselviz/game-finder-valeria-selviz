@@ -117,6 +117,8 @@
 
     .floatingCardIcons {
         grid-area: icons;
+        align-self: end;
+        margin-top: 15px;
     }
 
     .multimedia {
@@ -242,8 +244,8 @@ video {
             'purchase'
             'text1'
             'text2'
-            'multimedia'
-            'icons';
+            'icons'
+            'multimedia';
         grid-template-columns: 100%;
         
         .multimedia {

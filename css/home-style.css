@@ -1,5 +1,7 @@
 @import "../css/common.css";
 @import "../css/floating-card.css";
+@import "../css/header.css";
+@import "../css/sidebar.css";
 
 body {
     background-color: #151515;
@@ -8,60 +10,9 @@ body {
     margin: 0;
 }
 
-div.logo {
-    left: 21px;
-    top: 9px;
-}
-
-header {
-    width: 100%;
-    height: 79px;
-    left: 0px;
-    top: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #1B1B1B;
-    #userSesion {
-        display: flex;
-        position: absolute;
-        right: 40px;
-        width: 120px;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 16px;
-        
-    }
-}
-
 .titleContainer {
     line-height: 10px;
     margin: 40px;
-}
-
-.sideBar {
-    width: 156px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 40px;
-    margin-right: 40px;
-
-    .icon {
-        vertical-align: middle;
-        margin-right: 7px;
-    }
-}
-
-.sideBar a {
-    margin-bottom: 10px;
-}
-
-.inputBox input {
-    margin-left: 60px;
-}
-
-.inputBox span {
-    left: 15px;
 }
 
 #cardsDisplay {
@@ -245,19 +196,6 @@ header {
 /* TABLET */
 @media screen and (max-width: 900px) and (min-height: 1000px) {
 
-    .inputBox {
-        width: 30%;
-    }
-
-    div.logo {
-        width: 126px;
-        height: 46px;
-    }
-
-    .sideBar {
-        display: none;
-    }
-
     #mainContainer {
         justify-content: center;
     }
@@ -281,10 +219,6 @@ header {
     
     .titleContainer h4 {
         font-size: 14px;
-    }
-
-    .sideBar {
-        display: none;
     }
 
     #mainContainer {
