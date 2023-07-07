@@ -9,6 +9,7 @@
 }
 
 .floatingCard {
+    position: relative;
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
@@ -22,6 +23,12 @@
     background-repeat: no-repeat;
     background-color: #303030;
     border-radius: 24px;
+}
+
+.xButton {
+    position: absolute;
+    top: 12px;
+    right: 12px;
 }
     
 .floatingCardInfo {
