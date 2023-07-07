@@ -27,6 +27,7 @@ body {
 
 #mainContainer {
     display: flex;
+    right: 40px;
 }
 
 .gameAttributesName {
