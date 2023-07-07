@@ -124,7 +124,6 @@
     .multimedia {
         grid-area: multimedia;
         width: 384px;
-        background-color: red;
         margin-top: 20px;
     }
 }
@@ -203,7 +202,7 @@ video {
             'description description'
             'wishlist purchase '
             'text1 multimedia'
-            'text2 icons';
+            'text2 multimedia';
         grid-template-columns: 50% 50%;
         
         .multimedia {
@@ -214,10 +213,12 @@ video {
 
     .floatingCard {
         margin: 20px;
+        min-height: 984px;
+        max-height: auto;
     }
 
     .floatingCardInfo {
-        align-self: start;
+        align-self: end;
         width: 100%;
     }
 
@@ -231,6 +232,10 @@ video {
     }
 
     .floatingCardIcons {
+        display: flex;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
         margin-left: 20px;
     }
 }
