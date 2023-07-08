@@ -5,6 +5,7 @@ div.logo {
 }
 
 header {
+    position: relative;
     width: 100%;
     height: 79px;
     left: 0px;
@@ -49,21 +50,36 @@ header {
 /* TABLET */
 @media screen and (max-width: 900px) and (min-height: 1000px) {
 
+    header {
+        justify-content: flex-end;
+    }
+
     .inputBox {
         display: none;
         width: 30%;
     }
 
     div.logo {
+        position: absolute;
         transform: scale(0.71);
+        left: 24px;
     }
 
     #hamburgerMenu {
         display: block;
+        position: absolute;
+        right: 104px;
     }
 
     #displaySearchIcon {
         display: block;
+        position: absolute;
+        right: 164px;
+    }
+
+    #userSesion img {
+        position: absolute;
+        right: 0;
     }
 
     #userSesion a {
