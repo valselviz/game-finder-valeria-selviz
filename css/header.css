@@ -90,8 +90,17 @@ header {
 
 /* MOBILE */
 @media screen and (max-width: 600px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+
     div.logo {
-        transform: scale(0.55);
+        left: 50%;
+        transform: scale(0.55) translateX(-100%);
+        display: block;
+        align-self: center;
     }
 
     .inputBox {
@@ -99,10 +108,25 @@ header {
     }
 
     #hamburgerMenu {
+        margin-left: 16px;
+        display: block;
+    }
+
+    #displaySearchIcon {
+        margin-right: 16px;
+        display: block;
+    }
+
+    #userSesion {
         display: none;
+        position: absolute;
     }
 
     #userSesion a {
+        display: none;
+    }
+
+    #userSesion img {
         display: none;
     }
 }

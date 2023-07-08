@@ -214,6 +214,10 @@ body {
 /* MOBILE */
 @media screen and (max-width: 600px) {
 
+    .titleContainer {
+        margin: 16px;
+    }
+
     .titleContainer h1 {
         font-size: 28px;
     }
@@ -232,6 +236,11 @@ body {
     }
 
     .card {
-        width: 100%
+        width: 100%;
+        margin: 16px;
+    }
+
+    #cardsDisplay {
+        display: none;
     }
 }
