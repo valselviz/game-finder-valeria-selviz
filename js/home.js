@@ -1,4 +1,7 @@
-import { loadGames, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots } from './rawgio.js';
+import { loadGames, loadNextPage, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots } from './rawgio.js';
+
+// Game count variable
+let totalGames = 0
 
 // List of parent platform ID
 const pcId = 1
@@ -17,12 +20,16 @@ function parseDate(dateStrig) {
 function createGameCards(gamesData){
     for(let i = 0; i < gamesData.results.length; i++){
         const currentGame = gamesData.results[i]
-        createNewCard(currentGame, i)
+        createNewCard(currentGame, totalGames + i)
     }
+    totalGames += 20
 }
+
+let nextPage
 
 async function showGames(searchQuery){
     const gamesResponse = await loadGames(searchQuery)
+    nextPage = gamesResponse.next
     createGameCards(gamesResponse)
 }
 
@@ -77,6 +84,7 @@ searchInput.addEventListener("change", refreshGamesWithSearchCriteria);
 function refreshGamesWithSearchCriteria() {
     // we need to remove all games to show the searched games only
     gamesContainer.innerHTML = ""
+    totalGames = 0
     let search = searchInput.value;
     showGames(search)
 }
@@ -168,16 +176,17 @@ function openFloatingCard(event, game, gameCount){
 
 // Close the floating card when clicking anywhere
 addEventListener("click", e => {
-    console.log(floatingCardContainer.style.display)
     if (floatingCardContainer.style.display == "") {
         floatingCardContainer.style = "display: none;"
     }
 })
 
-addEventListener("scroll", (event) => {
+addEventListener("scroll", async (event) => {
     let documentHeight = document.body.scrollHeight;
     let currentScroll = window.scrollY + window.innerHeight;
-    if (currentScroll >= documentHeight) {
-        
+    if (currentScroll >= documentHeight && nextPage) {
+        const gamesResponse = await loadNextPage(nextPage)
+        nextPage = gamesResponse.next
+        createGameCards(gamesResponse)
     }
 });

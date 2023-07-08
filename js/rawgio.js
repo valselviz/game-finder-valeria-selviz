@@ -59,12 +59,15 @@ export async function loadGames(searchQuery){
 
         }
     }
-    console.log({url})
-    console.log(searchQueryObject)
     const responsePromise = fetch(url, requestOptions)
     
     return responsePromise.then(resp => resp.json())
     
+}
+
+export async function loadNextPage(nextPageUrl){
+    const responsePromise = fetch(nextPageUrl)
+    return responsePromise.then(resp => resp.json())
 }
 
 // fetch additional game info    
