@@ -6,9 +6,6 @@ const playstationId = 2
 const xboxId = 3
 const nintendoId = 7
 
-// array of games fetched from rawg API
-let games
-
 // array of additional game details fetched individually from rawg API
 const gameDetails = []
 
@@ -26,8 +23,6 @@ function createGameCards(gamesData){
 
 async function showGames(searchQuery){
     const gamesResponse = await loadGames(searchQuery)
-    games = gamesResponse.results
-    console.log(games)
     createGameCards(gamesResponse)
 }
 
@@ -178,3 +173,11 @@ addEventListener("click", e => {
         floatingCardContainer.style = "display: none;"
     }
 })
+
+addEventListener("scroll", (event) => {
+    let documentHeight = document.body.scrollHeight;
+    let currentScroll = window.scrollY + window.innerHeight;
+    if (currentScroll >= documentHeight) {
+        
+    }
+});
