@@ -21,11 +21,21 @@ header {
         align-items: center;
         justify-content: space-between;
         font-size: 16px;
+
+        a {
+            position: absolute;
+            right: 0px;
+        }
         
     }
-    #hamburgerMenu {
-        display: none;
-    }
+}
+
+#hamburgerMenu {
+    display: none;
+}
+
+#displaySearchIcon {
+    display: none;
 }
 
 .inputBox input {
@@ -40,11 +50,24 @@ header {
 @media screen and (max-width: 900px) and (min-height: 1000px) {
 
     .inputBox {
+        display: none;
         width: 30%;
     }
 
     div.logo {
         transform: scale(0.71);
+    }
+
+    #hamburgerMenu {
+        display: block;
+    }
+
+    #displaySearchIcon {
+        display: block;
+    }
+
+    #userSesion a {
+        display: none;
     }
 
 }
@@ -53,5 +76,17 @@ header {
 @media screen and (max-width: 600px) {
     div.logo {
         transform: scale(0.55);
+    }
+
+    .inputBox {
+        display: none;
+    }
+
+    #hamburgerMenu {
+        display: none;
+    }
+
+    #userSesion a {
+        display: none;
     }
 }
