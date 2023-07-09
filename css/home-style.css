@@ -9,6 +9,10 @@ body {
     font-family: Archivo;
     margin: 0;
 }
+.lightMode {
+    background-color: #E5E5E5;
+    color: #515151;
+}
 
 .titleContainer {
     line-height: 10px;
@@ -34,10 +38,16 @@ body {
     font-weight: 500;
     color: #939393;
 }
+.lightMode .gameAttributesName {
+    color: #515151;
+}
 
 .gameAttributesValue {
     font-weight: 400;
     color: #FFFFFF;
+}
+.lightMode .gameAttributesValue {
+    color: #515151;
 }
 
 .description {
@@ -143,6 +153,9 @@ body {
         }
     }
 }
+.lightMode .card { 
+    background-color: #FFFFFF;
+}
 
 .threeColumnsView {
     display: flex;
@@ -151,8 +164,6 @@ body {
     flex-wrap: wrap;
 
     .gameAttributesName {
-        font-weight: 500;
-        color: #939393;
         width: 100px;
     }
 }

@@ -30,6 +30,9 @@ header {
         
     }
 }
+.lightMode header {
+    background-color: #D9D9D9;
+}
 
 #searchInput {
     position: absolute;

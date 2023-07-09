@@ -159,7 +159,9 @@ function openFloatingCard(event, game, gameCount){
     floatingCardContainer.querySelector(`.screenshots`).innerHTML = ""
     floatingCardContainer.style = ""
 
-    const backgroundImageStyle = `background-image: linear-gradient(to bottom, #00000000, #303030FF), url("${game.background_image}")`
+    const visualMode = sessionStorage.getItem("visualMode")
+    const backgroundColor = visualMode == "light" ? "#F0F0F0FF" : "#303030FF"
+    const backgroundImageStyle = `background-image: linear-gradient(to bottom, #00000000, ${backgroundColor}), url("${game.background_image}")`
     floatingCardContainer.querySelector(`.floatingCard`).style = backgroundImageStyle
     floatingCardContainer.querySelector(`.gameTitle`).innerHTML = game.name
     floatingCardContainer.querySelector(`.rankingTag .purpleText`).innerHTML = "#" + (gameCount + 1)

@@ -97,6 +97,9 @@ h1 {
     font-size: 48px;
     color: white; 
 }
+.lightMode h1 {
+    color: #515151;
+}
 
 h2 {
     font-family: 'Archivo';
@@ -106,6 +109,9 @@ h2 {
     display: flex;
     align-items: center;
 }
+.lightMode h2 {
+    color: #515151;
+}
 
 h3 {
     font-family: 'Archivo';
@@ -114,6 +120,9 @@ h3 {
     font-size: 20px;
     color: white;
 }
+.lightMode h3 {
+    color: #515151;
+}
 
 h4 {
     font-family: 'Archivo';
@@ -121,6 +130,9 @@ h4 {
     font-weight: 400;
     font-size: 18px;
     color: white;
+}
+.lightMode h4 {
+    color: #515151;
 }
 
 h5 {

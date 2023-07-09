@@ -17,12 +17,15 @@
     height: 90%;
     min-height: 600px;
     max-height: 793px;
-    background-image: linear-gradient(to bottom, #00000000, #303030FF), 
-        url("https://media.rawg.io/media/games/456/456dea5e1c7e3cd07060c14e96612001.jpg");
+    background-image: linear-gradient(to bottom, #00000000, #303030FF);
     background-size: 100% 80%;
     background-repeat: no-repeat;
     background-color: #303030;
     border-radius: 24px;
+}
+.lightMode .floatingCard {
+    background-image: linear-gradient(to bottom, #00000000, #F0F0F0);
+    background-color: #F0F0F0;
 }
 
 .xButton {
