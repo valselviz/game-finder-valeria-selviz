@@ -190,3 +190,13 @@ addEventListener("scroll", async (event) => {
         createGameCards(gamesResponse)
     }
 });
+
+function showSearchBar(){
+    searchBar.className = searchBar.className.replace("hiddenOnMobile", "")
+}
+displaySearchIcon.addEventListener("click", () => showSearchBar())
+
+function closeSearchBar(){
+    searchBar.className += " hiddenOnMobile"
+}
+hideSearchBox.addEventListener("click", () => closeSearchBar())

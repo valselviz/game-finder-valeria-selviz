@@ -31,6 +31,19 @@ header {
     }
 }
 
+#searchInput {
+    position: absolute;
+    top: 15px;
+    width: 300px;
+}
+
+#hideSearchBox {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: none;
+}
+
 #hamburgerMenu {
     display: none;
 }
@@ -40,11 +53,11 @@ header {
 }
 
 .inputBox input {
-    margin-left: 60px;
+    margin-left: 40px;
 }
 
 .inputBox span {
-    left: 15px;
+    left: 12px;
 }
 
 /* TABLET */
@@ -57,6 +70,10 @@ header {
     .inputBox {
         display: none;
         width: 30%;
+    }
+        
+    #circledX {
+        display: block;
     }
 
     div.logo {
@@ -92,19 +109,32 @@ header {
 @media screen and (max-width: 600px) {
     header {
         display: flex;
+        height: 50px;
         justify-content: space-between;
         flex-direction: row-reverse;
     }
 
     div.logo {
+        top: 0px;
         left: 50%;
         transform: scale(0.55) translateX(-100%);
         display: block;
         align-self: center;
     }
 
-    .inputBox {
+    #searchBar {
+        position: absolute;
+        top: 58px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hiddenOnMobile {
         display: none;
+    }
+   
+    #hideSearchBox {
+        display: block;
     }
 
     #hamburgerMenu {
