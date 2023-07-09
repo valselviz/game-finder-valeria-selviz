@@ -235,6 +235,17 @@ function showSearchBar(){
 }
 displaySearchIcon.addEventListener("click", () => showSearchBar())
 
+function hamburgerMenuClick(){
+    if (sideBar.className != "") {
+        sideBar.className = sideBar.className.replace("hiddenOnMobileOrTablet", "")
+        gamesContainer.className += " hiddenOnMobileOrTablet"
+    } else {
+        sideBar.className += "hiddenOnMobileOrTablet"
+        gamesContainer.className = gamesContainer.className.replace("hiddenOnMobileOrTablet", "")
+    }
+}
+hamburgerMenu.addEventListener("click", () => hamburgerMenuClick())
+
 function closeSearchBar(){
     searchBar.className += " hiddenOnMobile"
 }

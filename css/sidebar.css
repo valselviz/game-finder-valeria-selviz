@@ -1,4 +1,4 @@
-.sideBar {
+#sideBar {
     width: 156px;
     display: flex;
     flex-direction: column;
@@ -11,7 +11,7 @@
     }
 }
 
-.sideBar a {
+#sideBar a {
     margin-bottom: 10px;
 }
 
@@ -31,16 +31,23 @@ p {
 /* TABLET */
 @media screen and (max-width: 900px) and (min-height: 1000px) {
 
-    .sideBar {
+    #sideBar.hiddenOnMobileOrTablet {
         display: none;
     }
 
+    #gamesContainer.hiddenOnMobileOrTablet {
+        display: none;
+    }
 }
 
 /* MOBILE */
 @media screen and (max-width: 600px) {
 
-    .sideBar {
+    #sideBar.hiddenOnMobileOrTablet {
+        display: none;
+    }
+
+    #gamesContainer.hiddenOnMobileOrTablet {
         display: none;
     }
 
