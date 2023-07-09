@@ -32,11 +32,11 @@ async function showGames(searchQuery){
     nextPage = gamesResponse.next
     createGameCards(gamesResponse)
     if(searchQuery){
-        saveLastsSearches(searchQuery)
+        saveLastsSearchesAndRefreshOptions(searchQuery)
     }
 }
 
-function saveLastsSearches(searchQuery){
+function saveLastsSearchesAndRefreshOptions(searchQuery){
     const storedLastSearches = sessionStorage.getItem("lastSearches")
     let lastSearches 
     if (storedLastSearches){
@@ -44,9 +44,11 @@ function saveLastsSearches(searchQuery){
     } else {
         lastSearches = []
     }
-    lastSearches.unshift(searchQuery)
-    if (lastSearches.length > 10){
-        lastSearches.pop()
+    if (searchQuery){
+        lastSearches.unshift(searchQuery)
+        if (lastSearches.length > 10){
+            lastSearches.pop()
+        }
     }
     sessionStorage.setItem("lastSearches", JSON.stringify(lastSearches))
     searches.innerHTML = ""
@@ -102,6 +104,7 @@ async function createNewCard(game, gameCount){
 }
 
 addEventListener("DOMContentLoaded", e => showGames())
+addEventListener("DOMContentLoaded", e => saveLastsSearchesAndRefreshOptions(null))
 
 searchInput.addEventListener("change", refreshGamesWithSearchCriteria);
 
