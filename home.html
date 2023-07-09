@@ -15,7 +15,11 @@
             </div>
             <div id="searchBar" class="inputBox hiddenOnMobile">
                 <span><img id="searchIcon" src="assets/Search/search.png"></span>
-                <input type="search" id="searchInput" placeholder="Search games...">
+                <input type="search" id="searchInput" placeholder="Search games..." autocomplete="off" list="searches">
+                <datalist id="searches">
+                    <!--<option>hi</option>
+                    <option>hi2</option>-->
+                </datalist>
                 <img id="hideSearchBox" src="assets/Search/circled-x.svg">
             </div>
             <div id="displaySearchIcon">

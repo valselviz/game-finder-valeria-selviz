@@ -12,6 +12,9 @@ const nintendoId = 7
 // array of additional game details fetched individually from rawg API
 const gameDetails = []
 
+// array of last searches
+const lastSearches = []
+
 function parseDate(dateStrig) {
     const date = new Date(dateStrig)
     return `${date.toLocaleString('en-US', {month: 'short'})} ${date.getDate()}, ${date.getFullYear()}`
@@ -31,6 +34,19 @@ async function showGames(searchQuery){
     const gamesResponse = await loadGames(searchQuery)
     nextPage = gamesResponse.next
     createGameCards(gamesResponse)
+    if(searchQuery){
+        saveLastsSearches(searchQuery)
+    }
+}
+
+function saveLastsSearches(searchQuery){
+    lastSearches.unshift(searchQuery)
+    searches.innerHTML = ""
+    for (let i = 0; i < lastSearches.length && i < 10; i++){
+        const opt = document.createElement("option")
+        opt.innerHTML = lastSearches[i]
+        searches.appendChild(opt)
+    }
 }
 
 async function createNewCard(game, gameCount){
