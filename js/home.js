@@ -12,9 +12,6 @@ const nintendoId = 7
 // array of additional game details fetched individually from rawg API
 const gameDetails = []
 
-// array of last searches
-const lastSearches = []
-
 function parseDate(dateStrig) {
     const date = new Date(dateStrig)
     return `${date.toLocaleString('en-US', {month: 'short'})} ${date.getDate()}, ${date.getFullYear()}`
@@ -40,9 +37,20 @@ async function showGames(searchQuery){
 }
 
 function saveLastsSearches(searchQuery){
+    const storedLastSearches = sessionStorage.getItem("lastSearches")
+    let lastSearches 
+    if (storedLastSearches){
+        lastSearches = JSON.parse(storedLastSearches)
+    } else {
+        lastSearches = []
+    }
     lastSearches.unshift(searchQuery)
+    if (lastSearches.length > 10){
+        lastSearches.pop()
+    }
+    sessionStorage.setItem("lastSearches", JSON.stringify(lastSearches))
     searches.innerHTML = ""
-    for (let i = 0; i < lastSearches.length && i < 10; i++){
+    for (let i = 0; i < lastSearches.length; i++){
         const opt = document.createElement("option")
         opt.innerHTML = lastSearches[i]
         searches.appendChild(opt)
