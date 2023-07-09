@@ -15,6 +15,19 @@
     margin-bottom: 10px;
 }
 
+#lastSearchesDiv {
+    position: relative;
+    top: -10px;
+    display: flex;
+    flex-direction: column;
+    left: 36px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 0px;
+}
+
 /* TABLET */
 @media screen and (max-width: 900px) and (min-height: 1000px) {
 

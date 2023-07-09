@@ -31,9 +31,6 @@ async function showGames(searchQuery){
     const gamesResponse = await loadGames(searchQuery)
     nextPage = gamesResponse.next
     createGameCards(gamesResponse)
-    if(searchQuery){
-        saveLastsSearchesAndRefreshOptions(searchQuery)
-    }
 }
 
 function saveLastsSearchesAndRefreshOptions(searchQuery){
@@ -52,10 +49,22 @@ function saveLastsSearchesAndRefreshOptions(searchQuery){
     }
     sessionStorage.setItem("lastSearches", JSON.stringify(lastSearches))
     searches.innerHTML = ""
+    lastSearchesDiv.innerHTML = ""
     for (let i = 0; i < lastSearches.length; i++){
         const opt = document.createElement("option")
         opt.innerHTML = lastSearches[i]
         searches.appendChild(opt)
+    }
+    if (lastSearches.length > 0){
+        for (let i = 0; i < lastSearches.length; i++){
+            const p = document.createElement("p")
+            p.innerHTML = lastSearches[i]
+            p.onclick = () => {
+                gamesContainer.innerHTML = ""
+                showGames(lastSearches[i])
+            }
+            lastSearchesDiv.appendChild(p)
+        }
     }
 }
 
@@ -103,8 +112,10 @@ async function createNewCard(game, gameCount){
     newCard.hidden = false
 }
 
-addEventListener("DOMContentLoaded", e => showGames())
-addEventListener("DOMContentLoaded", e => saveLastsSearchesAndRefreshOptions(null))
+addEventListener("DOMContentLoaded", e => {
+    showGames()
+    saveLastsSearchesAndRefreshOptions(null)
+})
 
 searchInput.addEventListener("change", refreshGamesWithSearchCriteria);
 
@@ -114,6 +125,7 @@ function refreshGamesWithSearchCriteria() {
     totalGames = 0
     let search = searchInput.value;
     showGames(search)
+    saveLastsSearchesAndRefreshOptions(search)
 }
 
 function changeCardsDisplay(containerClass) {
