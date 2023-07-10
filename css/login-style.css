@@ -2,6 +2,7 @@
 
 body {
     background-image: url('../assets/dark-mode/background-img/BG.png');
+    color: #FFFFFF;
 }
 .lightMode {
     background-image: url('../assets/light-mode/background-img/unsplash_jCorhBYp_C4.png');
@@ -21,6 +22,29 @@ body {
 
 }
 .lightMode .loginPanel {
+    background: rgba(240, 240, 240, 0.8);
+}
+
+.loginTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.singupPanel {
+    position: absolute;
+    display: flex;
+    width: 462px;
+    height: 350px;
+    right: 99px;
+    top: 178px;
+
+    background: rgba(23, 23, 23, 0.8);
+
+    border-radius: 12px;
+
+}
+.lightMode .singupPanel {
     background: rgba(240, 240, 240, 0.8);
 }
 
@@ -48,7 +72,6 @@ body {
 p {
     font-family: 'Archivo';
     font-size: 16px;
-    color: white;
 }
 
 .loginText {
@@ -59,7 +82,7 @@ p {
     line-height: 19px;
     display: flex;
     align-items: center;
-    color: #FFFFFF;
+
 }
 
 a {
@@ -175,6 +198,10 @@ a {
     margin-top: 6.5%;
     margin-bottom: 6.5%;
 }
+.lightMode .socialMedia {
+    border: 2px solid #BF5FE1;
+    color: #BF5FE1;
+}
 
 .separator {
     display: flex;
@@ -186,12 +213,20 @@ a {
     font-weight: 400;
     font-size: 14px;
 }
+.lightMode .separator {
+    color: #BF5FE1;
+}
   
 .separator::before,
 .separator::after {
     content: '';
     flex: 1;
     border-bottom: 1px solid #ffffff;
+}
+
+.lightMode .separator::before,
+.lightMode .separator::after {
+    border-bottom: 1px solid #BF5FE1;
 }
   
 .separator:not(:empty)::before {

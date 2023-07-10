@@ -113,14 +113,6 @@ async function createNewCard(game, gameCount){
     newCard.hidden = false
 }
 
-addEventListener("DOMContentLoaded", e => {
-    setVisualMode()
-    showGames()
-    saveLastsSearchesAndRefreshOptions(null)
-})
-
-searchInput.addEventListener("change", refreshGamesWithSearchCriteria);
-
 function refreshGamesWithSearchCriteria() {
     // we need to remove all games to show the searched games only
     gamesContainer.innerHTML = ""
@@ -133,14 +125,14 @@ function refreshGamesWithSearchCriteria() {
 function changeCardsDisplay(containerClass) {
     gamesContainer.className = containerClass
     if (containerClass == "threeColumnsView") {
-        threeColumnsIcon.src = "assets/cardsDisplay/threeColumnViewActive.svg"
-        singleColumnIcon.src = "assets/cardsDisplay/singleColumnViewDisabled.svg"
+        threeColumnsIcon.src = threeColumnsIcon.src.replace("three-column-disabled", "three-column-active") 
+        singleColumnIcon.src = singleColumnIcon.src.replace("single-column-active", "single-column-disabled") 
         for (const description of gamesContainer.querySelectorAll(`.description`)){
             description.hidden = true
         }
     } else {
-        threeColumnsIcon.src = "assets/cardsDisplay/threeColumnViewDisabled.svg"
-        singleColumnIcon.src = "assets/cardsDisplay/singleColumnViewActive.svg"
+        threeColumnsIcon.src = threeColumnsIcon.src.replace("three-column-active", "three-column-disabled") 
+        singleColumnIcon.src = singleColumnIcon.src.replace("single-column-disabled", "single-column-active") 
         console.log(gamesContainer.querySelectorAll(`.description`))
         for (const description of gamesContainer.querySelectorAll(`.description`)){
             description.hidden = false
@@ -148,8 +140,6 @@ function changeCardsDisplay(containerClass) {
     }
 }
 
-threeColumnsIcon.addEventListener("click", () => changeCardsDisplay("threeColumnsView"))
-singleColumnIcon.addEventListener("click", () => changeCardsDisplay("singleColumnView"))
 
 function openFloatingCard(event, game, gameCount){
     // I need to stop the propagation of this event
@@ -214,43 +204,54 @@ function openFloatingCard(event, game, gameCount){
             }
         })
     })
-
 }
 
-// Close the floating card when clicking anywhere
-addEventListener("click", e => {
-    if (floatingCardContainer.style.display == "") {
-        floatingCardContainer.style = "display: none;"
-    }
+addEventListener("DOMContentLoaded", e => {
+    setVisualMode()
+    showGames()
+    saveLastsSearchesAndRefreshOptions(null)
+    
+    // Make sure to associate an event listener function to an html element after the setVisualMode gets executed
+    // Because the setVisualMode might erase and recreate all the html elements, losing all the 
+    // event listening funcitons previously assigned
+
+    threeColumnsIcon.addEventListener("click", () => changeCardsDisplay("threeColumnsView"))
+    singleColumnIcon.addEventListener("click", () => changeCardsDisplay("singleColumnView"))
+    
+    searchInput.addEventListener("change", refreshGamesWithSearchCriteria);
+    
+    // Close the floating card when clicking anywhere
+    addEventListener("click", e => {
+        if (floatingCardContainer.style.display == "") {
+            floatingCardContainer.style = "display: none;"
+        }
+    })
+
+    addEventListener("scroll", async (event) => {
+        let documentHeight = document.body.scrollHeight;
+        let currentScroll = window.scrollY + window.innerHeight;
+        if (currentScroll >= documentHeight && nextPage) {
+            const gamesResponse = await loadNextPage(nextPage)
+            nextPage = gamesResponse.next
+            createGameCards(gamesResponse)
+        }
+    });
+
+    displaySearchIcon.addEventListener("click", () => {
+        searchBar.className = searchBar.className.replace("hiddenOnMobile", "")
+    })
+
+    hamburgerMenu.addEventListener("click", () => {
+        if (sideBar.className != "") {
+            sideBar.className = sideBar.className.replace("hiddenOnMobileOrTablet", "")
+            gamesContainer.className += " hiddenOnMobileOrTablet"
+        } else {
+            sideBar.className += "hiddenOnMobileOrTablet"
+            gamesContainer.className = gamesContainer.className.replace("hiddenOnMobileOrTablet", "")
+        }
+    })
+
+    hideSearchBox.addEventListener("click", () => {
+        searchBar.className += " hiddenOnMobile"
+    })
 })
-
-addEventListener("scroll", async (event) => {
-    let documentHeight = document.body.scrollHeight;
-    let currentScroll = window.scrollY + window.innerHeight;
-    if (currentScroll >= documentHeight && nextPage) {
-        const gamesResponse = await loadNextPage(nextPage)
-        nextPage = gamesResponse.next
-        createGameCards(gamesResponse)
-    }
-});
-
-function showSearchBar(){
-    searchBar.className = searchBar.className.replace("hiddenOnMobile", "")
-}
-displaySearchIcon.addEventListener("click", () => showSearchBar())
-
-function hamburgerMenuClick(){
-    if (sideBar.className != "") {
-        sideBar.className = sideBar.className.replace("hiddenOnMobileOrTablet", "")
-        gamesContainer.className += " hiddenOnMobileOrTablet"
-    } else {
-        sideBar.className += "hiddenOnMobileOrTablet"
-        gamesContainer.className = gamesContainer.className.replace("hiddenOnMobileOrTablet", "")
-    }
-}
-hamburgerMenu.addEventListener("click", () => hamburgerMenuClick())
-
-function closeSearchBar(){
-    searchBar.className += " hiddenOnMobile"
-}
-hideSearchBox.addEventListener("click", () => closeSearchBar())

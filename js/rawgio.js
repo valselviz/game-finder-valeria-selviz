@@ -1,5 +1,6 @@
 const domain = "http://localhost:3001"
-const apiKey = "e32eec27801f4816b231d43c3d38528a"
+//const apiKey = "e32eec27801f4816b231d43c3d38528a"
+const apiKey = "7dfccf92890d4d62959a27c9bbb07eda"
 const requestOptions = {
     headers: {
         "Target-URL": "https://rawg.io",
