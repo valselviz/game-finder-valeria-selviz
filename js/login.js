@@ -1,3 +1,4 @@
+import { setVisualMode } from "./visual-mode.js"
 
 async function login(){
     const inputUserName = document.getElementById("userName")
@@ -46,11 +47,4 @@ function showPassword() {
     }
 }
 
-
-addEventListener("DOMContentLoaded", e => {
-    const visualMode = sessionStorage.getItem("visualMode")
-    if (visualMode == "light"){
-        document.body.className = "lightMode"
-        document.body.innerHTML = document.body.innerHTML.replaceAll("assets/dark-mode/", "assets/light-mode/")
-    }
-})
+addEventListener("DOMContentLoaded", setVisualMode)

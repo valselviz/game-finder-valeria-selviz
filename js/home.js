@@ -1,4 +1,5 @@
 import { loadGames, loadNextPage, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots } from './rawgio.js';
+import { setVisualMode } from "./visual-mode.js"
 
 // Game count variable
 let totalGames = 0
@@ -113,6 +114,7 @@ async function createNewCard(game, gameCount){
 }
 
 addEventListener("DOMContentLoaded", e => {
+    setVisualMode()
     showGames()
     saveLastsSearchesAndRefreshOptions(null)
 })
