@@ -45,3 +45,12 @@ function showPassword() {
         passwordInput.setAttribute('type', 'password');
     }
 }
+
+
+addEventListener("DOMContentLoaded", e => {
+    const visualMode = sessionStorage.getItem("visualMode")
+    if (visualMode == "light"){
+        document.body.className = "lightMode"
+        document.body.innerHTML = document.body.innerHTML.replaceAll("assets/dark-mode/", "assets/light-mode/")
+    }
+})
