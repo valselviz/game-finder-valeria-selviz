@@ -157,6 +157,14 @@ body {
     background-color: #FFFFFF;
 }
 
+.visualMode {
+    position: absolute;
+    top: 121px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+}
+
 .threeColumnsView {
     display: flex;
     flex-direction: row;
