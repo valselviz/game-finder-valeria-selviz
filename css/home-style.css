@@ -14,7 +14,7 @@ body {
     color: #515151;
 }
 
-.titleContainer {
+#titleContainer {
     line-height: 10px;
     margin: 40px;
 }
@@ -208,6 +208,16 @@ body {
 /* TABLET */
 @media screen and (max-width: 900px) and (min-height: 1000px) {
 
+    #sideBar {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding-left: 25px;
+    }
+    .lightMode #sideBar {
+        background-color: #FFFFFF;
+    }
+
     #mainContainer {
         justify-content: left;
     }
@@ -222,18 +232,32 @@ body {
     }
 }
 
+.hiddenOnMobileOrTablet {
+    display: none;
+}
+
 /* MOBILE */
 @media screen and (max-width: 600px) {
+    
+    #sideBar {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding-left: 25px;
+    }
+    .lightMode #sideBar {
+        background-color: #FFFFFF;
+    }
 
-    .titleContainer {
+    #titleContainer {
         margin: 16px;
     }
 
-    .titleContainer h1 {
+    #titleContainer h1 {
         font-size: 28px;
     }
     
-    .titleContainer h4 {
+    #titleContainer h4 {
         font-size: 14px;
     }
 
