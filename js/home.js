@@ -152,7 +152,7 @@ function openFloatingCard(event, game, gameCount){
     floatingCardContainer.style = ""
 
     const visualMode = sessionStorage.getItem("visualMode")
-    const backgroundColor = visualMode == "light" ? "#F0F0F0FF" : "#303030FF"
+    const backgroundColor = visualMode == "dark" ? "#303030FF" : "#F0F0F0FF"
     const backgroundImageStyle = `background-image: linear-gradient(to bottom, #00000000, ${backgroundColor}), url("${game.background_image}")`
     floatingCardContainer.querySelector(`.floatingCard`).style = backgroundImageStyle
     floatingCardContainer.querySelector(`.gameTitle`).innerHTML = game.name
