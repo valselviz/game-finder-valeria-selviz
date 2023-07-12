@@ -256,4 +256,6 @@ addEventListener("DOMContentLoaded", e => {
     hideSearchBox.addEventListener("click", () => {
         searchBar.className += " hiddenOnMobile"
     })
+
+    
 })

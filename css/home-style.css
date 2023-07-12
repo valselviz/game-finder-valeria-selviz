@@ -19,14 +19,35 @@ body {
     margin: 40px;
 }
 
-#cardsDisplay {
+#optionIcons {
     position: absolute;
     display: flex;
+    flex-direction: column;
     width: 104px;
     height: 40px;
-    justify-content: space-between;
-    top:171px;
+    justify-content: right;
+    top: 100px;
     right: 40px;
+}
+
+#optionIcons img {
+    margin: 10px;
+}
+
+#visualModeSwitcher {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+#visualModeSwitcher p {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+#cardsDisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
 }
 
 #mainContainer {
