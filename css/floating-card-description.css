@@ -2,7 +2,14 @@
     display: none;
 }
 
+#backFromLongDescription {
+    display: none;
+}
+
 .fullDescription {
+    .platformsTitleAndRanking {
+        margin-top: 50px;
+    }
     .floatingCardInfo {
         align-self: start;
         height: 100%
@@ -11,7 +18,7 @@
         display: initial;
     }
     .description {
-        height: 85%;
+        height: 75%;
         display: flex;
     }
     .gridContainer {
@@ -49,4 +56,13 @@
     .gameTagsRow {
         display: none;
     }
+
+    #backFromLongDescription {
+        display: initial;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+    }
 }
+
+

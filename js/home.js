@@ -285,8 +285,10 @@ addEventListener("DOMContentLoaded", e => {
     })
 
     descriptionReadMore.addEventListener("click", () => {
-        console.log(floatingCardContainer.className)
         floatingCardContainer.className = "fullDescription"
-        console.log(floatingCardContainer.className)
+    })
+
+    backFromLongDescription.addEventListener("click", () => {
+        floatingCardContainer.className = ""
     })
 })
