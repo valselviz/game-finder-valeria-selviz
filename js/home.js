@@ -1,4 +1,4 @@
-import { loadGames, loadNextPage, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots } from './rawgio.js';
+import { loadGames, loadNextPage, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots, thisWeek } from './rawgio.js';
 import { refreshVisualMode } from "./visual-mode.js"
 
 // Game count variable
@@ -29,6 +29,9 @@ function createGameCards(gamesData){
 let nextPage
 
 async function showGames(searchQuery){
+    // we need to remove all games in case we are searching for new games
+    gamesContainer.innerHTML = ""
+    totalGames = 0
     const gamesResponse = await loadGames(searchQuery)
     nextPage = gamesResponse.next
     createGameCards(gamesResponse)
@@ -61,7 +64,6 @@ function saveLastsSearchesAndRefreshOptions(searchQuery){
             const p = document.createElement("p")
             p.innerHTML = lastSearches[i]
             p.onclick = () => {
-                gamesContainer.innerHTML = ""
                 showGames(lastSearches[i])
             }
             lastSearchesDiv.appendChild(p)
@@ -114,9 +116,6 @@ async function createNewCard(game, gameCount){
 }
 
 function refreshGamesWithSearchCriteria() {
-    // we need to remove all games to show the searched games only
-    gamesContainer.innerHTML = ""
-    totalGames = 0
     let search = searchInput.value;
     showGames(search)
     saveLastsSearchesAndRefreshOptions(search)
@@ -290,5 +289,9 @@ addEventListener("DOMContentLoaded", e => {
 
     backFromLongDescription.addEventListener("click", () => {
         floatingCardContainer.className = ""
+    })
+
+    thisWeekSearch.addEventListener("click", () => {
+        
     })
 })

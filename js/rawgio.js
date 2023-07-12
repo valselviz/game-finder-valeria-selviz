@@ -116,3 +116,5 @@ export async function getGameScreenshots(gameId) {
     // return a promise so it can be handled without blocking the page
     return singleGameResponse.json()
 }
+
+export async function thisWeek
