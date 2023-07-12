@@ -36,7 +36,7 @@
         </div>
         <div id="optionIcons">
             <div id="visualModeSwitcher">
-                <p>Light mode</p>
+                <p id="visualModeText">Light mode</p>
                 <img id="visualModeSwitch" src="assets/dark-mode/visual-mode-icons/switch.svg">
             </div>
             <div id="cardsDisplay">
@@ -93,8 +93,8 @@
             </div>  
         </div>
         <div id="floatingCardContainer" style="display: none;">
-            <div class="floatingCard">
-                <img class="xButton" src="assets/common/floatin-card-icons/close/X.svg">
+            <div id="floatingCard">
+                <img id="xButton" src="assets/common/floatin-card-icons/close/X.svg">
                 <div class="floatingCardInfo">
                     <div class="platformsTitleAndRanking">
                         <div>
@@ -113,6 +113,8 @@
                     <div class="gridContainer">
                         <div class="description">
                             <p class="descriptionText"></p>
+                            <p id="descriptionReadMore">Read more</p>
+                            <p class="descriptionTextLong"></p>
                         </div>
                         <button class="wishlist">
                             <p>Add to wishlist</p>

@@ -8,7 +8,7 @@
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.floatingCard {
+#floatingCard {
     position: relative;
     display: flex;
     margin-top: auto;
@@ -23,12 +23,12 @@
     background-color: #303030;
     border-radius: 24px;
 }
-.lightMode .floatingCard {
+.lightMode #floatingCard {
     background-image: linear-gradient(to bottom, #00000000, #F0F0F0);
     background-color: #F0F0F0;
 }
 
-.xButton {
+#xButton {
     position: absolute;
     top: 12px;
     right: 12px;
@@ -96,10 +96,21 @@
     
     .description {
         grid-area: description;
-        height: 85px;
+        height: initial;
         width: 603px;
         overflow: hidden;
         margin-right: 15px;
+        padding-top: 16px;
+    }
+    .description p {
+        margin: 0;
+    }
+    #descriptionReadMore {
+        font-family: 'OpenSans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        color: #BF5FE1;
     }
 
     .wishlist {
@@ -135,7 +146,7 @@
     display: flex;
     justify-content: space-evenly;
     text-align: center;
-    margin: 20px 0 20px 0;
+    margin: 10px 0 0 0;
     position: relative;
     color: #FFFFFF;
     background-color: #BF5FE1;
@@ -162,7 +173,7 @@
     display: flex;
     justify-content: space-evenly;
     text-align: center;
-    margin: 20px 0 20px 0;
+    margin: 10px 0 0 0;
     position: relative;
     color: #BF5FE1;
     background-color: #00000022;
@@ -214,7 +225,7 @@ video {
         }
     }
 
-    .floatingCard {
+    #floatingCard {
         margin: 20px;
         min-height: 984px;
         max-height: auto;
@@ -277,7 +288,7 @@ video {
         margin-top: 77px;
     }
 
-    .floatingCard {
+    #floatingCard {
         margin: 0;
         width: 100%;
         min-height: initial;

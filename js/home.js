@@ -133,7 +133,6 @@ function changeCardsDisplay(containerClass) {
     } else {
         threeColumnsIcon.src = threeColumnsIcon.src.replace("three-column-active", "three-column-disabled") 
         singleColumnIcon.src = singleColumnIcon.src.replace("single-column-disabled", "single-column-active") 
-        console.log(gamesContainer.querySelectorAll(`.description`))
         for (const description of gamesContainer.querySelectorAll(`.description`)){
             description.hidden = false
         }
@@ -154,11 +153,21 @@ function openFloatingCard(event, game, gameCount){
     const visualMode = sessionStorage.getItem("visualMode")
     const backgroundColor = visualMode == "dark" ? "#303030FF" : "#F0F0F0FF"
     const backgroundImageStyle = `background-image: linear-gradient(to bottom, #00000000, ${backgroundColor}), url("${game.background_image}")`
-    floatingCardContainer.querySelector(`.floatingCard`).style = backgroundImageStyle
+    floatingCardContainer.querySelector(`#floatingCard`).style = backgroundImageStyle
     floatingCardContainer.querySelector(`.gameTitle`).innerHTML = game.name
     floatingCardContainer.querySelector(`.rankingTag .purpleText`).innerHTML = "#" + (gameCount + 1)
     floatingCardContainer.querySelector(`.dateReleaseTag .grayText`).innerHTML = game.released
-    floatingCardContainer.querySelector(`.descriptionText`).innerHTML = gameDetails[gameCount].description
+    
+    const gameDescription = gameDetails[gameCount].description
+    const maxDescriptionLength = 330
+    if (gameDescription.length > maxDescriptionLength) {
+        floatingCardContainer.querySelector(`.descriptionText`).innerHTML = gameDescription.substring(0, maxDescriptionLength) + '...'
+        descriptionReadMore.hidden = false
+    } else {
+        floatingCardContainer.querySelector(`.descriptionText`).innerHTML = gameDescription
+        descriptionReadMore.hidden = true
+    }
+    floatingCardContainer.querySelector(`.descriptionTextLong`).innerHTML = gameDescription
 
     // use the 'map' function to convert an array of parent platforms objects, into 
     // an array of platform names (strings)
@@ -206,6 +215,12 @@ function openFloatingCard(event, game, gameCount){
     })
 }
 
+function closeFloatingCard() {
+    if (floatingCardContainer.style.display == "") {
+        floatingCardContainer.style = "display: none;"
+    }
+}
+
 addEventListener("DOMContentLoaded", e => {
     refreshVisualMode()
     showGames()
@@ -220,12 +235,14 @@ addEventListener("DOMContentLoaded", e => {
     
     searchInput.addEventListener("change", refreshGamesWithSearchCriteria);
     
-    // Close the floating card when clicking anywhere
-    addEventListener("click", e => {
-        if (floatingCardContainer.style.display == "") {
-            floatingCardContainer.style = "display: none;"
-        }
-    })
+    // Clicking on the floating card background closes it
+    floatingCardContainer.addEventListener("click", closeFloatingCard)
+    // But when clicking the floating card itself, I should not let the event propagate to the background
+    // because I don't want it to remain open
+    floatingCard.addEventListener("click", e => e.stopPropagation())
+
+    xButton.addEventListener("click", closeFloatingCard)
+
 
     addEventListener("scroll", async (event) => {
         let documentHeight = document.body.scrollHeight;
@@ -265,5 +282,11 @@ addEventListener("DOMContentLoaded", e => {
             sessionStorage.setItem("visualMode", "dark")
         }
         refreshVisualMode()
+    })
+
+    descriptionReadMore.addEventListener("click", () => {
+        console.log(floatingCardContainer.className)
+        floatingCardContainer.className = "fullDescription"
+        console.log(floatingCardContainer.className)
     })
 })

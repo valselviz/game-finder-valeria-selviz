@@ -1,0 +1,52 @@
+.descriptionTextLong {
+    display: none;
+}
+
+.fullDescription {
+    .floatingCardInfo {
+        align-self: start;
+        height: 100%
+    }
+    .descriptionTextLong {
+        display: initial;
+    }
+    .description {
+        height: 85%;
+        display: flex;
+    }
+    .gridContainer {
+        display: block;
+        height: 80%;
+    }
+
+    .descriptionText {
+        display: none;
+    }
+    #descriptionReadMore {
+        display: none;
+    }
+    .floatingCardInfo .gameTagsRow {
+        display: none;
+    }
+    .wishlist {
+        display: none;
+    }
+    .purchase {
+        display: none;
+    }
+    .gameDetailsAttributes1 {
+        display: none;
+    }
+    .gameDetailsAttributes2 {
+        display: none;
+    }
+    .multimedia {
+        display: none;
+    }
+    .floatingCardIcons {
+        display: none;
+    }
+    .gameTagsRow {
+        display: none;
+    }
+}
