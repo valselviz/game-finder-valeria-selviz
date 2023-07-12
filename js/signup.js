@@ -1,4 +1,4 @@
-import { setVisualMode } from "./visual-mode.js"
+import { refreshVisualMode } from "./visual-mode.js"
 
 function setErrorMessage(message){
     const errorParagraph = document.getElementById('errorText')
@@ -59,5 +59,5 @@ async function createUser(){
     }
 }
 
-addEventListener("DOMContentLoaded", setVisualMode)
+addEventListener("DOMContentLoaded", refreshVisualMode)
 

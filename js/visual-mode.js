@@ -1,7 +1,20 @@
-export function setVisualMode() {
+export function refreshVisualMode() {
     const visualMode = sessionStorage.getItem("visualMode")
-    if (!visualMode || visualMode == "light"){
+    let oldImagePath;
+    let newImagePath;
+    if (visualMode == "dark"){
+        document.body.className = "darkMode"
+        oldImagePath = "assets/light-mode/"
+        newImagePath = "assets/dark-mode/"
+    } else {
         document.body.className = "lightMode"
-        document.body.innerHTML = document.body.innerHTML.replaceAll("assets/dark-mode/", "assets/light-mode/")
+        oldImagePath = "assets/dark-mode/"
+        newImagePath = "assets/light-mode/"
+    }
+
+    // Since the images src is defined in HTML instead of CSS, they need to be manually updated 
+    const allImages = document.body.querySelectorAll('img')
+    for (const img of allImages) {
+        img.src = img.src.replaceAll(oldImagePath, newImagePath)
     }
 }

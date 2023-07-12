@@ -1,4 +1,4 @@
-import { setVisualMode } from "./visual-mode.js"
+import { refreshVisualMode } from "./visual-mode.js"
 
 async function login(){
     const inputUserName = document.getElementById("userName")
@@ -47,4 +47,4 @@ function showPassword() {
     }
 }
 
-addEventListener("DOMContentLoaded", setVisualMode)
+addEventListener("DOMContentLoaded", refreshVisualMode)

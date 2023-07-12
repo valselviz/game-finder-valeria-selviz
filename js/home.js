@@ -1,5 +1,5 @@
 import { loadGames, loadNextPage, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots } from './rawgio.js';
-import { setVisualMode } from "./visual-mode.js"
+import { refreshVisualMode } from "./visual-mode.js"
 
 // Game count variable
 let totalGames = 0
@@ -207,7 +207,7 @@ function openFloatingCard(event, game, gameCount){
 }
 
 addEventListener("DOMContentLoaded", e => {
-    setVisualMode()
+    refreshVisualMode()
     showGames()
     saveLastsSearchesAndRefreshOptions(null)
     
@@ -257,5 +257,13 @@ addEventListener("DOMContentLoaded", e => {
         searchBar.className += " hiddenOnMobile"
     })
 
-    
+    visualModeSwitcher.addEventListener("click", () => {
+        const currentVisualMode = sessionStorage.getItem("visualMode")
+        if (currentVisualMode == "dark") {
+            sessionStorage.setItem("visualMode", "light")
+        } else {
+            sessionStorage.setItem("visualMode", "dark")
+        }
+        refreshVisualMode()
+    })
 })
