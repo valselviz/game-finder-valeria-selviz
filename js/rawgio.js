@@ -48,7 +48,7 @@ async function analyzeSearch(searchQuery){
     return searchObject
 }
 
-export async function loadGames(searchQuery){
+export async function loadGames(searchQuery, dateRange){
     let searchQueryObject
     const gamesPath = "/api/games?key="
     let url = domain + gamesPath + apiKey
@@ -57,8 +57,10 @@ export async function loadGames(searchQuery){
         url += "&search=" + searchQueryObject.query 
         if (searchQueryObject.platform){
             url += "&parent_platforms=" + searchQueryObject.platform
-
         }
+    }
+    if (dateRange){
+        url += "&dates=" + dateRange 
     }
     const responsePromise = fetch(url, requestOptions)
     
@@ -116,5 +118,3 @@ export async function getGameScreenshots(gameId) {
     // return a promise so it can be handled without blocking the page
     return singleGameResponse.json()
 }
-
-export async function thisWeek

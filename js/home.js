@@ -1,4 +1,4 @@
-import { loadGames, loadNextPage, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots, thisWeek } from './rawgio.js';
+import { loadGames, loadNextPage, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots } from './rawgio.js';
 import { refreshVisualMode } from "./visual-mode.js"
 
 // Game count variable
@@ -28,11 +28,11 @@ function createGameCards(gamesData){
 
 let nextPage
 
-async function showGames(searchQuery){
+async function showGames(searchQuery, dateRange){
     // we need to remove all games in case we are searching for new games
     gamesContainer.innerHTML = ""
     totalGames = 0
-    const gamesResponse = await loadGames(searchQuery)
+    const gamesResponse = await loadGames(searchQuery, dateRange)
     nextPage = gamesResponse.next
     createGameCards(gamesResponse)
 }
@@ -64,7 +64,7 @@ function saveLastsSearchesAndRefreshOptions(searchQuery){
             const p = document.createElement("p")
             p.innerHTML = lastSearches[i]
             p.onclick = () => {
-                showGames(lastSearches[i])
+                showGames(lastSearches[i], null)
             }
             lastSearchesDiv.appendChild(p)
         }
@@ -117,7 +117,7 @@ async function createNewCard(game, gameCount){
 
 function refreshGamesWithSearchCriteria() {
     let search = searchInput.value;
-    showGames(search)
+    showGames(search, null)
     saveLastsSearchesAndRefreshOptions(search)
 }
 
@@ -220,6 +220,10 @@ function closeFloatingCard() {
     }
 }
 
+function formatDate(date) {
+    return date.toISOString().split("T")[0]
+}
+
 addEventListener("DOMContentLoaded", e => {
     refreshVisualMode()
     showGames()
@@ -292,6 +296,23 @@ addEventListener("DOMContentLoaded", e => {
     })
 
     thisWeekSearch.addEventListener("click", () => {
-        
+        const currentDate = new Date()
+        const otherDate = new Date()
+        otherDate.setDate(otherDate.getDate() - 7)
+        showGames(null, formatDate(otherDate) + "," + formatDate(currentDate))
+    })
+
+    thisMonthSearch.addEventListener("click", () => {
+        const currentDate = new Date()
+        const otherDate = new Date()
+        otherDate.setMonth(otherDate.getMonth() - 1)
+        showGames(null, formatDate(otherDate) + "," + formatDate(currentDate))
+    })
+    
+    comingSoonSearch.addEventListener("click", () => {
+        const currentDate = new Date()
+        const otherDate = new Date()
+        otherDate.setMonth(otherDate.getMonth() + 3)
+        showGames(null, formatDate(currentDate) + "," + formatDate(otherDate))
     })
 })
