@@ -28,11 +28,11 @@ function createGameCards(gamesData){
 
 let nextPage
 
-async function showGames(searchQuery, dateRange){
+async function showGames(searchQuery, dateRange, ordering){
     // we need to remove all games in case we are searching for new games
     gamesContainer.innerHTML = ""
     totalGames = 0
-    const gamesResponse = await loadGames(searchQuery, dateRange)
+    const gamesResponse = await loadGames(searchQuery, dateRange, ordering)
     nextPage = gamesResponse.next
     createGameCards(gamesResponse)
 }
@@ -64,7 +64,7 @@ function saveLastsSearchesAndRefreshOptions(searchQuery){
             const p = document.createElement("p")
             p.innerHTML = lastSearches[i]
             p.onclick = () => {
-                showGames(lastSearches[i], null)
+                showGames(lastSearches[i], null, null)
             }
             lastSearchesDiv.appendChild(p)
         }
@@ -117,7 +117,7 @@ async function createNewCard(game, gameCount){
 
 function refreshGamesWithSearchCriteria() {
     let search = searchInput.value;
-    showGames(search, null)
+    showGames(search, null, null)
     saveLastsSearchesAndRefreshOptions(search)
 }
 
@@ -299,20 +299,27 @@ addEventListener("DOMContentLoaded", e => {
         const currentDate = new Date()
         const otherDate = new Date()
         otherDate.setDate(otherDate.getDate() - 7)
-        showGames(null, formatDate(otherDate) + "," + formatDate(currentDate))
+        showGames(null, formatDate(otherDate) + "," + formatDate(currentDate), null)
     })
 
     thisMonthSearch.addEventListener("click", () => {
         const currentDate = new Date()
         const otherDate = new Date()
         otherDate.setMonth(otherDate.getMonth() - 1)
-        showGames(null, formatDate(otherDate) + "," + formatDate(currentDate))
+        showGames(null, formatDate(otherDate) + "," + formatDate(currentDate), null)
     })
     
     comingSoonSearch.addEventListener("click", () => {
         const currentDate = new Date()
         const otherDate = new Date()
         otherDate.setMonth(otherDate.getMonth() + 3)
-        showGames(null, formatDate(currentDate) + "," + formatDate(otherDate))
+        showGames(null, formatDate(currentDate) + "," + formatDate(otherDate), null)
+    })    
+
+    bestOfTheYearSearch.addEventListener("click", () => {
+        const currentDate = new Date()
+        const currentYear = new Date().getFullYear()
+        const firstDay = new Date(currentYear, 0, 1)
+        showGames(null, formatDate(firstDay) + "," + formatDate(currentDate), "&ordering=-rating")
     })
 })

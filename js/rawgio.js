@@ -48,7 +48,7 @@ async function analyzeSearch(searchQuery){
     return searchObject
 }
 
-export async function loadGames(searchQuery, dateRange){
+export async function loadGames(searchQuery, dateRange, ordering){
     let searchQueryObject
     const gamesPath = "/api/games?key="
     let url = domain + gamesPath + apiKey
@@ -62,8 +62,11 @@ export async function loadGames(searchQuery, dateRange){
     if (dateRange){
         url += "&dates=" + dateRange 
     }
+    if (ordering){
+        url += ordering 
+    }
     const responsePromise = fetch(url, requestOptions)
-    
+    console.log(url)
     return responsePromise.then(resp => resp.json())
     
 }
