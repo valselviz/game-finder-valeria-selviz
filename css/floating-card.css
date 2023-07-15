@@ -140,7 +140,7 @@
         grid-area: multimedia;
         width: 384px;
         height: 457px;
-        margin-top: 20px;
+        margin-top: 16px;
         justify-content: space-between;
     }
 }
@@ -197,6 +197,7 @@
 
 video {
     width: 100%;
+    margin-bottom: 16px;
 }
 
 .screenshots {
@@ -208,7 +209,8 @@ video {
 
 .screenshots img {
     width: 48%;
-    margin: 16px 0 0 0;
+    margin-bottom: 16px;
+    max-height: 217px;
 }
 
 /* TABLET */
