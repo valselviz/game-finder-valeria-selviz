@@ -11,6 +11,7 @@
 #floatingCard {
     position: relative;
     display: flex;
+    justify-content: center;
     margin-top: auto;
     margin-bottom: auto;
     width: 1076px;
@@ -37,8 +38,8 @@
 .floatingCardInfo {
     align-self: end;
     bottom: 20px;
-    right: 20px;
-    left: 20px;
+    right: 33px;
+    left: 100px;
     padding: 25px;
 
     .platformsTitleAndRanking {
@@ -99,7 +100,7 @@
         height: initial;
         width: 603px;
         overflow: hidden;
-        margin-right: 15px;
+        margin-right: 25px;
         padding-top: 16px;
     }
     .description p {
@@ -138,7 +139,9 @@
     .multimedia {
         grid-area: multimedia;
         width: 384px;
+        height: 457px;
         margin-top: 20px;
+        justify-content: space-between;
     }
 }
 
@@ -199,13 +202,13 @@ video {
 .screenshots {
     display: flex;
     justify-content: space-between;
-
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .screenshots img {
-    width: 50%;
+    width: 48%;
+    margin: 16px 0 0 0;
 }
 
 /* TABLET */

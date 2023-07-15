@@ -203,12 +203,15 @@ function openFloatingCard(event, game, gameCount){
             if(videoJson.results.length > 0){
                 screenshotsCount = 4
             } else {
-                screenshotsCount = 8
+                screenshotsCount = 5
             }
             for (let i = 0; i < screenshotsCount && i < screenshotsJson.results.length; i++){
                 const newImg = document.createElement("img")
                 newImg.src = screenshotsJson.results[i].image
                 floatingCardContainer.querySelector(`.screenshots`).appendChild(newImg)
+            }
+            if (videoJson.results.length == 0){
+                floatingCardContainer.querySelectorAll(`.screenshots img`)[0].style = "width: 100%;"
             }
         })
     })
