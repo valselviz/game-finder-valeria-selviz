@@ -1,5 +1,5 @@
 export function refreshVisualMode() {
-    const visualMode = sessionStorage.getItem("visualMode")
+    const visualMode = localStorage.getItem("visualMode")
     let oldImagePath;
     let newImagePath;
     if (visualMode == "dark"){

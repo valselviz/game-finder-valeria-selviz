@@ -38,7 +38,7 @@ async function showGames(searchQuery, dateRange, ordering){
 }
 
 function saveLastsSearchesAndRefreshOptions(searchQuery){
-    const storedLastSearches = sessionStorage.getItem("lastSearches")
+    const storedLastSearches = localStorage.getItem("lastSearches")
     let lastSearches 
     if (storedLastSearches){
         lastSearches = JSON.parse(storedLastSearches)
@@ -51,7 +51,7 @@ function saveLastsSearchesAndRefreshOptions(searchQuery){
             lastSearches.pop()
         }
     }
-    sessionStorage.setItem("lastSearches", JSON.stringify(lastSearches))
+    localStorage.setItem("lastSearches", JSON.stringify(lastSearches))
     searches.innerHTML = ""
     lastSearchesDiv.innerHTML = ""
     for (let i = 0; i < lastSearches.length; i++){
@@ -149,7 +149,7 @@ function openFloatingCard(event, game, gameCount){
     floatingCardContainer.querySelector(`.screenshots`).innerHTML = ""
     floatingCardContainer.style = ""
 
-    const visualMode = sessionStorage.getItem("visualMode")
+    const visualMode = localStorage.getItem("visualMode")
     const backgroundColor = visualMode == "dark" ? "#303030FF" : "#F0F0F0FF"
     const backgroundImageStyle = `background-image: linear-gradient(to bottom, #00000000, ${backgroundColor}), url("${game.background_image}")`
     floatingCardContainer.querySelector(`#floatingCard`).style = backgroundImageStyle
@@ -305,11 +305,11 @@ addEventListener("DOMContentLoaded", e => {
     })
 
     visualModeSwitcher.addEventListener("click", () => {
-        const currentVisualMode = sessionStorage.getItem("visualMode")
+        const currentVisualMode = localStorage.getItem("visualMode")
         if (currentVisualMode == "dark") {
-            sessionStorage.setItem("visualMode", "light")
+            localStorage.setItem("visualMode", "light")
         } else {
-            sessionStorage.setItem("visualMode", "dark")
+            localStorage.setItem("visualMode", "dark")
         }
         refreshVisualMode()
     })
