@@ -174,12 +174,31 @@ function openFloatingCard(event, game, gameCount){
     floatingCardContainer.querySelector(`.platformsText`).innerHTML = platformNames.join(", ")
 
     floatingCardContainer.querySelector(`.dateReleaseTag .grayText`).innerHTML = parseDate(game.released)
+
     floatingCardContainer.querySelector(`.releaseDate`).innerHTML = parseDate(game.released)
-    floatingCardContainer.querySelector(`.publisher`).innerHTML = gameDetails[gameCount].publishers[0].name
-    floatingCardContainer.querySelector(`.website`).href = gameDetails[gameCount].website
-    floatingCardContainer.querySelector(`.website`).innerHTML = gameDetails[gameCount].website
-    floatingCardContainer.querySelector(`.developer`).innerHTML = gameDetails[gameCount].developers[0].name
-    floatingCardContainer.querySelector(`.ageRating`).innerHTML = gameDetails[gameCount].esrb_rating.name
+
+    if (gameDetails[gameCount].publishers.length > 0){
+        floatingCardContainer.querySelector(`.publisher`).innerHTML = gameDetails[gameCount].publishers[0].name
+    } else {
+        floatingCardContainer.querySelector(`.publisher`).innerHTML = "Not available"
+    }
+    if (!gameDetails[gameCount].website == ""){
+        floatingCardContainer.querySelector(`.website`).href = gameDetails[gameCount].website
+        floatingCardContainer.querySelector(`.website`).innerHTML = gameDetails[gameCount].website
+    } else {
+        floatingCardContainer.querySelector(`.website`).innerHTML = "Not available"
+    }    
+    if (gameDetails[gameCount].developers.length > 0){
+        floatingCardContainer.querySelector(`.developer`).innerHTML = gameDetails[gameCount].developers[0].name
+    } else {
+        floatingCardContainer.querySelector(`.developer`).innerHTML = "Not available"
+    }
+    if (!gameDetails[gameCount].esrb_rating == null){
+        floatingCardContainer.querySelector(`.ageRating`).innerHTML = gameDetails[gameCount].esrb_rating.name
+    } else {
+        floatingCardContainer.querySelector(`.ageRating`).innerHTML = "Not available"
+    }
+    
 
     // use the 'map' function to convert an array of genre objects, into 
     // an array of genre names (strings)
@@ -205,9 +224,14 @@ function openFloatingCard(event, game, gameCount){
             } else {
                 screenshotsCount = 5
             }
-            for (let i = 0; i < screenshotsCount && i < screenshotsJson.results.length; i++){
+            for (let i = 0; i < screenshotsCount; i++){
                 const newImg = document.createElement("img")
-                newImg.src = screenshotsJson.results[i].image
+                if (i < screenshotsJson.results.length){
+                    newImg.src = screenshotsJson.results[i].image
+                }
+                else {
+                    newImg.src = "/assets/common/floating-card-icons/missing-img/missing-img.png"
+                }
                 floatingCardContainer.querySelector(`.screenshots`).appendChild(newImg)
             }
             if (videoJson.results.length == 0){
