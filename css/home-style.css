@@ -235,6 +235,10 @@ body {
     }
 }
 
+#genreHoverDiv {
+    position: absolute;
+}
+
 /* TABLET */
 @media screen and (max-width: 900px) and (min-height: 1000px) {
 

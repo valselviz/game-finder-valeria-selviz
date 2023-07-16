@@ -91,7 +91,22 @@ async function createNewCard(game, gameCount){
     // use the 'map' function to convert an array of genre objects, into 
     // an array of genre names (strings)
     const genreNames = game.genres.map(genre => genre.name)
-    newCard.querySelector(`.genres`).innerHTML = genreNames.join(", ")
+    const genreDiv = newCard.querySelector(`.genres`)
+    genreDiv.innerHTML = genreNames.join(", ")
+
+    genreDiv.addEventListener("mouseenter", () => {
+        genreHoverDiv.innerHTML = ""
+        for (const genreName of genreNames){
+            const para = document.createElement("p");
+            const node = document.createTextNode(genreName);
+            para.appendChild(node);
+            genreHoverDiv.appendChild(para);
+        }
+        genreHoverDiv.hidden = false
+    })
+    genreDiv.addEventListener("mouseleave", () => {
+        genreHoverDiv.hidden = true
+    })
 
     if (!await gameHasPlatform(pcId, game.platforms)){
         newCard.querySelector(`.pcIcon`).hidden = true
@@ -348,5 +363,9 @@ addEventListener("DOMContentLoaded", e => {
         const currentYear = new Date().getFullYear()
         const firstDay = new Date(currentYear, 0, 1)
         showGames(null, formatDate(firstDay) + "," + formatDate(currentDate), "&ordering=-rating")
+    })
+
+    addEventListener("mousemove", (event) => {
+        genreHoverDiv.style = "top: " + event.clientY + "px; left: " + event.clientX + "px;"
     })
 })
