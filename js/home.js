@@ -97,15 +97,17 @@ async function createNewCard(game, gameCount){
     genreDiv.addEventListener("mouseenter", () => {
         genreHoverDiv.innerHTML = ""
         for (const genreName of genreNames){
-            const para = document.createElement("p");
-            const node = document.createTextNode(genreName);
-            para.appendChild(node);
-            genreHoverDiv.appendChild(para);
+            const div = document.createElement("div")
+            const para = document.createElement("p")
+            const node = document.createTextNode(genreName)
+            para.appendChild(node)
+            div.appendChild(para)
+            genreHoverDiv.appendChild(div)
         }
-        genreHoverDiv.hidden = false
+        genreHoverDiv.style.display = ""
     })
     genreDiv.addEventListener("mouseleave", () => {
-        genreHoverDiv.hidden = true
+        genreHoverDiv.style = "display: none;"
     })
 
     if (!await gameHasPlatform(pcId, game.platforms)){
@@ -366,6 +368,9 @@ addEventListener("DOMContentLoaded", e => {
     })
 
     addEventListener("mousemove", (event) => {
-        genreHoverDiv.style = "top: " + event.clientY + "px; left: " + event.clientX + "px;"
+        genreHoverDiv.style = 
+                "top: " + event.clientY + "px; " + 
+                "left: " + event.clientX + "px;" +
+                "display: " + genreHoverDiv.style.display
     })
 })

@@ -236,7 +236,33 @@ body {
 }
 
 #genreHoverDiv {
-    position: absolute;
+    position: fixed;
+    max-width: 240px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #1B1B1B;
+    padding: 6px;
+    border-radius: 12px;
+}
+.lightMode #genreHoverDiv {
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 10px 0px #00000040;
+}
+
+#genreHoverDiv div {
+    background-color: #BF5FE1;
+    border-radius: 14px;
+    margin: 4px;
+    padding: 0 8px 0 8px;
+    line-height: 12px;
+}
+
+#genreHoverDiv p {
+    font-family: Exo;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 8px;
 }
 
 /* TABLET */
