@@ -42,7 +42,11 @@ async function showGames(searchQuery, dateRange, ordering){
     totalGames = 0
     const gamesResponse = await loadGames(searchQuery, dateRange, ordering)
     nextPage = gamesResponse.next
-    createGameCards(gamesResponse)
+    if (gamesResponse.results.length > 0){
+        createGameCards(gamesResponse)
+    } else {
+        gamesContainer.innerHTML = "No games to show"
+    }
 }
 
 function saveLastsSearchesAndRefreshOptions(searchQuery){

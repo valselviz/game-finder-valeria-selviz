@@ -56,6 +56,11 @@ body {
     right: 40px;
 }
 
+#gamesContainer {
+    font-size: 24px;
+    font-weight: 600;
+}
+
 .gameAttributesName {
     font-weight: 500;
     color: #939393;
