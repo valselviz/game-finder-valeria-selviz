@@ -13,6 +13,14 @@ const nintendoId = 7
 // array of additional game details fetched individually from rawg API
 const gameDetails = []
 
+function debounce (func, timeout = 300){
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout (() => { func.apply(this,args); }, timeout);
+    }
+}
+
 function parseDate(dateStrig) {
     const date = new Date(dateStrig)
     return `${date.toLocaleString('en-US', {month: 'short'})} ${date.getDate()}, ${date.getFullYear()}`
@@ -339,32 +347,34 @@ addEventListener("DOMContentLoaded", e => {
         floatingCardContainer.className = ""
     })
 
+    const delayedShowGames = debounce((datePeriod, ordering) => showGames(null, datePeriod, ordering))
+    
     thisWeekSearch.addEventListener("click", () => {
         const currentDate = new Date()
         const otherDate = new Date()
         otherDate.setDate(otherDate.getDate() - 7)
-        showGames(null, formatDate(otherDate) + "," + formatDate(currentDate), null)
+        delayedShowGames(formatDate(otherDate) + "," + formatDate(currentDate), null)
     })
 
     thisMonthSearch.addEventListener("click", () => {
         const currentDate = new Date()
         const otherDate = new Date()
         otherDate.setMonth(otherDate.getMonth() - 1)
-        showGames(null, formatDate(otherDate) + "," + formatDate(currentDate), null)
+        delayedShowGames(formatDate(otherDate) + "," + formatDate(currentDate), null)
     })
     
     comingSoonSearch.addEventListener("click", () => {
         const currentDate = new Date()
         const otherDate = new Date()
         otherDate.setMonth(otherDate.getMonth() + 3)
-        showGames(null, formatDate(currentDate) + "," + formatDate(otherDate), null)
+        delayedShowGames(formatDate(currentDate) + "," + formatDate(otherDate), null)
     })    
 
     bestOfTheYearSearch.addEventListener("click", () => {
         const currentDate = new Date()
         const currentYear = new Date().getFullYear()
         const firstDay = new Date(currentYear, 0, 1)
-        showGames(null, formatDate(firstDay) + "," + formatDate(currentDate), "&ordering=-rating")
+        delayedShowGames(formatDate(firstDay) + "," + formatDate(currentDate), "&ordering=-rating")
     })
 
     addEventListener("mousemove", (event) => {
