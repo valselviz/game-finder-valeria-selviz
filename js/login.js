@@ -35,6 +35,7 @@ async function login(){
         nameDiv.className+=" formInputError"
     }
 }
+loginButton.addEventListener("click", login) 
 
 function showPassword() {
     const passwordInput = document.getElementById("userPassword")
@@ -46,5 +47,6 @@ function showPassword() {
         passwordInput.setAttribute('type', 'password');
     }
 }
+eyeIcon.addEventListener("click", showPassword)
 
 addEventListener("DOMContentLoaded", refreshVisualMode)

@@ -149,7 +149,7 @@ a {
     border-radius: 6px;
 }
   
-.loginButton input[type="button"]{
+.purpleButton input[type="button"]{
     display: flex;
     justify-content: center;
     text-align: center;
