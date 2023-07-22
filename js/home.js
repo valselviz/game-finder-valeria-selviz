@@ -1,5 +1,6 @@
 import { loadGames, loadNextPage, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots } from './rawgio.js';
-import { refreshVisualMode } from "./visual-mode.js"
+import { refreshVisualMode } from "./visual-mode.js";
+import { checkAccessToken } from './check-access-token.js';
 
 // Game count variable
 let totalGames = 0
@@ -281,6 +282,7 @@ function formatDate(date) {
 }
 
 addEventListener("DOMContentLoaded", e => {
+    checkAccessToken()
     refreshVisualMode()
     showGames()
     saveLastsSearchesAndRefreshOptions(null)
