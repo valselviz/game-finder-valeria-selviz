@@ -270,6 +270,63 @@ body {
     margin: 8px;
 }
 
+#dialogDiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 362px;
+    height: 259px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    color: #000000;
+    padding: 12px;
+}
+
+#closeDialog { 
+    align-self: end;
+}
+
+#dialogDiv h3 {
+    justify-self: center;
+}
+
+#dialogDiv p {
+    text-align: center;
+    width: 70%;
+}    
+
+#yes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    color: #FFFFFF;
+    background-color: #BF5FE1;
+    height: 47px;
+    width: 100%;
+    border-radius: 6px;
+    border: 0px;
+    cursor: pointer;
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+#dialogDiv a {
+    color: #BF5FE1;
+    font-family: Exo;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+}
+
 /* TABLET */
 @media screen and (max-width: 900px) and (min-height: 1000px) {
 
