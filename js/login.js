@@ -1,12 +1,10 @@
 import { refreshVisualMode } from "./visual-mode.js"
 
 async function login(){
-    const inputUserName = document.getElementById("userName")
-    const inputUserPassword = document.getElementById("userPassword") 
     const url='http://localhost:3000/login'
     const body = JSON.stringify({
-        email: inputUserName.value,
-        password: inputUserPassword.value
+        email: userName.value,
+        password: userPassword.value
     })
 
     const response = await fetch(url, {
@@ -26,25 +24,20 @@ async function login(){
         window.location.replace("/home.html");
     }
     else if (response.status == 400){ // if the request failed, show error
-        document.getElementById("errorText").hidden=false
+        errorText.hidden=false
 
-        const passwordDiv = document.getElementById("userPassword").parentNode
-        passwordDiv.className+=" formInputError"
-
-        const nameDiv = document.getElementById("userName").parentNode
-        nameDiv.className+=" formInputError"
+        userPassword.parentNode.className += " formInputError"
+        userName.parentNode.className += " formInputError"
     }
 }
 loginButton.addEventListener("click", login) 
 
 function showPassword() {
-    const passwordInput = document.getElementById("userPassword")
-
-    if(passwordInput.getAttribute('type') === 'password'){
-        passwordInput.setAttribute('type', 'text');
+    if(userPassword.getAttribute('type') === 'password'){
+        userPassword.setAttribute('type', 'text');
     }
-    else if(passwordInput.getAttribute('type') === 'text'){
-        passwordInput.setAttribute('type', 'password');
+    else if(userPassword.getAttribute('type') === 'text'){
+        userPassword.setAttribute('type', 'password');
     }
 }
 eyeIcon.addEventListener("click", showPassword)
