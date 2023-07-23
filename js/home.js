@@ -1,6 +1,6 @@
 import { loadGames, loadNextPage, gameHasPlatform, getGameExtraInfo, getGameVideo, getGameScreenshots } from './rawgio.js';
 import { refreshVisualMode } from "./visual-mode.js";
-import { checkAccessToken } from './check-access-token.js';
+import { checkAccessToken, eraseAccessToken } from './access-token.js';
 
 // Game count variable
 let totalGames = 0
@@ -277,6 +277,17 @@ function closeFloatingCard() {
     }
 }
 
+function openLogoutModal() {
+    logoutModalContainer.style = ""
+    console.log("holis")
+}
+
+function closeModalContainer() {
+    if (logoutModalContainer.style.display == "") {
+        logoutModalContainer.style = "display: none;"
+    }
+}
+
 function formatDate(date) {
     return date.toISOString().split("T")[0]
 }
@@ -304,6 +315,17 @@ addEventListener("DOMContentLoaded", e => {
 
     xButton.addEventListener("click", closeFloatingCard)
 
+    // Open Log out modal
+    logoutClick.addEventListener("click", openLogoutModal)
+
+    // Close log out modal
+    logoutModalContainer.addEventListener("click", closeModalContainer)
+    modalDiv.addEventListener("click", e => e.stopPropagation())
+    closeModal.addEventListener("click", closeModalContainer)
+    noClick.addEventListener("click", closeModalContainer)
+
+    // confirm log out
+    yesButton.addEventListener("click", eraseAccessToken)
 
     addEventListener("scroll", async (event) => {
         let documentHeight = document.body.scrollHeight;

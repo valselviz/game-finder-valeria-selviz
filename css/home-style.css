@@ -270,7 +270,7 @@ body {
     margin: 8px;
 }
 
-#dialogDiv {
+#modalDiv {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -285,20 +285,20 @@ body {
     padding: 12px;
 }
 
-#closeDialog { 
+#closeModal { 
     align-self: end;
 }
 
-#dialogDiv h3 {
+#modalDiv h3 {
     justify-self: center;
 }
 
-#dialogDiv p {
+#modalDiv p {
     text-align: center;
     width: 70%;
 }    
 
-#yes {
+#yesButton {
     display: flex;
     justify-content: center;
     align-items: center;

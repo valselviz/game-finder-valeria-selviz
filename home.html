@@ -23,7 +23,7 @@
                 <img src="assets/dark-mode/search/display-search.svg">
             </div>
             <div id="userSesion">
-                <a>Log out</a>
+                <a id="logoutClick">Log out</a>
                 <img src="assets/common/user/user.png">
             </div>
             <div id="hamburgerMenu">
@@ -174,15 +174,15 @@
             </div>
         </div>
         <div id="genreHoverDiv" style="display: none;">hola</div>
-        <div id="logoutDialogContainer" class="darkContainer" display:"none">
-            <div id="dialogDiv" hidden>
-                <img id="closeDialog" src="assets/common/logout-dialog/x.svg">
+        <div id="logoutModalContainer" class="darkContainer"  style="display: none;">
+            <div id="modalDiv">
+                <img id="closeModal" src="assets/common/logout-dialog/x.svg">
                 <h3>Do you want to log out?</h3>
                 <p>If you log out you will be redirected to the log in page</p>
-                <button id="yes">
+                <button id="yesButton">
                     <p>Yes</p>
                 </button>
-                <a id="No">No</a>
+                <a id="noClick">No</a>
             </div>
         </div>
     </body>
