@@ -16,16 +16,5 @@ export function checkAccessToken() {
 export function eraseAccessToken() {
     // Set an empty value in the accessToken cookie
     document.cookie = "accessToken="
-
-    //console.log(document.cookie)
-    /*const cookiesArray = document.cookie.split("; ")
-    for (const singleCookie of cookiesArray) {
-        const cookieName = singleCookie.split("=")[0]
-        if (cookieName == "accessToken"){
-            console.log(document.cookie.replace(singleCookie + "; ", ""))
-            document.cookie = document.cookie.replace(singleCookie + "; ", "")
-        }
-    }*/
-    //console.log(document.cookie)
     checkAccessToken()
 }

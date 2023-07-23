@@ -279,7 +279,6 @@ function closeFloatingCard() {
 
 function openLogoutModal() {
     logoutModalContainer.style = ""
-    console.log("holis")
 }
 
 function closeModalContainer() {
