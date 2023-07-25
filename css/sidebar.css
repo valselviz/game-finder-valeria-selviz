@@ -11,8 +11,18 @@
     }
 }
 
+#sideBar div h3 {
+    line-height: 28px;
+    margin: 7 0 7 0px;
+}
+
 #sideBar a {
     margin-bottom: 10px;
+    line-height: 25px;
+    &:hover{
+        opacity: 0.6;
+        transition: background-color 400ms ease;
+    }
 }
 
 #lastSearchesDiv {
@@ -25,7 +35,12 @@
 
 #sideBar p {
     font-size: 14px;
-    line-height: 0px;
+    line-height: 25px;
+
+    &:hover{
+        opacity: 0.6;
+        transition: background-color 400ms ease;
+    }
 }
 
 /* TABLET */

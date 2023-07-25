@@ -6,6 +6,7 @@ body {
 }
 .lightMode {
     background-image: url('../assets/light-mode/background-img/unsplash_jCorhBYp_C4.png');
+    color: #515151;
 }
 
 .loginPanel {
@@ -94,6 +95,11 @@ a {
     display: flex;
     align-items: center;
     color: #BF5FE1;
+
+    &:hover{
+        font-weight: 800;
+        transition: background-color 400ms ease;
+    }
 }
 
 #errorText {
@@ -114,14 +120,20 @@ a {
 #rememberMe {
     width: 20px;
     height: 20px;
-    background: rgba(40,40,40,0.2);
+    background: #28282833;
     appearance: none;
     border: 1px solid #FFFFFF;
     border-radius: 2pt;
 }
 
+.lightMode #rememberMe {
+    background: #28282800;
+    border: 1px solid #9b59b6;
+    border-radius: 2pt;
+}
+
 #rememberMe:checked {
-    accent-color: #9b59b6;
+    accent-color: #BF5FE1;
     appearance: auto;
 }
 
@@ -170,10 +182,10 @@ a {
     font-size: 18px;
     line-height: 20px;
     
-    /*&:hover{
-      background-color: #0f46b7;
-      transition: background-color 400ms ease;
-    }*/
+    &:hover{
+        opacity: 0.6;
+        transition: background-color 400ms ease;
+    }
 }
 
 .socialMedia {
@@ -197,6 +209,11 @@ a {
 
     margin-top: 6.5%;
     margin-bottom: 6.5%;
+     
+    &:hover{
+        opacity: 0.6;
+        transition: background-color 400ms ease;
+      }
 }
 .lightMode .socialMedia {
     border: 2px solid #BF5FE1;
