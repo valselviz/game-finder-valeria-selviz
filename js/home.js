@@ -367,11 +367,11 @@ addEventListener("DOMContentLoaded", e => {
     })
 
     descriptionReadMore.addEventListener("click", () => {
-        floatingCardContainer.className = "fullDescription"
+        floatingCardContainer.className += " fullDescription"
     })
 
     backFromLongDescription.addEventListener("click", () => {
-        floatingCardContainer.className = ""
+        floatingCardContainer.className = floatingCardContainer.className.replace(" fullDescription", "")
     })
 
     const delayedShowGames = debounce((datePeriod, ordering) => showGames(null, datePeriod, ordering))
