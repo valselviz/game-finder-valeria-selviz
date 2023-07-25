@@ -274,6 +274,7 @@ function openFloatingCard(event, game, gameCount){
 function closeFloatingCard() {
     if (floatingCardContainer.style.display == "") {
         floatingCardContainer.style = "display: none;"
+        floatingCardContainer.className = floatingCardContainer.className.replace(" fullDescription", "")
     }
 }
 
