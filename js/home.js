@@ -39,8 +39,8 @@ let nextPage
 
 async function showGames(searchQuery, dateRange, ordering){
     // we need to remove all games in case we are searching for new games
-    gamesContainer.innerHTML = ""
     totalGames = 0
+    gamesContainer.innerHTML = ""
     const gamesResponse = await loadGames(searchQuery, dateRange, ordering)
     nextPage = gamesResponse.next
     if (gamesResponse.results.length > 0){
@@ -330,7 +330,9 @@ addEventListener("DOMContentLoaded", e => {
     addEventListener("scroll", async (event) => {
         let documentHeight = document.body.scrollHeight;
         let currentScroll = window.scrollY + window.innerHeight;
-        if (currentScroll >= documentHeight && nextPage) {
+        console.log(totalGames)
+        if (currentScroll >= documentHeight && nextPage && totalGames > 0) {
+            console.log("hola")
             const gamesResponse = await loadNextPage(nextPage)
             nextPage = gamesResponse.next
             createGameCards(gamesResponse)
