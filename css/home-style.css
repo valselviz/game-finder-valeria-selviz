@@ -40,21 +40,9 @@ body {
     flex-direction: row;
     justify-content: right;
 }
-
 #visualModeSwitcher p {
     white-space: nowrap;
     vertical-align: middle;
-}
-
-#visualModeSwitcher img {
-    &:hover{
-        opacity: 0.80;
-    }
-}
-.lightMode #visualModeSwitcher img {
-    &:hover{
-        opacity: 0.60;
-    }
 }
 
 #cardsDisplay {
@@ -62,18 +50,6 @@ body {
     flex-direction: row;
     justify-content: right;
 }
-
-#cardsDisplay img {
-    &:hover{
-        opacity: 0.80;
-    }
-}
-.lightMode #cardsDisplay img {
-    &:hover{
-        opacity: 0.60;
-    }
-}
-
 
 #mainContainer {
     display: flex;
@@ -114,7 +90,7 @@ body {
 
     height: 314px;
     margin: 12px;
-    
+
     .gameImage {
         display: flex;
         background-position: center;
@@ -203,19 +179,9 @@ body {
             }
         }
     }
-
-    &:hover{
-        opacity: 0.80;
-        box-shadow: 0px 4px 10px 0px #00000040;
-    }
 }
 .lightMode .card { 
     background-color: #FFFFFF;
-
-    &:hover{
-        opacity: 0.95;
-        box-shadow: 0px 4px 10px 0px #00000040;
-    }
 }
 
 .visualMode {
@@ -351,24 +317,14 @@ body {
     font-weight: 700;
     font-size: 18px;
     line-height: 18px;
-
-    &:hover{
-        opacity: 0.6;
-        transition: background-color 400ms ease;
-    }
 }
 
-#noClick {
+#dialogDiv a {
     color: #BF5FE1;
     font-family: Exo;
     font-size: 16px;
     font-weight: 500;
     line-height: 21px;
-
-    &:hover{
-        font-weight: 800;
-        transition: background-color 400ms ease;
-    }
 }
 
 /* TABLET */
@@ -396,11 +352,12 @@ body {
     .card {
         width: 45%
     }
+
+    .hiddenOnMobileOrTablet {
+        display: none;
+    }
 }
 
-.hiddenOnMobileOrTablet {
-    display: none;
-}
 
 /* MOBILE */
 @media screen and (max-width: 600px) {
@@ -442,6 +399,10 @@ body {
     }
 
     #cardsDisplay {
+        display: none;
+    }
+
+    .hiddenOnMobileOrTablet {
         display: none;
     }
 }

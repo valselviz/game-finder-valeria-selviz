@@ -175,6 +175,8 @@ function openFloatingCard(event, game, gameCount){
     // Because that function is execution when a click happens
     event.stopPropagation()
 
+    header.className = "hiddenOnMobileOrTablet"
+
     floatingCardContainer.querySelector(`.trailerVideo`).hidden = true
     floatingCardContainer.querySelector(`.screenshots`).innerHTML = ""
     floatingCardContainer.style = ""
