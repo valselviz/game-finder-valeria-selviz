@@ -9,6 +9,10 @@ body {
     color: white;
     font-family: Archivo;
     margin: 0;
+
+    p {
+        cursor: default;
+    }
 }
 .lightMode {
     background-color: #E5E5E5;
@@ -17,6 +21,7 @@ body {
 
 #titleContainer {
     line-height: 10px;
+    max-width: 1440px;
     margin: 40px;
 }
 
@@ -33,6 +38,7 @@ body {
 
 #optionIcons img {
     margin: 10px;
+    cursor: pointer;
 }
 
 #visualModeSwitcher {
@@ -403,6 +409,10 @@ body {
     }
 
     .hiddenOnMobileOrTablet {
+        display: none;
+    }
+
+    #mainContainer.hiddenOnMobileOrTablet {
         display: none;
     }
 }

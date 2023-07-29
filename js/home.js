@@ -175,7 +175,9 @@ function openFloatingCard(event, game, gameCount){
     // Because that function is execution when a click happens
     event.stopPropagation()
 
-    header.className = "hiddenOnMobileOrTablet"
+    document.querySelector("header").className = "hiddenOnMobileOrTablet"
+    titleContainer.className = "hiddenOnMobileOrTablet"
+    mainContainer.className = "hiddenOnMobileOrTablet"
 
     floatingCardContainer.querySelector(`.trailerVideo`).hidden = true
     floatingCardContainer.querySelector(`.screenshots`).innerHTML = ""
@@ -278,6 +280,9 @@ function closeFloatingCard() {
         floatingCardContainer.style = "display: none;"
         floatingCardContainer.className = floatingCardContainer.className.replace(" fullDescription", "")
     }
+    document.querySelector("header").className = ""
+    titleContainer.className = ""
+    mainContainer.className = ""
 }
 
 function openLogoutModal() {
@@ -332,8 +337,8 @@ addEventListener("DOMContentLoaded", e => {
     addEventListener("scroll", async (event) => {
         let documentHeight = document.body.scrollHeight;
         let currentScroll = window.scrollY + window.innerHeight;
-        console.log(totalGames)
-        if (currentScroll >= documentHeight && nextPage && totalGames > 0) {
+
+        if (currentScroll >= documentHeight -10 && nextPage && totalGames > 0) {
             console.log("hola")
             const gamesResponse = await loadNextPage(nextPage)
             nextPage = gamesResponse.next
