@@ -59,7 +59,9 @@ function saveLastsSearchesAndRefreshOptions(searchQuery){
         lastSearches = []
     }
     if (searchQuery){
-        lastSearches.unshift(searchQuery)
+        if (!lastSearches.includes(searchQuery)){
+            lastSearches.unshift(searchQuery)
+        }
         if (lastSearches.length > 10){
             lastSearches.pop()
         }
@@ -81,6 +83,9 @@ function saveLastsSearchesAndRefreshOptions(searchQuery){
             }
             lastSearchesDiv.appendChild(p)
         }
+        const pEraseLastSearches = document.createElement("p")
+        pEraseLastSearches.innerHTML = "Clean search history"
+        pEraseLastSearches.addEventListener 
     }
 }
 

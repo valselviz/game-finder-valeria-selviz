@@ -5,10 +5,11 @@
 @import "../css/sidebar.css";
 
 body {
+    max-width: 1440px;
     background-color: #151515;
     color: white;
     font-family: Archivo;
-    margin: 0;
+    margin: auto;
 
     p {
         cursor: default;
@@ -19,25 +20,29 @@ body {
     color: #515151;
 }
 
+#titleAndOptions {
+    display: flex;
+    flex-direction: row;
+    max-width: 1440px;
+    justify-content: space-between;
+    margin: 24px 40px 14px 40px;
+}
+
 #titleContainer {
     line-height: 10px;
     max-width: 1440px;
-    margin: 40px;
 }
 
 #optionIcons {
-    position: absolute;
     display: flex;
     flex-direction: column;
     width: 104px;
     height: 40px;
     justify-content: right;
-    top: 100px;
-    right: 40px;
+
 }
 
 #optionIcons img {
-    margin: 10px;
     cursor: pointer;
 }
 
@@ -46,7 +51,8 @@ body {
     flex-direction: row;
     justify-content: right;
 }
-#visualModeSwitcher p {
+#visualModeSwitcher a {
+    padding: 12px;
     white-space: nowrap;
     vertical-align: middle;
 }
@@ -54,7 +60,7 @@ body {
 #cardsDisplay {
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: space-between;
 }
 
 #mainContainer {
@@ -63,6 +69,8 @@ body {
 }
 
 #gamesContainer {
+    justify-content: center;
+    width: 95%;
     font-size: 24px;
     font-weight: 600;
 }
