@@ -26,26 +26,13 @@
     }
 }
 
-.separatorSidebar {
-    margin: 12px 24px 12px 0;
-    display: flex;
-    align-items: center;
-    color: #FFFFFF;
-}
-.lightMode .separatorSidebar {
-    color: #BF5FE1;
-}
-  
-.separatorSidebar::before,
-.separatorSidebar::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid #ffffff;
+
+#userImgAndXButton {
+    display: none;
 }
 
-.lightMode .separatorSidebar::before,
-.lightMode .separatorSidebar::after {
-    border-bottom: 1px solid #BF5FE1;
+.separatorSidebar {
+    display: none;
 }
 
 #lastSearchesDiv {
@@ -54,6 +41,14 @@
     display: flex;
     flex-direction: column;
     left: 36px;
+}
+
+#visualModeSwitcherSidebar {
+    display: none;
+}
+
+#userSesionSidebar {
+    display: none;
 }
 
 #sideBar p {
@@ -81,6 +76,7 @@
 
 /* MOBILE */
 @media screen and (max-width: 600px) {
+
     
     body {
         background-color: #151515;
@@ -88,6 +84,50 @@
 
     #sideBar.hiddenOnMobileOrTablet {
         display: none;
+    }
+    
+    #userImgAndXButton {
+        margin-top: 24px;
+        margin-right: 20px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .separatorSidebar {
+        margin: 12px 24px 12px 0;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+    }
+    .lightMode .separatorSidebar {
+        color: #BF5FE1;
+    }
+    
+    .separatorSidebar::before,
+    .separatorSidebar::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #E4E4E4;
+    }
+
+    #visualModeSwitcherSidebar {
+        display: flex;
+        align-content: center;
+        margin: 16px 0 16px 0;
+    }
+
+    #visualModeTextSidebar {
+        margin-top: 10px;
+    }
+
+    #visualModeSwitchSidebar {
+        margin-left: 12px;
+    }
+
+    #userSesionSidebar {
+        display: block;
+        margin: 21px 0 16px 0;
     }
 
     #gamesContainer.hiddenOnMobileOrTablet {

@@ -343,6 +343,7 @@ addEventListener("DOMContentLoaded", e => {
 
     // confirm log out
     yesButton.addEventListener("click", eraseAccessToken)
+    logoutClickSidebar.addEventListener("click", eraseAccessToken)
 
     addEventListener("scroll", async (event) => {
         let documentHeight = document.body.scrollHeight;
@@ -365,6 +366,7 @@ addEventListener("DOMContentLoaded", e => {
             sideBar.className = sideBar.className.replace("hiddenOnMobileOrTablet", "")
             gamesContainer.className += " hiddenOnMobileOrTablet"
             titleAndOptions.style.display = "none"
+            document.querySelector("header").className = "hiddenOnMobileOrTablet"
         } else {
             sideBar.className += "hiddenOnMobileOrTablet"
             gamesContainer.className = gamesContainer.className.replace("hiddenOnMobileOrTablet", "")
@@ -372,11 +374,28 @@ addEventListener("DOMContentLoaded", e => {
         }
     })
 
+    closeSidebar.addEventListener("click", () => {
+        sideBar.className += "hiddenOnMobileOrTablet"
+        document.querySelector("header").className = ""
+        gamesContainer.className = gamesContainer.className.replace("hiddenOnMobileOrTablet", "")
+        titleAndOptions.style.display = "flex"
+    })
+
     hideSearchBox.addEventListener("click", () => {
         searchBar.className += " hiddenOnMobile"
     })
 
     visualModeSwitcher.addEventListener("click", () => {
+        const currentVisualMode = localStorage.getItem("visualMode")
+        if (currentVisualMode == "dark") {
+            localStorage.setItem("visualMode", "light")
+        } else {
+            localStorage.setItem("visualMode", "dark")
+        }
+        refreshVisualMode()
+    })
+
+    visualModeSwitchSidebar.addEventListener("click", () => {
         const currentVisualMode = localStorage.getItem("visualMode")
         if (currentVisualMode == "dark") {
             localStorage.setItem("visualMode", "light")

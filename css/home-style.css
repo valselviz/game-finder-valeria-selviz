@@ -387,7 +387,7 @@ body {
     }
 
     #titleAndOptions {
-        margin: 19px;
+        margin: 16px;
         margin-bottom: 0;
         
     }
@@ -417,8 +417,9 @@ body {
     .card {
         min-width: 240px;
         width: 100%;
-        margin: 19px;
+        margin: 16px;
         margin-bottom: 0;
+        height: 332PX;
 
         .gameInfo {
             .platformsIcons {
