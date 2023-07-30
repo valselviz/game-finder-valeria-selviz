@@ -386,8 +386,9 @@ body {
         background-color: #FFFFFF;
     }
 
-    #titleContainer {
-        margin: 0px;
+    #titleAndOptions {
+        margin: 19px;
+        margin-bottom: 0;
         
     }
 
@@ -400,7 +401,12 @@ body {
     }
 
     #mainContainer {
-        justify-content: left;
+        justify-content: center;
+    }
+
+    #gamesContainer {
+
+        width: 100%;
     }
 
     .threeColumnsView {
@@ -409,9 +415,23 @@ body {
     }
 
     .card {
-        width: 80%;
-        margin: 16px;
+        min-width: 240px;
+        width: 100%;
+        margin: 19px;
+        margin-bottom: 0;
+
+        .gameInfo {
+            .platformsIcons {
+                justify-content: left;
+                align-self: start;
+            }
+        }
     }
+
+    .gameDetails {
+        flex-direction: column;
+    }
+
 
     #optionIcons {
         display: none;
