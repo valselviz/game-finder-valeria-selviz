@@ -85,8 +85,13 @@ function saveLastsSearchesAndRefreshOptions(searchQuery){
         }
         const pEraseLastSearches = document.createElement("p")
         pEraseLastSearches.innerHTML = "Clean search history"
-        pEraseLastSearches.addEventListener 
-    }
+        pEraseLastSearches.addEventListener("click", () => {
+            localStorage.setItem("lastSearches", JSON.stringify([]))
+            lastSearchesDiv.innerHTML = ""
+            searches.innerHTML = ""
+        })
+        lastSearchesDiv.appendChild(pEraseLastSearches)
+    } 
 }
 
 async function createNewCard(game, gameCount){
