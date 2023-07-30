@@ -364,11 +364,11 @@ addEventListener("DOMContentLoaded", e => {
         if (sideBar.className != "") {
             sideBar.className = sideBar.className.replace("hiddenOnMobileOrTablet", "")
             gamesContainer.className += " hiddenOnMobileOrTablet"
-            titleContainer.className += " hiddenOnMobileOrTablet"
+            titleAndOptions.style.display = "none"
         } else {
             sideBar.className += "hiddenOnMobileOrTablet"
             gamesContainer.className = gamesContainer.className.replace("hiddenOnMobileOrTablet", "")
-            titleContainer.className = titleContainer.className.replace("hiddenOnMobileOrTablet", "")
+            titleAndOptions.style.display = "flex"
         }
     })
 

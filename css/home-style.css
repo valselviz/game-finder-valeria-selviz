@@ -387,7 +387,8 @@ body {
     }
 
     #titleContainer {
-        margin: 16px;
+        margin: 0px;
+        
     }
 
     #titleContainer h1 {
@@ -408,11 +409,11 @@ body {
     }
 
     .card {
-        width: 100%;
+        width: 80%;
         margin: 16px;
     }
 
-    #cardsDisplay {
+    #optionIcons {
         display: none;
     }
 
