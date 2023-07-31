@@ -93,6 +93,7 @@ body {
 .description {
     height: 85px;
     overflow: hidden;
+    display: none;
 }
 
 .card {
@@ -213,43 +214,6 @@ body {
 
     .gameAttributesName {
         width: 100px;
-    }
-}
-
-.singleColumnView {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 90%;
-
-    .card {
-        width: 697px;
-        height: 538px;
-
-        .gameImage {
-            height: 315px;
-        }
-
-        .titleAndRanking {
-
-            .gameTitle {
-                font-size: 32px;
-            }
-
-            .ranking {
-                font-size: 32px;
-            }
-
-        }
-
-        .gameInfo {
-
-            .gameDetailsAttributes {
-                display: flex;
-                flex-direction: row;
-                line-height: 0;
-            }     
-        }
     }
 }
 
@@ -443,5 +407,49 @@ body {
 
     #mainContainer.hiddenOnMobileOrTablet {
         display: none;
+    }
+}
+
+/* BIG DEVICES (includes monitor and tablet, does not include mobile) */
+@media screen and (min-width: 600px) {
+    .singleColumnView {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 90%;
+    
+        .card {
+            width: 697px;
+            height: 538px;
+    
+            .gameImage {
+                height: 315px;
+            }
+    
+            .titleAndRanking {
+    
+                .gameTitle {
+                    font-size: 32px;
+                }
+    
+                .ranking {
+                    font-size: 32px;
+                }
+    
+            }
+    
+            .gameInfo {
+    
+                .gameDetailsAttributes {
+                    display: flex;
+                    flex-direction: row;
+                    line-height: 0;
+                }     
+            }
+        }
+    }
+    
+    .singleColumnView .description {
+        display: flex;
     }
 }

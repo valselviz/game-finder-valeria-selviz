@@ -165,15 +165,9 @@ function changeCardsDisplay(containerClass) {
     if (containerClass == "threeColumnsView") {
         threeColumnsIcon.src = threeColumnsIcon.src.replace("three-column-disabled", "three-column-active") 
         singleColumnIcon.src = singleColumnIcon.src.replace("single-column-active", "single-column-disabled") 
-        for (const description of gamesContainer.querySelectorAll(`.description`)){
-            description.hidden = true
-        }
     } else {
         threeColumnsIcon.src = threeColumnsIcon.src.replace("three-column-active", "three-column-disabled") 
         singleColumnIcon.src = singleColumnIcon.src.replace("single-column-disabled", "single-column-active") 
-        for (const description of gamesContainer.querySelectorAll(`.description`)){
-            description.hidden = false
-        }
     }
 }
 
