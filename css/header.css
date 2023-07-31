@@ -37,7 +37,7 @@ header {
 #searchInput {
     position: absolute;
     top: 15px;
-    max-width: 240px;
+    max-width: 300px;
 }
 
 #hideSearchBox {
@@ -70,9 +70,17 @@ header {
         justify-content: flex-end;
     }
 
-    .inputBox {
-        display: none;
-        width: 30%;
+    #searchBar {
+        max-width: 90%;
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+       
+    #hideSearchBox {
+        display: block;
     }
         
     #circledX {
@@ -95,6 +103,10 @@ header {
         display: block;
         position: absolute;
         right: 164px;
+    }
+
+    .hiddenOnMobile {
+        display: none;
     }
 
     #userSesion img {
@@ -131,6 +143,10 @@ header {
         top: 58px;
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    #searchInput {
+        max-width: 230px;
     }
 
     .hiddenOnMobile {

@@ -39,7 +39,6 @@ body {
     width: 104px;
     height: 40px;
     justify-content: right;
-
 }
 
 #optionIcons img {
@@ -61,6 +60,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 12%;
 }
 
 #mainContainer {
@@ -71,7 +71,6 @@ body {
 #gamesContainer {
     justify-content: center;
     width: 95%;
-    font-size: 24px;
     font-weight: 600;
 }
 
