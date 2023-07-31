@@ -161,13 +161,14 @@ function refreshGamesWithSearchCriteria() {
 }
 
 function changeCardsDisplay(containerClass) {
-    gamesContainer.className = containerClass
-    if (containerClass == "threeColumnsView") {
-        threeColumnsIcon.src = threeColumnsIcon.src.replace("three-column-disabled", "three-column-active") 
-        singleColumnIcon.src = singleColumnIcon.src.replace("single-column-active", "single-column-disabled") 
-    } else {
+    if (containerClass == "singleColumnView") {
+        gamesContainer.className = containerClass
         threeColumnsIcon.src = threeColumnsIcon.src.replace("three-column-active", "three-column-disabled") 
         singleColumnIcon.src = singleColumnIcon.src.replace("single-column-disabled", "single-column-active") 
+    } else {
+        gamesContainer.className = ""
+        threeColumnsIcon.src = threeColumnsIcon.src.replace("three-column-disabled", "three-column-active") 
+        singleColumnIcon.src = singleColumnIcon.src.replace("single-column-active", "single-column-disabled") 
     }
 }
 
@@ -312,7 +313,7 @@ addEventListener("DOMContentLoaded", e => {
     // Because the setVisualMode might erase and recreate all the html elements, losing all the 
     // event listening funcitons previously assigned
 
-    threeColumnsIcon.addEventListener("click", () => changeCardsDisplay("threeColumnsView"))
+    threeColumnsIcon.addEventListener("click", () => changeCardsDisplay(""))
     singleColumnIcon.addEventListener("click", () => changeCardsDisplay("singleColumnView"))
     
     searchInput.addEventListener("change", refreshGamesWithSearchCriteria);
