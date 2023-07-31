@@ -37,7 +37,7 @@ header {
 #searchInput {
     position: absolute;
     top: 15px;
-    width: 300px;
+    max-width: 240px;
 }
 
 #hideSearchBox {
@@ -126,6 +126,7 @@ header {
     }
 
     #searchBar {
+        max-width: 90%;
         position: absolute;
         top: 58px;
         left: 50%;

@@ -355,7 +355,7 @@ body {
     }
 
     #mainContainer {
-        justify-content: left;
+        justify-content: center;
     }
 
     .threeColumnsView {

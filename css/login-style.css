@@ -40,25 +40,13 @@ body {
     right: 99px;
     top: 178px;
 
-    background: rgba(23, 23, 23, 0.8);
+    background: #171717cc;
 
     border-radius: 12px;
 
 }
 .lightMode .singupPanel {
-    background: rgba(240, 240, 240, 0.8);
-}
-
-@media screen and (max-width: 414pt) {
-    .loginPanel {
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 702px;
-        border-radius: 12px;
-        align-self: center;
-        justify-content: center;
-    }
+    background: #f0f0f0cc;
 }
 
 .loginForm {
@@ -266,4 +254,75 @@ a {
 
 .inputBox span{
     right: 15px;
+}
+
+/* TABLET */
+@media screen and (max-width: 900px) and (min-height: 1000px) {
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: 400%;
+        background-position: center;
+    }
+
+    div.logo {
+        left: initial;
+        align-self: center;
+    }
+
+    .loginPanel {
+        display: flex;
+        justify-self: center;
+        right: initial;
+        align-self: center;
+        margin: auto;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width: 600px) {
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: 800%;
+        background-position: center;
+    }
+
+    div.logo {
+        left: initial;
+        align-self: center;
+    }
+
+    .loginPanel {
+        top: 100px;
+        display: flex;
+        margin: 0;
+        width: 90%;
+        height: 702px;
+        border-radius: 12px;  
+        right: initial;
+        background: #17171700;
+    }
+    .lightMode .loginPanel {
+        background: #f0f0f000;
+    }
+
+    .loginForm {
+        padding: 0;
+    }
+
+    h3 {
+        margin-bottom: 6px;
+    }
+
+    p {
+        margin: 0 0 40px 0;
+        font-size: 14px;
+    }
+
+    div.inputBox {
+        width: 100%;
+    }
 }

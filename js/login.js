@@ -30,7 +30,6 @@ async function login(){
         userName.parentNode.className += " formInputError"
     }
 }
-loginButton.addEventListener("click", login) 
 
 function showPassword() {
     if(userPassword.getAttribute('type') === 'password'){
@@ -40,6 +39,12 @@ function showPassword() {
         userPassword.setAttribute('type', 'password');
     }
 }
-eyeIcon.addEventListener("click", showPassword)
 
-addEventListener("DOMContentLoaded", refreshVisualMode)
+addEventListener("DOMContentLoaded", e => {
+
+    refreshVisualMode()
+
+    loginButton.addEventListener("click", login) 
+
+    eyeIcon.addEventListener("click", showPassword)
+})
