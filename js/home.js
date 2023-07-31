@@ -146,11 +146,10 @@ async function createNewCard(game, gameCount){
         newCard.querySelector(`.nintendoIcon`).hidden = true
     }
 
-    const extraInfoPromise = getGameExtraInfo(game.id)
-    extraInfoPromise.then(extraInfo => {
-        gameDetails[gameCount] = extraInfo
-        newCard.querySelector(`.descriptionText`).innerHTML = extraInfo.description
-    })
+    const extraInfo = await getGameExtraInfo(game.id)
+    gameDetails[gameCount] = extraInfo
+    newCard.querySelector(`.descriptionText`).innerHTML = extraInfo.description
+
 
     newCard.hidden = false
 }
