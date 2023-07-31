@@ -277,7 +277,7 @@ function openFloatingCard(event, game, gameCount){
                 floatingCardContainer.querySelector(`.screenshots`).appendChild(newImg)
             }
             if (videoJson.results.length == 0){
-                floatingCardContainer.querySelectorAll(`.screenshots img`)[0].style = "width: 100%;"
+                floatingCardContainer.querySelectorAll(`.screenshots img`)[0].style = "width: 100%; max-height: 217px"
             }
         })
     })
