@@ -14,6 +14,10 @@ const nintendoId = 7
 // array of additional game details fetched individually from rawg API
 const gameDetails = []
 
+// This variable trackes whether or not we are not fetching a new page
+// We need to track this, to prevent calling loadNextPage multiple times simultaneously
+let currentlyLoadingNewPage = false
+
 function debounce (func, timeout = 300){
     let timer;
     return (...args) => {
@@ -343,10 +347,21 @@ addEventListener("DOMContentLoaded", e => {
         let documentHeight = document.body.scrollHeight;
         let currentScroll = window.scrollY + window.innerHeight;
 
-        if (currentScroll >= documentHeight -10 && nextPage && totalGames > 0) {
+        // The next page has to be loaded when 5 conditions are met:
+        // - User scrolled to the bottom
+        // - Rawg IO has a next page (otherwise we already fetched the last page)  
+        // - The first page was already loaded
+        // - We are not loading a new page already 
+        // - documentHeight is greater than 0. For some reason,
+        //     this happens when the user opens the floating card on mobile
+        if (currentScroll >= documentHeight -10 && nextPage && !currentlyLoadingNewPage && totalGames > 0 && documentHeight > 0) {
+            currentlyLoadingNewPage = true
+
+            console.log("a")
             const gamesResponse = await loadNextPage(nextPage)
             nextPage = gamesResponse.next
             createGameCards(gamesResponse)
+            currentlyLoadingNewPage = false
         }
     });
 
