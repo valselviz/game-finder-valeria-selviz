@@ -1,65 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script type="module" src="./js/login.js"></script>
-        <link rel="stylesheet" href="css/login-style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Game Finder</title>
-    </head>
-    <body>
-        <div class="logo">
-            <img src="assets/dark-mode/brand/joystick.svg" class="joystick">
-            <img src="assets/dark-mode/brand/game.svg" class="game">
-            <img src="assets/dark-mode/brand/archive.svg" class="archive">
-        </div>
-        <div class="loginPanel">
-            <form class="loginForm">
-                <div class="loginTitle">
-                    <h3>Welcome! Log in or register</h3>
-                    <p>Log in to find the games you’re looking for!</p>
-                </div>
-                <div class="inputBox">
-                    <input type="email address" id="userName" placeholder="Email">
-                </div>
-                <div class="inputBox">
-                    <input type="password" id="userPassword" placeholder="Password">
-                    <span><img id="eyeIcon" src="assets/common/password/eye.svg" onclick="showPassword()"></span>
-                </div>
-                <p id="errorText" hidden>Invalid email or password</p>
-                <div class="rememberPasswordDiv check-transparent">
-                    <label for="rememberMe" class="loginText">
-                        <input type="checkbox" id="rememberMe">
-                        Remember me
-                    </label>
-                    <a>Forgot password?</a>
-                </div>
-                <br>
-                <div id="loginButton" class="purpleButton">
-                    <input type="button" value="Log in"/>
-                </div>
-                <div class="registerDiv">
-                    <label class="loginText">Not registered yet?</label>
-                    <a href="http://127.0.0.1:5500/signup.html">Register now</a>
-                </div>
-                <div class="separator">or</div>
-                <div>
-                    <button class="socialMedia">
-                        <img src="assets/dark-mode/social-media/facebook.svg" class="socialMediaImg">
-                        Login with Facebook
-                    </button>
-                    <button class="socialMedia">
-                        <img src="assets/dark-mode/social-media/twitter.svg" class="socialMediaImg">
-                        Login with Twitter
-                    </button>
-                    <button class="socialMedia">
-                        <img src="assets/dark-mode/social-media/google.svg" class="socialMediaImg">
-                        Login with Google
-                    </button>
-                </div>
 
-            </form>
-            
-        </div>
+<head>
+    <script type="module" src="./js/login.js"></script>
+    <link rel="stylesheet" href="css/login-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game Finder</title>
+</head>
 
-    </body>
+<body>
+    <div class="logo">
+        <img src="assets/dark-mode/brand/joystick.svg" class="joystick">
+        <img src="assets/dark-mode/brand/game.svg" class="game">
+        <img src="assets/dark-mode/brand/archive.svg" class="archive">
+    </div>
+    <div class="loginPanel">
+        <form class="loginForm">
+            <div class="loginTitle">
+                <h3>Welcome! Log in or register</h3>
+                <p>Log in to find the games you’re looking for!</p>
+            </div>
+            <div class="inputBox">
+                <input type="email address" id="userName" placeholder="Email">
+            </div>
+            <div class="inputBox">
+                <input type="password" id="userPassword" placeholder="Password">
+                <span><img id="eyeIcon" src="assets/common/password/eye.svg" onclick="showPassword()"></span>
+            </div>
+            <p id="errorText" hidden>Invalid email or password</p>
+            <div class="rememberPasswordDiv check-transparent">
+                <label for="rememberMe" class="loginText">
+                    <input type="checkbox" id="rememberMe">
+                    Remember me
+                </label>
+                <a>Forgot password?</a>
+            </div>
+            <br>
+            <div id="loginButton" class="purpleButton">
+                <input type="button" value="Log in" />
+            </div>
+            <div class="registerDiv">
+                <label class="loginText">Not registered yet?</label>
+                <a href="http://127.0.0.1:5500/signup.html">Register now</a>
+            </div>
+            <div class="separator">or</div>
+            <div>
+                <button class="socialMedia">
+                    <img src="assets/dark-mode/social-media/facebook.svg" class="socialMediaImg">
+                    Login with Facebook
+                </button>
+                <button class="socialMedia">
+                    <img src="assets/dark-mode/social-media/twitter.svg" class="socialMediaImg">
+                    Login with Twitter
+                </button>
+                <button class="socialMedia">
+                    <img src="assets/dark-mode/social-media/google.svg" class="socialMediaImg">
+                    Login with Google
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
 </html>

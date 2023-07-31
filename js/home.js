@@ -349,7 +349,6 @@ addEventListener("DOMContentLoaded", e => {
         let currentScroll = window.scrollY + window.innerHeight;
 
         if (currentScroll >= documentHeight -10 && nextPage && totalGames > 0) {
-            console.log("hola")
             const gamesResponse = await loadNextPage(nextPage)
             nextPage = gamesResponse.next
             createGameCards(gamesResponse)
