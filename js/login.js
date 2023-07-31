@@ -18,14 +18,12 @@ async function login(){
     console.log(json)
 
     if (response.status == 200){ //if the request was successful, continue with login
-        //const response = JSON.parse(Http.responseText)
         document.cookie = "accessToken=" + json.accessToken
         // Simulate an HTTP redirect to the home page
         window.location.replace("/home.html");
     }
     else if (response.status == 400){ // if the request failed, show error
         errorText.hidden=false
-
         userPassword.parentNode.className += " formInputError"
         userName.parentNode.className += " formInputError"
     }

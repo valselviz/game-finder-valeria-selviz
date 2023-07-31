@@ -35,29 +35,37 @@ function validatePassword(password){
   return true
 }
 
-async function createUser(){
-    const inputUserName = document.getElementById("userName")
-    const inputUserPassword = document.getElementById("userPassword") 
+signUpButton.addEventListener("click", async () => {
+  const inputUserName = document.getElementById("userName")
+  const inputUserPassword = document.getElementById("userPassword") 
 
-    const passwordIsValid = validatePassword(inputUserPassword.value)
+  const passwordIsValid = validatePassword(inputUserPassword.value)
 
-    if (passwordIsValid == true){
-        const url='http://localhost:3000/users/register'
-        const body = JSON.stringify({
-            email: inputUserName.value,
-            password: inputUserPassword.value
-        })
+  if (passwordIsValid == true){
+    const url='http://localhost:3000/users/register'
+    const body = JSON.stringify({
+        email: inputUserName.value,
+        password: inputUserPassword.value
+    })
 
-        const response = await fetch(url, {
-            method: 'POST',
-            body: body,
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        const json = await response.json()
+    const response = await fetch(url, {
+        method: 'POST',
+        body: body,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    const json = await response.json()
+
+    if (response.status == 201){ //if the request was successful, continue with login
+      document.cookie = "accessToken=" + json.accessToken
+      // Simulate an HTTP redirect to the home page
+      window.location.replace("/home.html");
+    } else {
+      console.log("There was an error calling /register")
     }
-}
+  }
+})
 
 addEventListener("DOMContentLoaded", refreshVisualMode)
 
