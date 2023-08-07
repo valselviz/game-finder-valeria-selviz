@@ -56,12 +56,18 @@ export async function loadGames(searchQuery, dateRange, ordering){
     const gamesPath = "/api/games?key="
     let url = domain + gamesPath + apiKey
     if (searchQuery){
-        searchQueryObject = await analyzeSearch(searchQuery)
-        url += "&search=" + searchQueryObject.query 
-        if (searchQueryObject.platform){
-            url += "&parent_platforms=" + searchQueryObject.platform
-        }
+        return analyzeSearch(searchQuery).then(searchQueryObject => {
+            url += "&search=" + searchQueryObject.query 
+            if (searchQueryObject.platform){
+                url += "&parent_platforms=" + searchQueryObject.platform
+            }
+            return addExtraParameters(dateRange, ordering, url)
+        })
     }
+    return addExtraParameters(dateRange, ordering, url)
+}
+
+function addExtraParameters(dateRange, ordering, url){
     if (dateRange){
         url += "&dates=" + dateRange 
     }
@@ -71,7 +77,6 @@ export async function loadGames(searchQuery, dateRange, ordering){
     const responsePromise = fetch(url, requestOptions)
     console.log(url)
     return responsePromise.then(resp => resp.json())
-    
 }
 
 export async function loadNextPage(nextPageUrl){
